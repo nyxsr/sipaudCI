@@ -106,8 +106,10 @@
       </div>
 
       <div class="container-fluid">
+		<!-- tambah data -->
       	<button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
-      	<button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Cetak</button>
+      	<!-- cetak data -->
+		  <!-- <button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="cetak">Cetak</button> -->
       	<div class="col-md-12">
       		<div class="card">
       			<div class="card-header card-header-primary">
@@ -135,6 +137,7 @@
       			</div>
       		</div>
       	</div>
+
       	<script>
       		$(document).ready(function() {
       			var data = $("#datatable").DataTable({
@@ -152,7 +155,7 @@
       					error: function(xhr, error, thrown) {
       						console.log(xhr);
       					},
-      				},
+      				}, 
       				"columns": [{
       						data: 0,
       						"orderable": "false"
@@ -202,10 +205,69 @@
 
       			});
 
-      			setInterval(() => {
+      			// setInterval(() => {
       				data.ajax.reload(null, false);
-      				// data.ajax.reload();
-      			}, 1000);
+      			// 	data.ajax.reload();
+      			// }, 1000);
 
       		});
+
+			//Modal Open
+			$(document).on("click",".modalButton",function(){
+				var jenis = $(this).attr('data-type');
+				if(jenis == "tambah"){
+					$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
+				}
+				// elseif{
+				// 	jenis == "cetak";
+				// 	$("#modal-content").load("<?= base_url('kelola_gizi/modalcetak') ?>",{id:id})
+				// }
+				else{
+					var id = $(this).attr('data-id');
+					$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>",{id:id})
+				}
+			});
+			//end model
+
+			//Hapus
+			function hapus(id){
+				console.log(id)
+				Swal.fire({
+					title: 'Hapus data ini?',
+					text: "Kamu tidak akan bisa mengembalikannya lagi!",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					confirmButtonText: 'Ya',
+					cancelButtonText: 'Batal',
+				}).then((result) => {
+					if (result.isConfirmed) {
+						$.ajax({
+							type: "POST",
+							url: "<?php echo base_url() ?>kelola_gizi/delete",
+							dataType: "json",
+							data: {
+								id: id
+							},
+							success: function(data) {
+								
+								Swal.fire(
+									'Dihapus!',
+									'Data ini telah dihapus.',
+									'success'
+								);
+								
+								datatable.ajax.reload(null,false);
+							},
+							error: function(jqXHR, textStatus, errorThrown) {
+								// $('#msg').show();
+								// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
+								console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+							}
+						});
+					}
+				});
+			}
+			//end hapus
+
       	</script>

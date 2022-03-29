@@ -143,6 +143,14 @@
       								</span>
       							</a>
       						</li>
+							<li class="nav-item">
+								<a class="nav-link" href="<?php echo base_url() ?>kelola_gizi/grafik">
+									<span class="sidebar-mini"> <i class="material-icons">launch</i> </span>
+									<span class="sidebar-normal">
+										<p>Grafik Perkembangan</p>
+									</span>
+								</a>
+      					</li>
 
       					</ul>
       				</div>

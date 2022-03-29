@@ -27,8 +27,7 @@
                     </div>
                     <div class="card-header card-header-info" style="margin-top:-2px">
                         <ul style="padding-left: 20px;margin:0">
-                            <li>Pastikan NISN anda tersedia</li>
-                            <li>Kosongkan jika tidak memiliki NIP</li>
+                            <li>Pastikan isi dengan valid</li>
                         </ul>
                     </div>
                     <div class="card-body" style="margin-top:6px;">

@@ -28,6 +28,10 @@ The above copyright notice and this permission notice shall be included in all c
 
   <!-- CSS Files -->
   <link href="<?php echo base_url(); ?>assets/css/material-dashboard-pro.css?v=2.1.2" rel="stylesheet" />
+  
+  <!-- css grafik -->
+  <link href="<?php echo base_url(); ?>assets/css/grafik.css" rel="stylesheet" />
+  
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
 
@@ -43,6 +47,14 @@ The above copyright notice and this permission notice shall be included in all c
   
   <!-- leaflet JS -->
   <link href="<?php echo base_url(); ?>assets/leaflet/leaflet.css" rel="stylesheet">
+
+
+  <!-- grafik -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
   <!--   Core JS Files   -->
