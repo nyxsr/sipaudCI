@@ -106,10 +106,10 @@
       </div>
 
       <div class="container-fluid">
-		<!-- tambah data -->
+      	<!-- tambah data -->
       	<button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
       	<!-- cetak data -->
-		  <!-- <button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="cetak">Cetak</button> -->
+      	<!-- <button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="cetak">Cetak</button> -->
       	<div class="col-md-12">
       		<div class="card">
       			<div class="card-header card-header-primary">
@@ -129,7 +129,7 @@
       							<th>Nama</th>
       							<th>Tinggi Badan</th>
       							<th>Berat Badan</th>
-      							<th>Lingkat Kepala</th>
+      							<th>Lingkar Kepala</th>
       							<th>Aksi</th>
       						</tr>
       					</thead>
@@ -139,52 +139,70 @@
       	</div>
 
       	<script>
+      		var datatable;
       		$(document).ready(function() {
-      			var data = $("#datatable").DataTable({
+      			var lembaga = [];
+      			$.get("<?php echo base_url('Kelola_gizi/getLembaga'); ?>", function(responseFetch) {
+      				var responseData = JSON.parse(responseFetch);
+      				for (let i = 0; i < responseData.length; i++) {
+      					lembaga.push(responseData[i].nama_lembaga);
+      				}
+
+      				console.log(lembaga);
+      			});
+
+      			datatable = $("#datatable").DataTable({
       				"scrollX": true,
       				ordering: true,
       				processing: false,
       				serverSide: true,
       				ajax: {
-      					url: "<?php echo base_url('Kelola_Lembaga/datatable'); ?>",
+      					url: "<?php echo base_url('Kelola_gizi/datatable'); ?>",
       					type: "POST",
-      					dataSrc: data,
+      					dataSrc: datatable,
       					// dataSrc: function(data){
       					//     console.log(data)
       					// },
+      					dataFilter: function(response) {
+      						var data = JSON.parse(response);
+      						data.yadcf_data_10 = lembaga;
+
+      						return JSON.stringify(data);
+      					},
       					error: function(xhr, error, thrown) {
       						console.log(xhr);
       					},
-      				}, 
+      				},
       				"columns": [{
       						data: 0,
       						"orderable": "false"
       					},
       					{
       						data: 1,
-      						name: 'tbl_lembaga.npsn'
+      						name: 'tbl_gizi.id_siswa'
       					},
       					{
       						data: 2,
-      						name: 'tbl_lembaga.nama_lembaga'
+      						name: 'tbl_gizi.id_lembaga'
       					},
       					{
       						data: 3,
-      						name: 'tbl_lembaga.alamat_lembaga'
+      						name: 'tbl_gizi.tinggi_badan'
       					},
       					{
       						data: 4,
-      						name: 'tbl_lembaga.pengelompokkan'
+      						name: 'tbl_gizi.berat_badan'
       					},
       					{
       						data: 5,
-      						name: 'tbl_lembaga.tahun_berdiri'
+      						name: 'tbl_gizi.lingkar_kepala'
       					},
       					{
-      						data: 9,
+      						data: 6,
       						"orderable": "false"
-      					}
+      					},
       				],
+      				// "stateSave":  true,
       				autoWidth: false,
       				columnDefs: [{
       					targets: ['_all'],
@@ -205,69 +223,124 @@
 
       			});
 
+      			yadcf.init(datatable, [{
+      				column_number: 10,
+      				select_type: 'select',
+      				filter_container_id: 'external_filter_container_10',
+      				filter_default_label: "Pilih Lembaga"
+      			}]);
+
       			// setInterval(() => {
-      				data.ajax.reload(null, false);
-      			// 	data.ajax.reload();
+      			datatable.ajax.reload(null, false);
+      			// data.ajax.reload();
       			// }, 1000);
 
       		});
 
-			//Modal Open
-			$(document).on("click",".modalButton",function(){
-				var jenis = $(this).attr('data-type');
-				if(jenis == "tambah"){
-					$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
-				}
-				// elseif{
-				// 	jenis == "cetak";
-				// 	$("#modal-content").load("<?= base_url('kelola_gizi/modalcetak') ?>",{id:id})
-				// }
-				else{
-					var id = $(this).attr('data-id');
-					$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>",{id:id})
-				}
-			});
-			//end model
+      		//Modal Open
+      		$(document).on("click", ".modalButton", function() {
+      			var jenis = $(this).attr('data-type');
+      			if (jenis == "tambah") {
+      				$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
+      			} else {
+      				var id = $(this).attr('data-id');
+      				$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>", {
+      					id: id
+      				})
+      			}
+      		});
 
-			//Hapus
-			function hapus(id){
-				console.log(id)
-				Swal.fire({
-					title: 'Hapus data ini?',
-					text: "Kamu tidak akan bisa mengembalikannya lagi!",
-					icon: 'warning',
-					showCancelButton: true,
-					confirmButtonColor: '#3085d6',
-					confirmButtonText: 'Ya',
-					cancelButtonText: 'Batal',
-				}).then((result) => {
-					if (result.isConfirmed) {
-						$.ajax({
-							type: "POST",
-							url: "<?php echo base_url() ?>kelola_gizi/delete",
-							dataType: "json",
-							data: {
-								id: id
-							},
-							success: function(data) {
-								
-								Swal.fire(
-									'Dihapus!',
-									'Data ini telah dihapus.',
-									'success'
-								);
-								
-								datatable.ajax.reload(null,false);
-							},
-							error: function(jqXHR, textStatus, errorThrown) {
-								// $('#msg').show();
-								// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
-								console.log(textStatus + jqXHR.responseText + " " + errorThrown);
-							}
-						});
-					}
-				});
-			}
-			//end hapus
 
+      		function notifikasi(type, pesan, letak, posisi, icon, element, url) {
+      			// md.showNotification("top","center","tes")
+      			// icon: 'check_circle_outline',
+      			if (element == "") {
+      				element = "body";
+      			}
+      			$.notify({
+      				// options
+      				icon: icon,
+      				// title: 'Bootstrap notify',
+      				message: pesan,
+      				url: url,
+      				target: ''
+      			}, {
+      				// settings
+      				element: element,
+      				position: null,
+      				type: type,
+      				allow_dismiss: true,
+      				newest_on_top: false,
+      				showProgressbar: false,
+      				placement: {
+      					from: letak,
+      					align: posisi
+      				},
+      				offset: 20,
+      				spacing: 10,
+      				z_index: 1031,
+      				delay: 4000,
+      				timer: 100,
+      				url_target: '_blank',
+      				mouse_over: null,
+      				animate: {
+      					enter: 'animated fadeInDown',
+      					exit: 'animated fadeOutUp'
+      				},
+      				onShow: null,
+      				onShown: null,
+      				onClose: null,
+      				onClosed: null,
+      				icon_type: 'class',
+      				template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert" >' +
+      					'<button type="button" aria-hidden="true" class="close" data-notify="dismiss"><i class="material-icons">close</i></button>' +
+      					'<i class="material-icons" data-notify="icon"></i> ' +
+      					// '<span data-notify="title">{1}</span> ' +
+      					'<span data-notify="message">{2}</span>' +
+      					'<div class="progress" data-notify="progressbar">' +
+      					'<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+      					'</div>' +
+      					'<a href="{3}" target="{4}" data-notify="url"></a>' +
+      					'</div>'
+      			});
+      		}
+
+      		function hapus(id) {
+      			Swal.fire({
+      				title: 'Hapus data ini?',
+      				text: "Kamu tidak akan bisa mengembalikannya lagi!",
+      				icon: 'warning',
+      				showCancelButton: true,
+      				confirmButtonColor: '#3085d6',
+      				confirmButtonText: 'Ya',
+      				cancelButtonText: 'Batal',
+      			}).then((result) => {
+      				// console.log(result);
+      				if (result.isConfirmed) {
+      					$.ajax({
+      						type: "POST",
+      						url: "<?php echo base_url() ?>kelola_gizi/delete",
+      						dataType: "json",
+      						data: {
+      							id: id
+      						},
+      						success: function(data) {
+
+      							Swal.fire(
+      								'Dihapus!',
+      								'Data ini telah dihapus.',
+      								'success'
+      							);
+
+      							datatable.ajax.reload(null, false);
+      						},
+      						error: function(jqXHR, textStatus, errorThrown) {
+      							// $('#msg').show();
+      							// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
+      							console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+      						}
+      					});
+      				}
+      			});
+      		}
       	</script>
