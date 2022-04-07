@@ -35,7 +35,9 @@
                             <div class="row" style="padding-bottom: 0px;">
                                 <div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
                                     <label for="nama" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Siswa</label>
-                                    <select name="nama" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-size="7" tabindex="-98" <?= ($this->session->userdata('role') == "operator") ? "disabled" : "" ?>>
+                                    <input type="text" required name="nama_lembaga" id="nama_lembaga" class="form-control">
+                                    
+                                    <!-- <select name="nama" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-size="7" tabindex="-98" <?= ($this->session->userdata('role') == "operator") ? "disabled" : "" ?>>
                                         <?php
                                         foreach ($data as $index => $d) :
                                         ?>
@@ -46,12 +48,20 @@
                                         <?php
                                         endforeach;
                                         ?>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    <div class="form-group ">
+                                        <label class="bmd-label-floating">Paud</label>
+                                        <input type="text" required name="nama_lembaga" id="nama_lembaga" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group ">
                                         <label class="bmd-label-floating">Tinggi Badan</label>
                                         <input type="text" required name="tinggi_badan" id="tinggi_badan" class="form-control">
                                     </div>

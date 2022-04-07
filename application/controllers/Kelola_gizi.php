@@ -36,7 +36,7 @@
 		public function modalTambah()
 		{
 			$data['data'] = $this->M_Gizi->get()->result_array();
-			$this->load->view('Kelola_gizi/modalAdd', $data);
+			$this->load->view('Kelola_gizi/modalAdd');
 		}
 
 		function datatable()
