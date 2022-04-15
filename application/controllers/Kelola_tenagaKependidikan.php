@@ -92,6 +92,11 @@ class Kelola_tenagaKependidikan extends CI_Controller {
 		$data['data'] = $this->M_Lembaga->get()->result_array();
 		$this->load->view('kelola_tenagaKependidikan/modalAdd',$data);
 	}
+	public function print(){
+		$data['judul'] = "Print";
+		$data['data'] = $this->M_tenagaKependidikan->get('tbl_tenagakependidikan')->result();
+		$this->load->view('kelola_tenagaKependidikan/print',$data);
+	}
 
 	public function getLembaga(){
 		echo json_encode($this->M_Lembaga->get()->result_array());

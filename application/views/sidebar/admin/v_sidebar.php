@@ -55,15 +55,15 @@
       		<div id="collapsePendidikan" class="collapse" aria-labelledby="headingPendidikan" data-parent="#accordionSidebar">
       			<div class="bg-white py-2 collapse-inner rounded">
       				<ul class="navbar-nav">
-      					<li class="nav-item">
-      						<a class="nav-link" href="<?php echo base_url() ?>kelola_lembaga">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_lembaga") ? "active" : ""?>" >
+      						<a class="nav-link"  href="<?php echo base_url() ?>kelola_lembaga">
       							<span class="sidebar-mini"> <i class="material-icons">account_balance</i> </span>
       							<span class="sidebar-normal">
       								<p>Kelola Lembaga</p>
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_tenagaPendidik") ? "active" : ""?>">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_tenagaPendidik">
       							<span class="sidebar-mini"> <i class="material-icons">hail</i> </span>
       							<span class="sidebar-normal">
@@ -71,7 +71,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_tenagaKependidikan") ? "active" : ""?>">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_tenagaKependidikan">
       							<span class="sidebar-mini"> <i class="material-icons">supervised_user_circle</i> </span>
       							<span class="sidebar-normal">
@@ -79,7 +79,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_siswa") ? "active" : ""?>"">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_siswa">
       							<span class="sidebar-mini"> <i class="material-icons">people_alt</i> </span>
       							<span class="sidebar-normal">
@@ -87,7 +87,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_sarana") ? "active" : ""?>"">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_sarana">
       							<span class="sidebar-mini"> <i class="material-icons">home_work</i> </span>
       							<span class="sidebar-normal">
@@ -95,7 +95,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_prasarana") ? "active" : ""?>"">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_prasarana">
       							<span class="sidebar-mini"> <i class="material-icons">home_work</i> </span>
       							<span class="sidebar-normal">
@@ -103,7 +103,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "kelola_bantuan") ? "active" : ""?>"">
       						<a class="nav-link" href="<?php echo base_url() ?>kelola_bantuan">
       							<span class="sidebar-mini"> <i class="material-icons"> widgets_outline</i> </span>
       							<span class="sidebar-normal">
@@ -111,7 +111,7 @@
       							</span>
       						</a>
       					</li>
-      					<li class="nav-item">
+      					<li class="nav-item <?= ($this->uri->segment(1) == "persebaran") ? "active" : ""?>"">
       						<a class="nav-link" href="<?php echo base_url() ?>persebaran">
       							<span class="sidebar-mini"> <i class="material-icons">map_marker_radius</i> </span>
       							<span class="sidebar-normal">
@@ -135,7 +135,7 @@
       			<div id="collapseKesehatan" class="collapse" aria-labelledby="headingKesehatan" data-parent="#accordionSidebar">
       				<div class="bg-white py-2 collapse-inner rounded">
       					<ul class="navbar-nav">
-      						<li class="nav-item">
+      						<li class="nav-item <?= ($this->uri->segment(1) == "kelola_gizi") ? "active" : ""?>" ">
       							<a class="nav-link" href="<?php echo base_url() ?>kelola_gizi">
       								<span class="sidebar-mini"> <i class="material-icons">spa</i> </span>
       								<span class="sidebar-normal">

@@ -90,6 +90,9 @@ select:-webkit-autofill:focus {
 .list>.btn {
     margin: 0px;
 }
+.btn {
+    text-decoration: none;
+}
 
 </style>
 
@@ -109,6 +112,7 @@ select:-webkit-autofill:focus {
 
 <div class="container-fluid">    
 <button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
+<button class="btn btn-sm btn-secondary"><a href="<?php echo base_url('Kelola_tenagaKependidikan/print'); ?>">Print</a></button>
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-primary">
@@ -121,10 +125,10 @@ select:-webkit-autofill:focus {
             </div>
         </div>
         <div class="card-body">
-            <table id="datatable" class="mdl-data-table" style="width:100%">
+            <table id="datatable" class="mdl-data-table " style="width:100%">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="text-center">No</th>
                         <th>NIP</th>
                         <th>Nama</th>
                         <th>Alamat</th>

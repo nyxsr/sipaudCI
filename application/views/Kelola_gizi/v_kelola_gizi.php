@@ -127,7 +127,7 @@
       						<tr>
       							<th>No</th>
       							<th>Nama</th>
-      							<th>Nama Lembaga</th>
+      							<th>Lembaga</th>
       							<th>Tinggi Badan</th>
       							<th>Berat Badan</th>
       							<th>Lingkar Kepala</th>

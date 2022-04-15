@@ -7,9 +7,9 @@
       <div class="sidebar-wrapper">
         <ul class="nav" id="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url() ?>index.php/kelola_lembaga">
+            <a class="nav-link" href="<?= base_url() ?>index.php/kelola_lembaga">
                 <span class="sidebar-mini"> <i class="material-icons">building</i> </span>
-                <span class="sidebar-normal"><p>Kelola Lembaga</p></span>
+                <span class="sidebar-normal"><p>Kelola  ajah Lembaga </p></span>
             </a>
           </li>
           <li class="nav-item ">
@@ -23,25 +23,25 @@
             <div class="collapse" id="appointment">
               <ul class="nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?php echo base_url() ?>index.php/appointment/list">
+                    <a class="nav-link" href="<?= base_url() ?>index.php/appointment/list">
                     <span class="sidebar-mini"> <i class="material-icons">ballot</i> </span>
                     <span class="sidebar-normal"> Appointment List </span>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?php echo base_url() ?>index.php/appointment/my_appointment">
+                    <a class="nav-link" href="<?= base_url() ?>index.php/appointment/my_appointment">
                     <span class="sidebar-mini"> <i class="material-icons">contact_mail</i> </span>
                     <span class="sidebar-normal"> My Appointment</span>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?php echo base_url() ?>index.php/appointment/confirm_appointment">
+                    <a class="nav-link" href="<?= base_url() ?>index.php/appointment/confirm_appointment">
                     <span class="sidebar-mini"> <i class="material-icons">done</i> </span>
                     <span class="sidebar-normal"> Confirm Appointment</span>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?php echo base_url() ?>index.php/appointment/check">
+                    <a class="nav-link" href="<?= base_url() ?>index.php/appointment/check">
                     <span class="sidebar-mini"> <i class="material-icons">center_focus_weak</i> </span>
                     <span class="sidebar-normal"> Check Appointment</span>
                     </a>
@@ -61,7 +61,7 @@
             <div class="collapse" id="controlCenter">
               <ul class="nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?php echo base_url() ?>index.php/admin/user">
+                    <a class="nav-link" href="<?= base_url() ?>index.php/admin/user">
                     <span class="sidebar-mini"> <i class="material-icons">person</i> </span>
                     <span class="sidebar-normal"> Setting User </span>
                     </a>
