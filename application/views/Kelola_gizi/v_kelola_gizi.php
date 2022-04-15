@@ -127,10 +127,11 @@
       						<tr>
       							<th>No</th>
       							<th>Nama</th>
+      							<th>Nama Lembaga</th>
       							<th>Tinggi Badan</th>
       							<th>Berat Badan</th>
       							<th>Lingkar Kepala</th>
-      							<th>Aksi</th>
+      							<th style="text-align: center;">Aksi</th>
       						</tr>
       					</thead>
       				</table>

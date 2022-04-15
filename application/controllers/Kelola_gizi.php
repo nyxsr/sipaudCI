@@ -1,6 +1,3 @@
-
-
-	
 	<?php
 	defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -35,7 +32,7 @@
 		}
 		public function modalTambah()
 		{
-			$data['data'] = $this->M_Gizi->get()->result_array();
+			$data['data'] = $this->M_Siswa->get()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -50,15 +47,9 @@
 			$columnIndex = $_REQUEST['order'][0]['column']; // Column index
 			$columnName = $_REQUEST['columns'][$columnIndex]['name']; // Column name
 			$columnSortOrder = $_REQUEST['order'][0]['dir']; // asc or desc
-
-			$selectFilterName = $_REQUEST['columns'][10]["name"];
-			$selectFilterValue = $_REQUEST['columns'][10]['search']["value"];
-
-			if ($this->session->userdata("role") == "operator") {
-				$total = $this->M_Gizi->totalRow(['id_gizi' => $this->encryption->decrypt(base64_decode($this->session->userdata("id_gizi")))]);
-			} else {
-				$total = $this->M_Gizi->totalRow();
-			}
+			$selectFilterName = $_REQUEST['columns'][1]["name"];
+			$selectFilterValue = $_REQUEST['columns'][1]['search']["value"];
+			$total = $this->M_Gizi->totalRow();
 			$output = array();
 			$output['draw']	 = $draw;
 			$output['recordsTotal'] = $output['recordsFiltered'] = $total;
@@ -73,11 +64,9 @@
 
 			$nomor_urut = $start + 1;
 			foreach ($query->result_array() as $dt) {
-
 				$output['data'][] = array(
 					$nomor_urut,
-					$dt['nama'],
-					!empty($dt['nama_siswa']) ? $dt['nama_siswa'] : '-',
+					!empty($dt['nama']) ? $dt['nama'] : '-',
 					!empty($dt['nama_lembaga']) ? $dt['nama_lembaga'] : '-',
 					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] : '-',
 					!empty($dt['berat_badan']) ? $dt['berat_badan'] : '-',
@@ -104,14 +93,14 @@
 
 		public function add()
 		{
-			$nama_siswa 				= $this->input->post("nama_siswa");
+			$nama 				= $this->input->post("nama");
 			$nama_lembaga		= $this->input->post("nama_lembaga");
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 
 			$data 				= array(
-				'nama_siswa'				=> $nama_siswa,
+				'nama'						=> $nama,
 				'nama_lembaga'				=> $nama_lembaga,
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
