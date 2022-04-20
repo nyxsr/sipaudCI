@@ -76,7 +76,7 @@
 						<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_siswa'])) . '"><i class="fa fas fa-pencil"></i></a>
 					</div>
 					<div class="col-md-6 text-center">
-						<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_siswa'])) . '"><i class="fa fas fa-trash"></i></a>
+						<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-trash"></i></a>
 					</div>
 				</div>',
 				);
@@ -125,8 +125,9 @@
 
 		function edit()
 		{
-			$id_gizi			= $this->encryption->decrypt(base64_decode($this->input->post("id_gizi")));
+			$id			= $this->encryption->decrypt(base64_decode($this->input->post("id")));
 
+			$id_gizi			= $this->input->post("id_gizi");
 			$nama_siswa 		= $this->input->post("nama_siswa");
 			$nama_lembaga		= $this->input->post("nama_lembaga");
 			$tinggi_badan		= $this->input->post("tinggi_badan");
@@ -134,10 +135,11 @@
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 
 			$params				= array(
-				"id_siswa" => $id
+				"id_gizi" => $id
 			);
 
 			$dataArray			= array(
+				'id_gizi'					=> $id_gizi,
 				'nama_siswa'				=> $nama_siswa,
 				'nama_lembaga'				=> $nama_lembaga,
 				'tinggi_badan'				=> $tinggi_badan,
@@ -152,8 +154,7 @@
 
 		public function delete()
 		{
-			$id				= $this->encryption->decrypt(base64_decode($this->input->post("id_gizi")));
-
+			$id					= $this->encryption->decrypt(base64_decode($this->input->post("id")));
 			$data				= array('id_gizi' => $id);
 			$query				= $this->M_Gizi->delete($data);
 			echo json_encode($query);

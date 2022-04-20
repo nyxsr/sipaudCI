@@ -307,6 +307,7 @@
       		}
 
       		function hapus(id) {
+      			console.log(id)
       			Swal.fire({
       				title: 'Hapus data ini?',
       				text: "Kamu tidak akan bisa mengembalikannya lagi!",
@@ -320,7 +321,7 @@
       				if (result.isConfirmed) {
       					$.ajax({
       						type: "POST",
-      						url: "<?php echo base_url() ?>kelola_gizi/delete",
+      						url: "<?php echo base_url() ?>Kelola_gizi/delete",
       						dataType: "json",
       						data: {
       							id: id
@@ -333,7 +334,7 @@
       								'success'
       							);
 
-      							datatable.ajax.reload(null, false);
+      							datatable.ajax.reload(true);
       						},
       						error: function(jqXHR, textStatus, errorThrown) {
       							// $('#msg').show();

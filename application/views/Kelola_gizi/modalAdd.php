@@ -90,67 +90,50 @@
 <script>
 	$('[name="btn_simpan"]').on('click', function() {
 		var nama = $('[name="nama"]').val();
+		var nama_lembaga = $('[name="nama_lembaga"]').val();
 		var tinggi_badan = $('[name="tinggi_badan"]').val();
 		var berat_badan = $('[name="berat_badan"]').val();
 		var lingkar_kepala = $('[name="lingkar_kepala"]').val();
 
-		// if (
-		//     nama !== "" &&
-		//     jenisKelamin !== "" &&
-		//     no_telp !== "" &&
-		//     nama !== "" &&
-		//     alamat !== "" &&
-		//     tempat_lahir !== "" &&
-		//     tanggal_lahir !== "" &&
-		//     pendidikan !== "" &&
-		// ) {
-		//     if ($('#inputan_nuptk').hasClass("has-success")) {
-		//         $.ajax({
-		//             type: "POST",
-		//             url: "<?php echo base_url() ?>kelola_tenagaKependidikan/add",
-		//             dataType: "json",
-		//             data: {
-		//                 nuptk,
-		//                 nip,
-		//                 nama,
-		//                 jenisKelamin,
-		//                 no_telp,
-		//                 nama,
-		//                 alamat,
-		//                 tempat_lahir,
-		//                 tanggal_lahir,
-		//                 pendidikan,
-		//                 diklatdasar,
-		//                 diklatlanjut,
-		//                 diklatmahir,
-		//                 diklatlainnya,
-		//                 tahundiklatlainnya
-		//             },
-		//             success: function(data) {
-		//                 $('#modal').modal('hide');
-		//                 Swal.fire(
-		//                     'Berhasil!',
-		//                     'Data telah ditambah.',
-		//                     'success'
-		//                 );
+		if (
+			nama !== "" &&
+			nama_lembaga !== "" &&
+			tinggi_badan !== "" &&
+			berat_badan !== "" &&
+			lingkar_kepala !== ""
 
-		//                 datatable.ajax.reload(null, false);
-		//             },
-		//             error: function(jqXHR, textStatus, errorThrown) {
-		//                 // $('#msg').show();
-		//                 // $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
-		//                 console.log(textStatus + jqXHR.responseText + " " + errorThrown);
-		//             }
-		//         });
-		//         return false;
+		) {
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url() ?>kelola_gizi/add",
+				dataType: "json",
+				data: {
+					nama,
+					nama_lembaga,
+					tinggi_badan,
+					berat_badan,
+					lingkar_kepala
+				},
+				success: function(data) {
+					$('#modal').modal('hide');
+					Swal.fire(
+						'Berhasil!',
+						'Data telah ditambah.',
+						'success'
+					);
 
-		//     } else {
-		//         notifikasi("danger", "Data gagal ditambahkan", "top", "center", "not_interested", "#modal", "");
-		//     }
-
-		// } else {
-		//     notifikasi("danger", "Data gagal ditambahkan", "bottom", "center", "not_interested", "#informasi", "");
-		// }
+					datatable.ajax.reload(null, false);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					// $('#msg').show();
+					// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
+					console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+				}
+			});
+			return false;
+		} else {
+			notifikasi("danger", "Data gagal ditambahkan", "bottom", "center", "not_interested", "#informasi", "");
+		}
 
 	});
 </script>
