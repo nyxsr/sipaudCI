@@ -14,7 +14,7 @@
 </style>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	<h4 class="modal-title" id="myModalLabel">Buat Data Gizi Anak Baru </h4>
+	<h4 class="modal-title" id="myModalLabel">Ubah Data Gizi Anak Baru </h4>
 </div>
 <div class="modal-body">
 	<div>
@@ -39,7 +39,7 @@
 										<?php
 										foreach ($siswa as $index => $d) :
 										?>
-											<option value="<?= $d['id_siswa'] ?>">
+											<option value="<?= $d['id_siswa'] ?>"  <?= $data['id_siswa'] == $d['id_siswa'] ? 'selected' : '' ?> >
 												<?= $d['nama'] ?>
 											</option>
 										<?php
@@ -52,7 +52,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="bmd-label-floating">Tinggi Badan</label>
-										<input type="text" required name="tinggi_badan" id="tinggi_badan" class="form-control">
+										<input type="text" required name="tinggi_badan" id="tinggi_badan" class="form-control" value="<?= $data["tinggi_badan"] ?>">
 									</div>
 								</div>
 							</div>
@@ -60,7 +60,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="bmd-label-floating">Berat Badan</label>
-										<input type="text" required name="berat_badan" id="berat_badan" class="form-control">
+										<input type="text" required name="berat_badan" id="berat_badan" class="form-control" value="<?= $data["berat_badan"] ?>">
 									</div>
 								</div>
 							</div>
@@ -68,7 +68,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="bmd-label-floating">Lingkar Kelapa</label>
-										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control">
+										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control" value="<?= $data["lingkar_kepala"] ?>">
 									</div>
 								</div>
 							</div>
@@ -101,13 +101,13 @@
 			tinggi_badan !== "" &&
 			berat_badan !== "" &&
 			lingkar_kepala !== ""
-
 		) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>kelola_gizi/add",
+				url: "<?php echo base_url() ?>kelola_gizi/edit",
 				dataType: "json",
 				data: {
+					id_gizi: "<?= base64_encode($this->encryption->encrypt($data['id_gizi'])) ?>",
 					id_siswa,
 					tinggi_badan,
 					berat_badan,
@@ -117,7 +117,7 @@
 					$('#modal').modal('hide');
 					Swal.fire(
 						'Berhasil!',
-						'Data telah ditambah.',
+						'Data telah diubah.',
 						'success'
 					);
 

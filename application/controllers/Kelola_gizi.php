@@ -32,7 +32,7 @@
 		}
 		public function modalTambah()
 		{
-			$data['data'] = $this->M_Siswa->get()->result_array();
+			$data['siswa'] = $this->M_Siswa->get()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -72,13 +72,13 @@
 					!empty($dt['berat_badan']) ? $dt['berat_badan'] : '-',
 					!empty($dt['lingkar_kepala']) ? $dt['lingkar_kepala'] : '-',
 					'<div class="row">
-					<div class="col-md-6 text-center">
-						<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_siswa'])) . '"><i class="fa fas fa-pencil"></i></a>
-					</div>
-					<div class="col-md-6 text-center">
-						<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-trash"></i></a>
-					</div>
-				</div>',
+						<div class="col-md-6 text-center">
+							<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-pencil"></i></a>
+						</div>
+						<div class="col-md-6 text-center">
+							<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-trash"></i></a>
+						</div>
+					</div>',
 				);
 				$nomor_urut++;
 			}
@@ -93,15 +93,13 @@
 
 		public function add()
 		{
-			$nama 				= $this->input->post("nama");
-			$nama_lembaga		= $this->input->post("nama_lembaga");
+			$id_siswa 			= $this->input->post("id_siswa");
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
-
+			
 			$data 				= array(
-				'nama'						=> $nama,
-				'nama_lembaga'				=> $nama_lembaga,
+				'id_siswa'					=> $id_siswa,
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
@@ -115,33 +113,27 @@
 
 		public function modalEdit()
 		{
-			$id = $this->input->post("id_gizi");
+			$data['siswa'] = $this->M_Siswa->get()->result_array();
+			$id = $this->input->post("id");
 			$data['data'] = $this->M_Gizi->getWhere(["id_gizi" => $this->encryption->decrypt(base64_decode($id))])->row_array();
-			$data['dataLembaga'] = $this->M_Lembaga->get()->result_array();
-			$data['dataSiswa'] = $this->M_Siswa->get()->result_array();
 			$this->load->view('Kelola_gizi/modalEdit', $data);
 		}
 
 
 		function edit()
 		{
-			$id			= $this->encryption->decrypt(base64_decode($this->input->post("id")));
-
-			$id_gizi			= $this->input->post("id_gizi");
-			$nama_siswa 		= $this->input->post("nama_siswa");
-			$nama_lembaga		= $this->input->post("nama_lembaga");
+			$id_gizi			= $this->encryption->decrypt(base64_decode($this->input->post("id_gizi")));
+			$id_siswa 			= $this->input->post("id_siswa");
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 
 			$params				= array(
-				"id_gizi" => $id
+				"id_gizi" => $id_gizi
 			);
 
 			$dataArray			= array(
-				'id_gizi'					=> $id_gizi,
-				'nama_siswa'				=> $nama_siswa,
-				'nama_lembaga'				=> $nama_lembaga,
+				'id_siswa'					=> $id_siswa,
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
@@ -154,8 +146,8 @@
 
 		public function delete()
 		{
-			$id					= $this->encryption->decrypt(base64_decode($this->input->post("id")));
-			$data				= array('id_gizi' => $id);
+			$id_gizi			= $this->encryption->decrypt(base64_decode($this->input->post("id_gizi")));
+			$data				= array('id_gizi' => $id_gizi);
 			$query				= $this->M_Gizi->delete($data);
 			echo json_encode($query);
 		}

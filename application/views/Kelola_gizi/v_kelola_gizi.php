@@ -131,14 +131,14 @@
       							<th>Tinggi Badan</th>
       							<th>Berat Badan</th>
       							<th>Lingkar Kepala</th>
-      							<th style="text-align: center;">Aksi</th>
+      							<th>Aksi</th>
       						</tr>
       					</thead>
       				</table>
       			</div>
       		</div>
       	</div>
-
+ 
       	<script>
       		var datatable;
       		$(document).ready(function() {
@@ -306,8 +306,7 @@
       			});
       		}
 
-      		function hapus(id) {
-      			console.log(id)
+      		function hapus(id_gizi) {
       			Swal.fire({
       				title: 'Hapus data ini?',
       				text: "Kamu tidak akan bisa mengembalikannya lagi!",
@@ -324,7 +323,7 @@
       						url: "<?php echo base_url() ?>Kelola_gizi/delete",
       						dataType: "json",
       						data: {
-      							id: id
+      							id_gizi
       						},
       						success: function(data) {
 

@@ -90,12 +90,11 @@ class M_Gizi extends CI_Model
 
 	function datatable($limit, $start, $search, $paramsSearch, $columnSortName, $typeSort, $selectFilterName, $selectFilterValue)
 	{
-		// $this->db->select("tbl_gizi.*, CONCAT(tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.tinggi_badan, tbl_gizi.berat_badan, tbl_gizi.lingkar_kepala)");
 		$this->db->select("tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.*");
 
 		$this->db->from("tbl_gizi");
 		$this->db->join("tbl_siswa", "tbl_siswa.id_siswa = tbl_gizi.id_siswa");
-		$this->db->join("tbl_lembaga", "tbl_lembaga.id = tbl_gizi.id_lembaga");
+		$this->db->join("tbl_lembaga", "tbl_lembaga.id = tbl_siswa.id_lembaga");
 
 		if (!empty($selectFilterName) && !empty($selectFilterValue)) {
 			$this->db->where($selectFilterName, $selectFilterValue);
