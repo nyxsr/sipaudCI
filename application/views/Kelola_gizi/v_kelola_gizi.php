@@ -188,7 +188,7 @@
       					},
       					{
       						data: 3,
-      						name: 'tbl_gizi.tinggi_badan'
+      						name: 'tbl_gizi.tinggi_badan' + 'cm'
       					},
       					{
       						data: 4,
