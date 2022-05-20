@@ -32,7 +32,7 @@
 					</div>
 					<div class="card-body" style="margin-top:6px;">
 						<form method="POST" id="addForm" action="javascript:void(0);">
-							<div class="row" style="padding-bottom: 0px;">
+							<!-- <div class="row" style="padding-bottom: 0px;">
 								<div class="form-group list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
 									<label for="nama" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Siswa</label>
 									<select name="nama" class="form-control selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-style="btn btn-link">
@@ -47,7 +47,39 @@
 										?>
 									</select>
 								</div>
-							</div>
+							</div> -->
+							<div class="row" style="padding-bottom: 0px;">
+                                <div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
+                                    <label for="nama_siswa" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Siswa</label>
+                                    <select name="id_siswa" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-size="7" tabindex="-98">
+									<?php
+										foreach ($data as $index => $d) :
+										?>
+											<option value="<?= $d['id_siswa'] ?>">
+												<?= $d['nama'] ?>
+											</option>
+										<?php
+										endforeach;
+										?>
+                                    </select>
+                                </div>
+                            </div>
+							<div class="row" style="padding-bottom: 0px;">
+                                <div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
+                                    <label for="nama_lembaga" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Lembaga</label>
+                                    <select name="id_lembaga" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-size="7" tabindex="-98">
+									<?php
+										foreach ($lembaga as $index => $e) :
+										?>
+											<option value="<?= $e['id'] ?>">
+												<?= $e['nama_lembaga'] ?>
+											</option>
+										<?php
+										endforeach;
+										?>
+                                    </select>
+                                </div>
+                            </div>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -67,7 +99,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label class="bmd-label-floating">Lingkar Kelapa</label>
+										<label class="bmd-label-floating">Lingkar Kepala</label>
 										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control">
 									</div>
 								</div>
@@ -88,16 +120,20 @@
 </div> -->
 
 <script>
+	// ini doang
+	$('.selectpicker').selectpicker();
+
 	$('[name="btn_simpan"]').on('click', function() {
-		var nama = $('[name="nama"]').val();
-		var nama_lembaga = $('[name="nama_lembaga"]').val();
+
+		var id_siswa = $('[name="id_siswa"]').val();
+		var id_lembaga = $('[name="id_lembaga"]').val();
 		var tinggi_badan = $('[name="tinggi_badan"]').val();
 		var berat_badan = $('[name="berat_badan"]').val();
 		var lingkar_kepala = $('[name="lingkar_kepala"]').val();
 
 		if (
-			nama !== "" &&
-			nama_lembaga !== "" &&
+			id_siswa !== "" &&
+			id_lembaga !== "" &&
 			tinggi_badan !== "" &&
 			berat_badan !== "" &&
 			lingkar_kepala !== ""
@@ -108,8 +144,8 @@
 				url: "<?php echo base_url() ?>kelola_gizi/add",
 				dataType: "json",
 				data: {
-					nama,
-					nama_lembaga,
+					id_siswa,
+					id_lembaga,
 					tinggi_badan,
 					berat_badan,
 					lingkar_kepala

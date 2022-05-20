@@ -33,6 +33,7 @@
 		public function modalTambah()
 		{
 			$data['data'] = $this->M_Siswa->get()->result_array();
+			$data['lembaga'] = $this->M_Lembaga->get()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -93,22 +94,22 @@
 
 		public function add()
 		{
-			$nama 				= $this->input->post("nama");
-			$nama_lembaga		= $this->input->post("nama_lembaga");
+			$nama 				= $this->input->post("id_siswa");
+			$id_lembaga			= $this->input->post("id_lembaga");
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 
 			$data 				= array(
-				'nama'						=> $nama,
-				'nama_lembaga'				=> $nama_lembaga,
+				'id_siswa'						=> $nama,
+				'id_lembaga'				=> $id_lembaga,
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
 
 			);
 
-			$query				= $this->M_Gizi->insert($data);
+			$query	= $this->M_Gizi->insert($data);
 
 			echo json_encode($query);
 		}
