@@ -67,7 +67,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label class="bmd-label-floating">Lingkar Kelapa</label>
+										<label class="bmd-label-floating">Lingkar Kepala</label>
 										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control">
 									</div>
 								</div>

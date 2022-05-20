@@ -243,7 +243,10 @@
       			var jenis = $(this).attr('data-type');
       			if (jenis == "tambah") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
-      			} else {
+      			} else if(jenis == "grafik") {
+					$("#modal-content").load("<?= base_url('kelola_gizi/grafik')?>")
+				  }else{
+
       				var id = $(this).attr('data-id');
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>", {
       					id: id

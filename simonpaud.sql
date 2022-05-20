@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jan 2022 pada 15.50
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 5.6.38
+-- Generation Time: Apr 20, 2022 at 08:59 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_bantuan`
+-- Table structure for table `tbl_bantuan`
 --
 
 CREATE TABLE `tbl_bantuan` (
@@ -39,7 +38,7 @@ CREATE TABLE `tbl_bantuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_bantuan`
+-- Dumping data for table `tbl_bantuan`
 --
 
 INSERT INTO `tbl_bantuan` (`id_bantuan`, `tahun`, `jenis_bantuan`, `jumlah`, `sumber_bantuan`, `keterangan_bantuan`, `id_lembaga`) VALUES
@@ -54,7 +53,7 @@ INSERT INTO `tbl_bantuan` (`id_bantuan`, `tahun`, `jenis_bantuan`, `jumlah`, `su
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_desa`
+-- Table structure for table `tbl_desa`
 --
 
 CREATE TABLE `tbl_desa` (
@@ -64,7 +63,7 @@ CREATE TABLE `tbl_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tbl_desa`
+-- Dumping data for table `tbl_desa`
 --
 
 INSERT INTO `tbl_desa` (`kode_kec`, `kode_desa`, `desa`) VALUES
@@ -325,7 +324,30 @@ INSERT INTO `tbl_desa` (`kode_kec`, `kode_desa`, `desa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kecamatan`
+-- Table structure for table `tbl_gizi`
+--
+
+CREATE TABLE `tbl_gizi` (
+  `id_gizi` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `id_lembaga` int(11) NOT NULL,
+  `tinggi_badan` int(11) NOT NULL,
+  `berat_badan` int(11) NOT NULL,
+  `lingkar_kepala` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_gizi`
+--
+
+INSERT INTO `tbl_gizi` (`id_gizi`, `id_siswa`, `id_lembaga`, `tinggi_badan`, `berat_badan`, `lingkar_kepala`) VALUES
+(1, 2, 6, 141, 45, 50),
+(2, 8, 6, 161, 75, 50);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kecamatan`
 --
 
 CREATE TABLE `tbl_kecamatan` (
@@ -334,7 +356,7 @@ CREATE TABLE `tbl_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tbl_kecamatan`
+-- Dumping data for table `tbl_kecamatan`
 --
 
 INSERT INTO `tbl_kecamatan` (`kode_kec`, `kecamatan`) VALUES
@@ -372,7 +394,7 @@ INSERT INTO `tbl_kecamatan` (`kode_kec`, `kecamatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_lembaga`
+-- Table structure for table `tbl_lembaga`
 --
 
 CREATE TABLE `tbl_lembaga` (
@@ -382,7 +404,7 @@ CREATE TABLE `tbl_lembaga` (
   `nama_lembaga` varchar(50) NOT NULL,
   `kode_kec` varchar(3) DEFAULT NULL,
   `kode_desa` varchar(3) DEFAULT NULL,
-  `alamat_lembaga` text,
+  `alamat_lembaga` text DEFAULT NULL,
   `tahun_berdiri` year(4) DEFAULT NULL,
   `kepala_sekolah` varchar(50) DEFAULT NULL,
   `pengelompokan` varchar(60) DEFAULT NULL,
@@ -394,7 +416,7 @@ CREATE TABLE `tbl_lembaga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_lembaga`
+-- Dumping data for table `tbl_lembaga`
 --
 
 INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, `kode_desa`, `alamat_lembaga`, `tahun_berdiri`, `kepala_sekolah`, `pengelompokan`, `tahun_akreditasi`, `status_akreditasi`, `foto_lembaga`, `longitude`, `latitude`) VALUES
@@ -407,7 +429,7 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_prasarana`
+-- Table structure for table `tbl_prasarana`
 --
 
 CREATE TABLE `tbl_prasarana` (
@@ -427,7 +449,7 @@ CREATE TABLE `tbl_prasarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_prasarana`
+-- Dumping data for table `tbl_prasarana`
 --
 
 INSERT INTO `tbl_prasarana` (`id_prasarana`, `Ruang_Kepala_Sekolah`, `Internet`, `Listrik`, `RK_Baik`, `RK_Rusak`, `RG_Baik`, `RG_Rusak`, `TS_Baik`, `TS_Rusak`, `TG_Baik`, `TG_Rusak`, `id_lembaga`) VALUES
@@ -439,7 +461,7 @@ INSERT INTO `tbl_prasarana` (`id_prasarana`, `Ruang_Kepala_Sekolah`, `Internet`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_sarana`
+-- Table structure for table `tbl_sarana`
 --
 
 CREATE TABLE `tbl_sarana` (
@@ -456,7 +478,7 @@ CREATE TABLE `tbl_sarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_sarana`
+-- Dumping data for table `tbl_sarana`
 --
 
 INSERT INTO `tbl_sarana` (`id_sarana`, `APEL_perosotan`, `APEL_jungkitan`, `APEL_ayunan`, `APEL_bola_dunia`, `APED_sensori_motor`, `APED_pembangunan`, `APED_bermain_peran`, `APED_imtaq`, `id_lembaga`) VALUES
@@ -469,7 +491,7 @@ INSERT INTO `tbl_sarana` (`id_sarana`, `APEL_perosotan`, `APEL_jungkitan`, `APEL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_sarana_prasarana`
+-- Table structure for table `tbl_sarana_prasarana`
 --
 
 CREATE TABLE `tbl_sarana_prasarana` (
@@ -482,7 +504,7 @@ CREATE TABLE `tbl_sarana_prasarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_sarana_prasarana`
+-- Dumping data for table `tbl_sarana_prasarana`
 --
 
 INSERT INTO `tbl_sarana_prasarana` (`id_sarana`, `nama_sarana`, `tanggal_pengadaan`, `jumlah`, `kondisi`, `id_lembaga`) VALUES
@@ -493,7 +515,7 @@ INSERT INTO `tbl_sarana_prasarana` (`id_sarana`, `nama_sarana`, `tanggal_pengada
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_siswa`
+-- Table structure for table `tbl_siswa`
 --
 
 CREATE TABLE `tbl_siswa` (
@@ -514,7 +536,7 @@ CREATE TABLE `tbl_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_siswa`
+-- Dumping data for table `tbl_siswa`
 --
 
 INSERT INTO `tbl_siswa` (`id_siswa`, `NISN`, `nama`, `nama_ortu`, `no_telp_ortu`, `pekerjaan_ortu`, `usia_adik`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `tanggal_masuk`, `tanggal_keluar`, `id_lembaga`) VALUES
@@ -524,12 +546,13 @@ INSERT INTO `tbl_siswa` (`id_siswa`, `NISN`, `nama`, `nama_ortu`, `no_telp_ortu`
 (9, '129378605', 'Stevia Margarett', 'Siti Aminah', '085764321112', 'Konsultan Kecantikan', 1, 'Pagaden', 'Jakarta', '2018-12-03', 'P', '2021-11-01', NULL, 4),
 (10, '5506478970', 'Ayu Tyas', 'Siti Aminah', '087812346789', 'Konsultan Kecantikan', 2, 'Subang', 'Subang', '2019-11-15', 'P', '2021-11-09', NULL, 4),
 (11, '5506478970', 'Siti', 'dadang', '087812346789', 'Wiraswasta', 1, 'Subang', 'Subang', '2019-11-19', 'P', '2021-12-08', '2021-12-11', 8),
-(12, '0405783213', 'sinta', 'feri', '085345679812', 'Wiraswasta', 0, 'Subang', 'Jakarta', '2019-08-07', 'P', '2021-11-24', NULL, 4);
+(12, '0405783213', 'sinta', 'feri', '085345679812', 'Wiraswasta', 0, 'Subang', 'Jakarta', '2019-08-07', 'P', '2021-11-24', NULL, 4),
+(15, 'ajsdsdsksd', 'n', 'kjashdjkashdjkashdjk', '12837218372183', 'jajshdjhdjasd', 12, 'jqlhjhjkashdjksahdkjsah', 'arab', '2022-03-30', 'L', '2022-03-30', '2022-03-30', 4);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_tenagakependidikan`
+-- Table structure for table `tbl_tenagakependidikan`
 --
 
 CREATE TABLE `tbl_tenagakependidikan` (
@@ -546,12 +569,12 @@ CREATE TABLE `tbl_tenagakependidikan` (
   `diklatdasar` year(4) DEFAULT NULL,
   `diklatlanjut` year(4) DEFAULT NULL,
   `diklatmahir` year(4) DEFAULT NULL,
-  `diklatlainnya` text,
+  `diklatlainnya` text DEFAULT NULL,
   `id_lembaga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_tenagakependidikan`
+-- Dumping data for table `tbl_tenagakependidikan`
 --
 
 INSERT INTO `tbl_tenagakependidikan` (`id_tenagaKependidikan`, `nuptk`, `nip`, `nama`, `no_telp`, `alamat`, `pendidikan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `diklatdasar`, `diklatlanjut`, `diklatmahir`, `diklatlainnya`, `id_lembaga`) VALUES
@@ -562,7 +585,7 @@ INSERT INTO `tbl_tenagakependidikan` (`id_tenagaKependidikan`, `nuptk`, `nip`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_tenagapendidik`
+-- Table structure for table `tbl_tenagapendidik`
 --
 
 CREATE TABLE `tbl_tenagapendidik` (
@@ -579,12 +602,12 @@ CREATE TABLE `tbl_tenagapendidik` (
   `diklatdasar` year(4) DEFAULT NULL,
   `diklatlanjut` year(4) DEFAULT NULL,
   `diklatmahir` year(4) DEFAULT NULL,
-  `diklatlainnya` text,
+  `diklatlainnya` text DEFAULT NULL,
   `id_lembaga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_tenagapendidik`
+-- Dumping data for table `tbl_tenagapendidik`
 --
 
 INSERT INTO `tbl_tenagapendidik` (`id_tenagaPendidik`, `nuptk`, `nip`, `nama`, `no_telp`, `alamat`, `pendidikan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `diklatdasar`, `diklatlanjut`, `diklatmahir`, `diklatlainnya`, `id_lembaga`) VALUES
@@ -600,12 +623,13 @@ INSERT INTO `tbl_tenagapendidik` (`id_tenagaPendidik`, `nuptk`, `nip`, `nama`, `
 (22, '321382831', '', 'Agung Hidayat', '083817362612', 'Subang', 'SD', 'Subang', '2021-11-02', 'L', 2018, NULL, NULL, 'Pelatihan Baru;2019', 4),
 (24, '32143313', '', 'Ahmar Subarjo', '0831727313131', 'Subang', 'SMP', 'Subang', '2021-11-01', 'L', 2001, 2008, 2009, NULL, 4),
 (25, '321313131', '', 'Ratih Sumiatih', '0833727131131', 'Subang', 'SMA', 'Subang', '2021-01-18', 'P', 2017, 2018, NULL, NULL, 7),
-(28, '3213458', '', 'Ahmad Supriadi', '08765544422', 'Subang', 'SMP', 'Subang', '2021-11-10', 'L', 2018, NULL, NULL, 'Pelatihan Baru;2019,Pelatihan Lama;2020', 6);
+(28, '3213458', '', 'Ahmad Supriadi', '08765544422', 'Subang', 'SMP', 'Subang', '2021-11-10', 'L', 2018, NULL, NULL, 'Pelatihan Baru;2019,Pelatihan Lama;2020', 6),
+(29, 'qwoiqwoqiowiowq', 'oqiwqiwiqowio', '829281928912', 'qwouiqqiwu', '29812998912', 'S3', '898787', '2022-03-26', 'L', NULL, NULL, NULL, '88888;2022', 4);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_users`
+-- Table structure for table `tbl_users`
 --
 
 CREATE TABLE `tbl_users` (
@@ -616,7 +640,7 @@ CREATE TABLE `tbl_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_users`
+-- Dumping data for table `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
@@ -634,20 +658,28 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `tbl_bantuan`
+-- Indexes for table `tbl_bantuan`
 --
 ALTER TABLE `tbl_bantuan`
   ADD PRIMARY KEY (`id_bantuan`),
   ADD KEY `id_lembaga` (`id_lembaga`) USING BTREE;
 
 --
--- Indeks untuk tabel `tbl_kecamatan`
+-- Indexes for table `tbl_gizi`
+--
+ALTER TABLE `tbl_gizi`
+  ADD PRIMARY KEY (`id_gizi`),
+  ADD KEY `id_siswa` (`id_siswa`),
+  ADD KEY `id_lembaga` (`id_lembaga`);
+
+--
+-- Indexes for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
   ADD PRIMARY KEY (`kode_kec`);
 
 --
--- Indeks untuk tabel `tbl_lembaga`
+-- Indexes for table `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
   ADD PRIMARY KEY (`id`),
@@ -655,141 +687,154 @@ ALTER TABLE `tbl_lembaga`
   ADD KEY `kode_kec` (`kode_kec`);
 
 --
--- Indeks untuk tabel `tbl_prasarana`
+-- Indexes for table `tbl_prasarana`
 --
 ALTER TABLE `tbl_prasarana`
   ADD PRIMARY KEY (`id_prasarana`),
   ADD KEY `id_lembaga` (`id_lembaga`) USING BTREE;
 
 --
--- Indeks untuk tabel `tbl_sarana`
+-- Indexes for table `tbl_sarana`
 --
 ALTER TABLE `tbl_sarana`
   ADD PRIMARY KEY (`id_sarana`);
 
 --
--- Indeks untuk tabel `tbl_sarana_prasarana`
+-- Indexes for table `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   ADD PRIMARY KEY (`id_sarana`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indeks untuk tabel `tbl_siswa`
+-- Indexes for table `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   ADD PRIMARY KEY (`id_siswa`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indeks untuk tabel `tbl_tenagakependidikan`
+-- Indexes for table `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   ADD PRIMARY KEY (`id_tenagaKependidikan`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indeks untuk tabel `tbl_tenagapendidik`
+-- Indexes for table `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
   ADD PRIMARY KEY (`id_tenagaPendidik`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indeks untuk tabel `tbl_users`
+-- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_bantuan`
+-- AUTO_INCREMENT for table `tbl_bantuan`
 --
 ALTER TABLE `tbl_bantuan`
   MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_lembaga`
+-- AUTO_INCREMENT for table `tbl_gizi`
+--
+ALTER TABLE `tbl_gizi`
+  MODIFY `id_gizi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_prasarana`
+-- AUTO_INCREMENT for table `tbl_prasarana`
 --
 ALTER TABLE `tbl_prasarana`
   MODIFY `id_prasarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_sarana`
+-- AUTO_INCREMENT for table `tbl_sarana`
 --
 ALTER TABLE `tbl_sarana`
-  MODIFY `id_sarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id_sarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_sarana_prasarana`
+-- AUTO_INCREMENT for table `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   MODIFY `id_sarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_siswa`
+-- AUTO_INCREMENT for table `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_tenagakependidikan`
+-- AUTO_INCREMENT for table `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   MODIFY `id_tenagaKependidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_tenagapendidik`
+-- AUTO_INCREMENT for table `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
-  MODIFY `id_tenagaPendidik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_tenagaPendidik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_users`
+-- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_lembaga`
+-- Constraints for table `tbl_gizi`
+--
+ALTER TABLE `tbl_gizi`
+  ADD CONSTRAINT `tbl_gizi_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_gizi_ibfk_2` FOREIGN KEY (`id_siswa`) REFERENCES `tbl_siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
   ADD CONSTRAINT `tbl_lembaga_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_users` (`id`),
   ADD CONSTRAINT `tbl_lembaga_ibfk_2` FOREIGN KEY (`kode_kec`) REFERENCES `tbl_kecamatan` (`kode_kec`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_sarana_prasarana`
+-- Constraints for table `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   ADD CONSTRAINT `tbl_sarana_prasarana_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_siswa`
+-- Constraints for table `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   ADD CONSTRAINT `tbl_siswa_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_tenagakependidikan`
+-- Constraints for table `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   ADD CONSTRAINT `tbl_tenagakependidikan_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_tenagapendidik`
+-- Constraints for table `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
   ADD CONSTRAINT `tbl_tenagapendidik_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);

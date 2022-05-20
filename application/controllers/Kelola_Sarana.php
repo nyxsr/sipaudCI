@@ -170,8 +170,7 @@ class Kelola_Sarana extends CI_Controller
 
 	public function delete()
 	{
-		$id				= $this->encryption->decrypt(base64_decode($this->input->post("id")));
-
+		$id					= $this->encryption->decrypt(base64_decode($this->input->post("id")));
 		$data				= array('id_sarana' => $id);
 		$query				= $this->M_Sarana->delete($data);
 		echo json_encode($query);

@@ -106,7 +106,7 @@
 
 			);
 
-			$query				= $this->M_Gizi->insert($data);
+			$query	= $this->M_Gizi->insert($data);
 
 			echo json_encode($query);
 		}
