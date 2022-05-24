@@ -33,6 +33,7 @@
 		public function modalTambah()
 		{
 			$data['siswa'] = $this->M_Siswa->get()->result_array();
+			$data['lembaga'] = $this->M_Lembaga->get()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -97,7 +98,7 @@
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
-			
+
 			$data 				= array(
 				'id_siswa'					=> $id_siswa,
 				'tinggi_badan'				=> $tinggi_badan,

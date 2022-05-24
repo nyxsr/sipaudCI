@@ -128,9 +128,9 @@
       							<th>No</th>
       							<th>Nama</th>
       							<th>Lembaga</th>
-      							<th>Tinggi Badan</th>
-      							<th>Berat Badan</th>
-      							<th>Lingkar Kepala</th>
+      							<th>Tinggi Badan<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
+      							<th>Berat Badan<br><small>Dihitung dengan satuan Kilogram (Kg)</small></th>
+      							<th>Lingkar Kepala<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
       							<th>Aksi</th>
       						</tr>
       					</thead>
@@ -138,7 +138,7 @@
       			</div>
       		</div>
       	</div>
- 
+
       	<script>
       		var datatable;
       		$(document).ready(function() {
@@ -188,7 +188,7 @@
       					},
       					{
       						data: 3,
-      						name: 'tbl_gizi.tinggi_badan' + 'cm'
+      						name: 'tbl_gizi.tinggi_badan'
       					},
       					{
       						data: 4,
@@ -243,9 +243,9 @@
       			var jenis = $(this).attr('data-type');
       			if (jenis == "tambah") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
-      			} else if(jenis == "grafik") {
-					$("#modal-content").load("<?= base_url('kelola_gizi/grafik')?>")
-				  }else{
+      			} else if (jenis == "grafik") {
+      				$("#modal-content").load("<?= base_url('kelola_gizi/grafik') ?>")
+      			} else {
 
       				var id = $(this).attr('data-id');
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>", {

@@ -50,34 +50,47 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<div class="form-group">
+									<div class="form-group form-inline">
 										<label class="bmd-label-floating">Tinggi Badan</label>
-										<input type="text" required name="tinggi_badan" id="tinggi_badan" class="form-control">
+										<input type="text" required name="tinggi_badan" id="tinggi_badan" class="form-control w-25 ">
+										<p class="font-weight-bold">
+											CM
+										</p>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<div class="form-group">
+									<div class="form-group form-inline">
 										<label class="bmd-label-floating">Berat Badan</label>
-										<input type="text" required name="berat_badan" id="berat_badan" class="form-control">
+										<input type="text" required name="berat_badan" id="berat_badan" class="form-control w-25">
+										<p class="font-weight-bold">
+											Kg
+										</p>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<div class="form-group">
+									<div class="form-group form-inline">
 										<label class="bmd-label-floating">Lingkar Kepala</label>
-										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control">
+										<input type="text" required name="lingkar_kepala" id="lingkar_kepala" class="form-control w-25">
+										<p class="font-weight-bold">
+											CM
+										</p>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-								<div class="form-group" id="tanggal">
-                                        <label class="bmd-label-floating">Tanggal Input</label>
-                                        <input type="text" required name="tanggal_input" id="tanggal_input" class="form-control" onblur="$(this).val() ? $(this).parent().parent().addClass('is-focused') : $(this).parent().parent().removeClass('is-focused')">
-                                    </div>
+									<div class="form-group input-group" id="tanggal">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<i class="material-icons">date_range</i>
+											</span>
+										</div>
+										<input type="text" required name="tanggal_input" id="tanggal_input" placeholder="Tanggal Input" class="form-control" onblur="$(this).val() ? $(this).parent().parent().addClass('is-focused') : $(this).parent().parent().removeClass('is-focused')">
+									</div>
 								</div>
 							</div>
 							<button type="button" class="btn btn-default pull-right" data-dismiss="modal">Batal</button>
@@ -98,16 +111,16 @@
 	$('.selectpicker').selectpicker();
 
 	$('#tanggal_input').datetimepicker({
-            format: 'YYYY-MM-DD',
-            icons: {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-plus',
-                down: 'fa fa-minus',
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right'
-            },
-        });
+		format: 'YYYY-MM-DD',
+		icons: {
+			time: 'fa fa-clock-o',
+			date: 'fa fa-calendar',
+			up: 'fa fa-plus',
+			down: 'fa fa-minus',
+			previous: 'fa fa-chevron-left',
+			next: 'fa fa-chevron-right'
+		},
+	});
 
 	$('[name="btn_simpan"]').on('click', function() {
 		var id_siswa = $('[name="id_siswa"]').val();
