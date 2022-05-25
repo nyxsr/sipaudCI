@@ -124,13 +124,14 @@
       			<div class="card-body">
       				<table id="datatable" class="mdl-data-table" style="width:100%">
       					<thead>
-      						<tr>
+      						<tr style="vertical-align:top">
       							<th>No</th>
       							<th>Nama</th>
       							<th>Lembaga</th>
       							<th>Tinggi Badan<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
       							<th>Berat Badan<br><small>Dihitung dengan satuan Kilogram (Kg)</small></th>
       							<th>Lingkar Kepala<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
+      							<th>Tanggal Input</th>
       							<th>Aksi</th>
       						</tr>
       					</thead>
@@ -176,30 +177,40 @@
       				},
       				"columns": [{
       						data: 0,
-      						"orderable": "false"
+      						"orderable": "false",
+      						width: '5%'
       					},
       					{
       						data: 1,
-      						name: 'tbl_gizi.id_siswa'
+      						name: 'tbl_gizi.id_siswa',
+      						width: '30%'
       					},
       					{
       						data: 2,
-      						name: 'tbl_gizi.id_lembaga'
+      						name: 'tbl_gizi.id_lembaga',
+      						width: '20%'
       					},
       					{
       						data: 3,
-      						name: 'tbl_gizi.tinggi_badan'
+      						name: 'tbl_gizi.tinggi_badan',
+      						width: '10%'
       					},
       					{
       						data: 4,
-      						name: 'tbl_gizi.berat_badan'
+      						name: 'tbl_gizi.berat_badan',
+      						width: '10%'
       					},
       					{
       						data: 5,
-      						name: 'tbl_gizi.lingkar_kepala'
+      						name: 'tbl_gizi.lingkar_kepala',
+      						width: '10%'
       					},
       					{
       						data: 6,
+      						name: 'tbl_gizi.tanggal_input'
+      					},
+      					{
+      						data: 7,
       						"orderable": "false"
       					},
       				],

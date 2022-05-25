@@ -7,7 +7,7 @@
 	Highcharts.chart('container', {
 
 		title: {
-			text: 'Grafi Perkembangan Siti Rohmah'
+			text: 'Grafik Perkembangan <?= $siswa ?>'
 		},
 
 		yAxis: {
@@ -39,13 +39,13 @@
 
 		series: [{
 			name: 'Tinggi Badan',
-			data: [0, 141, 150, 161]
+			data: [0, 141, 151]
 		}, {
 			name: 'Berat Badan',
-			data: [0, 45, 30, 60]
+			data: [0, 45, 39]
 		}, {
 			name: 'Lingkar Kepala',
-			data: [0, 50, 51, 52]
+			data: [0, 50, 51]
 		}],
 
 		responsive: {

@@ -40,7 +40,7 @@
 										foreach ($siswa as $index => $d) :
 										?>
 											<option value="<?= $d['id_siswa'] ?>">
-												<?= $d['nama'] ?>
+												<?= $d['nama'] ?> - <b><?= $d['nama_lembaga'] ?></b>
 											</option>
 										<?php
 										endforeach;
@@ -89,7 +89,7 @@
 												<i class="material-icons">date_range</i>
 											</span>
 										</div>
-										<input type="text" required name="tanggal_input" id="tanggal_input" placeholder="Tanggal Input" class="form-control" onblur="$(this).val() ? $(this).parent().parent().addClass('is-focused') : $(this).parent().parent().removeClass('is-focused')">
+										<input type="text" required name="tanggal_input" id="tanggal_input" name="tanggal_input" placeholder="Tanggal Input" class="form-control" onblur="$(this).val() ? $(this).parent().parent().addClass('is-focused') : $(this).parent().parent().removeClass('is-focused')">
 									</div>
 								</div>
 							</div>
@@ -127,12 +127,14 @@
 		var tinggi_badan = $('[name="tinggi_badan"]').val();
 		var berat_badan = $('[name="berat_badan"]').val();
 		var lingkar_kepala = $('[name="lingkar_kepala"]').val();
+		var tanggal_input = $('[name="tanggal_input"]').val();
 
 		if (
 			id_siswa !== "" &&
 			tinggi_badan !== "" &&
 			berat_badan !== "" &&
-			lingkar_kepala !== ""
+			lingkar_kepala !== "" &&
+			tanggal_input !== ""
 
 		) {
 			$.ajax({
@@ -143,7 +145,8 @@
 					id_siswa,
 					tinggi_badan,
 					berat_badan,
-					lingkar_kepala
+					lingkar_kepala,
+					tanggal_input
 				},
 				success: function(data) {
 					$('#modal').modal('hide');

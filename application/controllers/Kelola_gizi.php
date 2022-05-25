@@ -28,12 +28,12 @@
 		{
 			$data['konten'] = "Kelola_gizi/v_grafik";
 			$data['judul'] = "Grafik Perkembangan";
+			$data['siswa'] = "Siti Anwar";
 			$this->load->view('v_template', $data);
 		}
 		public function modalTambah()
 		{
-			$data['siswa'] = $this->M_Siswa->get()->result_array();
-			$data['lembaga'] = $this->M_Lembaga->get()->result_array();
+			$data['siswa'] = $this->M_Siswa->getLembagabySiswa()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -62,16 +62,16 @@
 			} else {
 				$query = $this->M_Gizi->datatable($length, $start, $search, "tbl_siswa.nama", $columnName, $columnSortOrder, $selectFilterName, $selectFilterValue);
 			}
-
 			$nomor_urut = $start + 1;
 			foreach ($query->result_array() as $dt) {
 				$output['data'][] = array(
 					$nomor_urut,
 					!empty($dt['nama']) ? $dt['nama'] : '-',
 					!empty($dt['nama_lembaga']) ? $dt['nama_lembaga'] : '-',
-					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] : '-',
-					!empty($dt['berat_badan']) ? $dt['berat_badan'] : '-',
-					!empty($dt['lingkar_kepala']) ? $dt['lingkar_kepala'] : '-',
+					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] . " cm" : '-',
+					!empty($dt['berat_badan']) ? $dt['berat_badan'] . " kg" : '-',
+					!empty($dt['lingkar_kepala']) ? $dt['lingkar_kepala'] . " cm" : '-',
+					!empty($dt['tanggal_input']) ? date("d-M-Y", strtotime($dt['tanggal_input'])) : '-',
 					'<div class="row">
 						<div class="col-md-6 text-center">
 							<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-pencil"></i></a>
@@ -94,16 +94,21 @@
 
 		public function add()
 		{
+
 			$id_siswa 			= $this->input->post("id_siswa");
+			$id_lembaga			= $this->M_Siswa->getWhere(["id_siswa" => $id_siswa])->row()->id_lembaga;
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
+			$tanggal_input		= $this->input->post("tanggal_input");
 
 			$data 				= array(
 				'id_siswa'					=> $id_siswa,
+				'id_lembaga'				=> $id_lembaga,
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
+				'tanggal_input'				=> $tanggal_input,
 
 			);
 
@@ -114,7 +119,7 @@
 
 		public function modalEdit()
 		{
-			$data['siswa'] = $this->M_Siswa->get()->result_array();
+			$data['siswa'] = $this->M_Siswa->getLembagabySiswa()->result_array();
 			$id = $this->input->post("id");
 			$data['data'] = $this->M_Gizi->getWhere(["id_gizi" => $this->encryption->decrypt(base64_decode($id))])->row_array();
 			$this->load->view('Kelola_gizi/modalEdit', $data);
@@ -128,6 +133,7 @@
 			$tinggi_badan		= $this->input->post("tinggi_badan");
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
+			$tanggal_input		= $this->input->post("tanggal_input");
 
 			$params				= array(
 				"id_gizi" => $id_gizi
@@ -138,6 +144,7 @@
 				'tinggi_badan'				=> $tinggi_badan,
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
+				'tanggal_input'				=> $tanggal_input,
 			);
 
 
