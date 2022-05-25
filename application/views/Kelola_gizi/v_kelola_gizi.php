@@ -128,9 +128,9 @@
       							<th>No</th>
       							<th>Nama</th>
       							<th>Lembaga</th>
-      							<th>Tinggi Badan<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
-      							<th>Berat Badan<br><small>Dihitung dengan satuan Kilogram (Kg)</small></th>
-      							<th>Lingkar Kepala<br><small>Dihitung dengan satuan Centimeter (CM)</small></th>
+      							<th>Tinggi Badan</th>
+      							<th>Berat Badan</th>
+      							<th>Lingkar Kepala</th>
       							<th>Tanggal Input</th>
       							<th>Aksi</th>
       						</tr>
