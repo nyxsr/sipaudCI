@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2022 at 08:59 AM
+-- Generation Time: May 26, 2022 at 08:52 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -333,16 +333,22 @@ CREATE TABLE `tbl_gizi` (
   `id_lembaga` int(11) NOT NULL,
   `tinggi_badan` int(11) NOT NULL,
   `berat_badan` int(11) NOT NULL,
-  `lingkar_kepala` int(11) NOT NULL
+  `lingkar_kepala` int(11) NOT NULL,
+  `bmi` varchar(255) DEFAULT NULL,
+  `tanggal_input` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_gizi`
 --
 
-INSERT INTO `tbl_gizi` (`id_gizi`, `id_siswa`, `id_lembaga`, `tinggi_badan`, `berat_badan`, `lingkar_kepala`) VALUES
-(1, 2, 6, 141, 45, 50),
-(2, 8, 6, 161, 75, 50);
+INSERT INTO `tbl_gizi` (`id_gizi`, `id_siswa`, `id_lembaga`, `tinggi_badan`, `berat_badan`, `lingkar_kepala`, `bmi`, `tanggal_input`) VALUES
+(9, 12, 4, 105, 30, 30, '27.210884353741', '2022-05-27'),
+(10, 10, 4, 100, 19, 30, '19', '2022-05-27'),
+(12, 4, 9, 100, 9, 30, '9', '2022-05-27'),
+(13, 12, 4, 130, 40, 35, '23.668639053254', '2022-05-30'),
+(14, 10, 4, 140, 50, 30, '25.510204081633', '2022-05-31'),
+(15, 4, 9, 131, 31, 33, '18.064215372065', '2022-05-31');
 
 -- --------------------------------------------------------
 
@@ -546,8 +552,7 @@ INSERT INTO `tbl_siswa` (`id_siswa`, `NISN`, `nama`, `nama_ortu`, `no_telp_ortu`
 (9, '129378605', 'Stevia Margarett', 'Siti Aminah', '085764321112', 'Konsultan Kecantikan', 1, 'Pagaden', 'Jakarta', '2018-12-03', 'P', '2021-11-01', NULL, 4),
 (10, '5506478970', 'Ayu Tyas', 'Siti Aminah', '087812346789', 'Konsultan Kecantikan', 2, 'Subang', 'Subang', '2019-11-15', 'P', '2021-11-09', NULL, 4),
 (11, '5506478970', 'Siti', 'dadang', '087812346789', 'Wiraswasta', 1, 'Subang', 'Subang', '2019-11-19', 'P', '2021-12-08', '2021-12-11', 8),
-(12, '0405783213', 'sinta', 'feri', '085345679812', 'Wiraswasta', 0, 'Subang', 'Jakarta', '2019-08-07', 'P', '2021-11-24', NULL, 4),
-(15, 'ajsdsdsksd', 'n', 'kjashdjkashdjkashdjk', '12837218372183', 'jajshdjhdjasd', 12, 'jqlhjhjkashdjksahdkjsah', 'arab', '2022-03-30', 'L', '2022-03-30', '2022-03-30', 4);
+(12, '0405783213', 'Sinta Melawati', 'feri', '085345679812', 'Wiraswasta', 0, 'Subang', 'Jakarta', '2019-08-07', 'P', '2021-11-24', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -747,7 +752,7 @@ ALTER TABLE `tbl_bantuan`
 -- AUTO_INCREMENT for table `tbl_gizi`
 --
 ALTER TABLE `tbl_gizi`
-  MODIFY `id_gizi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_gizi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_lembaga`
