@@ -4,6 +4,9 @@
 	class Kelola_gizi extends CI_Controller
 	{
 
+		// waiting for implementation, if the 'client' want to make the table only gave the latest data in every name.
+		// SELECT g.id_gizi, g.id_siswa, g.id_lembaga, g.tinggi_badan, g.berat_badan, g.lingkar_kepala, g.bmi, g.tanggal_input FROM `tbl_gizi` g INNER JOIN (SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm ON g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate;
+
 		function __construct()
 		{
 			parent::__construct();
@@ -26,15 +29,18 @@
 
 		public function grafik()
 		{
-			$data['konten'] = "Kelola_gizi/v_grafik";
-			$data['judul'] = "Grafik Perkembangan";
 			$data['siswa'] = "Siti Anwar";
-			$this->load->view('v_template', $data);
+			$this->load->view('Kelola_gizi/modalGrafik', $data);
 		}
 		public function modalTambah()
 		{
 			$data['siswa'] = $this->M_Siswa->getLembagabySiswa()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
+		}
+
+		public function modalBMI()
+		{
+			$this->load->view('Kelola_gizi/modalBMI');
 		}
 
 		function datatable()
@@ -64,20 +70,46 @@
 			}
 			$nomor_urut = $start + 1;
 			foreach ($query->result_array() as $dt) {
+
+				if ($dt['bmi'] >= 30) {
+					$statusBMI = "Obesitas";
+					$color = "red";
+					$textColor = "white";
+					$tooltip = "anak memiliki BMI >= 30";
+				} elseif ($dt['bmi'] <= 18.5) {
+					$statusBMI = "Kurus";
+					$color = "red";
+					$textColor = "white";
+					$tooltip = "anak memiliki BMI <= 18.5";
+				} elseif ($dt['bmi'] >= 25) {
+					$statusBMI = "Pra-Obesitas";
+					$color = "yellow";
+					$textColor = "black";
+					$tooltip = "anak memiliki BMI <= 18.5";
+				} else {
+					$statusBMI = "Normal";
+					$color = "green";
+					$textColor = "white";
+					$tooltip = "anak memiliki BMI antara 18.5 sampai 24.9";
+				}
+
+				$isiBMI = '<a href="javascript:void(0);" class="modalButton"  data-toggle="modal" data-target="#modal" data-type="BMI"><span class="badge" style="background-color:' . $color . ';color:' . $textColor . '" data-mdb-toggle="tooltip" title="Dikarenakan ' . $tooltip . '">' . $statusBMI . '</span></a>';
+
 				$output['data'][] = array(
 					$nomor_urut,
-					!empty($dt['nama']) ? $dt['nama'] : '-',
+					!empty($dt['nama']) ? '<a href="javascript:void(0);" class="modalButton"  data-toggle="modal" data-target="#modal" data-type="grafik">' . $dt['nama'] . '</a>' : '-',
 					!empty($dt['nama_lembaga']) ? $dt['nama_lembaga'] : '-',
 					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] . " cm" : '-',
 					!empty($dt['berat_badan']) ? $dt['berat_badan'] . " kg" : '-',
 					!empty($dt['lingkar_kepala']) ? $dt['lingkar_kepala'] . " cm" : '-',
 					!empty($dt['tanggal_input']) ? date("d-M-Y", strtotime($dt['tanggal_input'])) : '-',
+					!empty($dt['bmi']) ? $isiBMI : '-',
 					'<div class="row">
 						<div class="col-md-6 text-center">
-							<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-pencil"></i></a>
+							<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-pencil" style="font-size:20px"></i></a>
 						</div>
 						<div class="col-md-6 text-center">
-							<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-trash"></i></a>
+							<a href="javascript:void(0);" onclick="hapus(this.id);" class="text-danger" id="' . base64_encode($this->encryption->encrypt($dt['id_gizi'])) . '"><i class="fa fas fa-trash" style="font-size:20px"></i></a>
 						</div>
 					</div>',
 				);
@@ -101,6 +133,7 @@
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 			$tanggal_input		= $this->input->post("tanggal_input");
+			$bmi				= $berat_badan / (($tinggi_badan / 10) * ($tinggi_badan / 10)) * 100;
 
 			$data 				= array(
 				'id_siswa'					=> $id_siswa,
@@ -109,6 +142,7 @@
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
 				'tanggal_input'				=> $tanggal_input,
+				'bmi'						=> $bmi,
 
 			);
 
@@ -134,6 +168,7 @@
 			$berat_badan		= $this->input->post("berat_badan");
 			$lingkar_kepala		= $this->input->post("lingkar_kepala");
 			$tanggal_input		= $this->input->post("tanggal_input");
+			$bmi				= $berat_badan / (($tinggi_badan / 10) * ($tinggi_badan / 10)) * 100;
 
 			$params				= array(
 				"id_gizi" => $id_gizi
@@ -145,6 +180,7 @@
 				'berat_badan'				=> $berat_badan,
 				'lingkar_kepala'			=> $lingkar_kepala,
 				'tanggal_input'				=> $tanggal_input,
+				'bmi'						=> $bmi,
 			);
 
 

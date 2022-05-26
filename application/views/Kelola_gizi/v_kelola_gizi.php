@@ -132,6 +132,7 @@
       							<th>Berat Badan</th>
       							<th>Lingkar Kepala</th>
       							<th>Tanggal Input</th>
+      							<th>Kondisi<br><small>Sesuai dengan BMI Anak</small></th>
       							<th>Aksi</th>
       						</tr>
       					</thead>
@@ -183,12 +184,12 @@
       					{
       						data: 1,
       						name: 'tbl_gizi.id_siswa',
-      						width: '30%'
+      						width: '10%'
       					},
       					{
       						data: 2,
       						name: 'tbl_gizi.id_lembaga',
-      						width: '20%'
+      						width: '10%'
       					},
       					{
       						data: 3,
@@ -207,11 +208,19 @@
       					},
       					{
       						data: 6,
-      						name: 'tbl_gizi.tanggal_input'
+      						name: 'tbl_gizi.tanggal_input',
+      						width: '10%'
       					},
       					{
       						data: 7,
-      						"orderable": "false"
+      						name: 'tbl_gizi.bmi',
+      						width: '8%',
+      						align: 'middle'
+      					},
+      					{
+      						data: 8,
+      						"orderable": "false",
+      						width: '5%'
       					},
       				],
       				// "stateSave":  true,
@@ -256,8 +265,9 @@
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
       			} else if (jenis == "grafik") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/grafik') ?>")
+      			} else if (jenis == "BMI") {
+      				$("#modal-content").load("<?= base_url('kelola_gizi/modalBMI') ?>")
       			} else {
-
       				var id = $(this).attr('data-id');
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>", {
       					id: id
