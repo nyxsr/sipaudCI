@@ -1,105 +1,294 @@
-  <style>
-    /* Change Autocomplete styles in Chrome*/
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus input:-webkit-autofill,
-    textarea:-webkit-autofill,
-    textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
-    select:-webkit-autofill,
-    select:-webkit-autofill:hover,
-    select:-webkit-autofill:focus {
-      border-bottom: 1px solid #d2d2d2 !important;
-      -webkit-text-fill-color: #707173 !important;
-      -webkit-box-shadow: 0 0 0px 100px transparent inset !important;
-      transition: background-color 5000s ease-in-out 0s !important;
-      background-color: transparent !important;
-    }
+<style>
+  *{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    textarea:-webkit-autofill:hover,
-    textarea:-webkit-autofill:focus,
-    select:-webkit-autofill:hover,
-    select:-webkit-autofill:focus {
-      transition: border-bottom 1s ease 0s !important,
-        background-color 5000s ease-in-out 0s !important;
-      border-bottom: 2px solid #8e24aa !important;
-      -webkit-text-fill-color: #707173 !important;
-      -webkit-box-shadow: 0 0 0px 100px transparent inset !important;
-      background-color: transparent !important;
-    }
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background-color: #fff;
+}
 
-    .form-control:invalid,
-    .form-control,
-    .is-focused .form-control {
-      background-image: linear-gradient(0deg, #8e24aa 2px, rgba(244, 67, 54, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0) !important;
-    }
+.wave{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
 
-    .background {
-      /* background-image: url('<?php echo base_url(); ?>assets/img/login.jpg'); */
-      background-color: #3399ff;
-    }
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap :7rem;
+    padding: 0 2rem;
+}
 
-    .input-group .form-control-icon {
-      position: absolute;
-      z-index: 20;
-      display: block;
-      width: 2.375rem;
-      height: 2.375rem;
-      line-height: 2.375rem;
-      text-align: center;
-      color: #aaa;
-      right: 5px;
-      top: 12px;
-    }
-  </style>
-  <div class="wrapper wrapper-full-page">
-  <div class="page-header login-page header-filter background" filter-color="green" style="background-size: cover; background-position: top center;">
-      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-      <div class="container">
-        <div class="row mt-md-5">
-          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <div style="transform:translateY(-150%);text-align:center;font-size:x-large">SISTEM MONITORING PAUD</div>
-            <form class="form" method="POST">
-              <div class="card card-login">
-                <div class="card-header card-header-rose text-center">
-                  <h4 class="card-title">Login</h4>
-                </div>
-                <div class="card-body ">
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">email</i>
-                        </span>
-                      </div>
-                      <input type="text" id="username" required name="username" class="form-control" placeholder="Username...">
-                    </div>
-                  </span>
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-						          <span class="fa fa-eye form-control-icon" id="icon-password"></span>
-                      <input type="password" id="password" required name="password" class="form-control" placeholder="Password...">
-                    </div>
-                  </span>
-                </div>
-                <div class="text-center px-4 mb-4">
-                  <button id="simpan" type="submit" class="btn btn-rose btn-round py-3 mt-4 w-100">Login</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      </>
-    </div>
-    <script>
-      $(document).ready(function() {
+.img{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.login-content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+.img img{
+	width: 280px;
+}
+
+
+
+form{
+	width: 360px;
+}
+
+.login-content img{
+    height: 100px;
+	
+}
+
+.login-content h2{
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2 rem;
+}
+
+.login-content .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #395EA9;
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -13px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #395EA9;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+a{
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+}
+
+a:hover{
+	color: #395EA9;
+}
+
+.btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to left, #395EA9, #389fd3, #395EA9);
+	/* background-image: linear-gradient(to right); */
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}
+
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.img img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+
+	.login-content h2 {
+		font-size: 1.3rem;
+	}
+}
+</style>
+
+<img class="wave" src="<?php echo base_url(); ?>assets/img/bgk.png">
+	<div class="container">
+		<div class="img">
+			<img src="<?php echo base_url(); ?>assets/img/bg3.svg">
+		</div>
+		<div class="login-content">
+			<form method="POST">
+				<img src="<?php echo base_url(); ?>assets/img/avatar2.svg">
+				<h2 class="title">Sistem Informasi Paud HI</h2>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Username</h5>
+						<input type="text" id="username" required name="username" class="input">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fa fa-eye form-control-icon" id="icon-password"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" id="password" required name="password" class="input">
+					</div>
+				</div>
+				<a href="#">Forgot Password?</a>
+				<input id="simpan" type="submit" class="btn" value="Login">
+			</form>
+		</div>
+	</div>
+
+  <script>
+    const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+	let parent = this.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(){
+	let parent = this.parentNode.parentNode;
+	if(this.value == ""){
+		parent.classList.remove("focus");
+	}
+}
+
+
+inputs.forEach(input => {
+	input.addEventListener("focus", addcl);
+	input.addEventListener("blur", remcl);
+});
+
+$(document).ready(function() {
         $("#icon-password").on("click",function(){
         if($("#password").attr("type") == "text"){
             $("#password").attr("type","password");
@@ -151,4 +340,5 @@
 
         });
       });
-    </script>
+
+  </script>

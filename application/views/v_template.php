@@ -21,6 +21,9 @@ The above copyright notice and this permission notice shall be included in all c
     <?php echo $judul; ?> | SIMONPAUD
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+  <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
+  
   <!--     Fonts and icons     -->
   <link href="<?php echo base_url(); ?>assets/css/google_font.css" rel="stylesheet" />
   <link href="<?php echo base_url(); ?>assets/fontawesome/css/all.min.css" rel="stylesheet" />
@@ -109,6 +112,7 @@ The above copyright notice and this permission notice shall be included in all c
 
   <!-- leaflet JS -->
   <script src="<?php echo base_url(); ?>assets/leaflet/leaflet.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
   <style>
     @media (min-width: 576px) { 

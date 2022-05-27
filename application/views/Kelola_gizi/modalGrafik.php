@@ -19,7 +19,7 @@
 	Highcharts.chart('container', {
 
 		title: {
-			text: 'Grafik Perkembangan <?= $siswa ?>'
+			text: 'Grafik Perkembangan'
 		},
 
 		yAxis: {
