@@ -20,6 +20,19 @@ class M_Gizi extends CI_Model
 		return $this->db->get();
 	}
 
+	function getHistory($where = NULL)
+	{
+		$this->db->select("*");
+		$this->db->from("tbl_gizi");
+		$this->db->join("tbl_siswa", "tbl_gizi.id_siswa = tbl_siswa.id_siswa");
+		$this->db->join("tbl_lembaga", "tbl_gizi.id_lembaga = tbl_lembaga.id");
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		return $this->db->get();
+	}
+
 	function getWhere($where = NULL, $orderBy = NULL)
 	{
 		$this->db->select("*");

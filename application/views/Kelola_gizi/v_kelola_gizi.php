@@ -268,6 +268,11 @@
       				$("#modal-content").load("<?= base_url('kelola_gizi/grafik') ?>", {
       					id
       				})
+      			} else if (jenis == "history") {
+      				var id = $(this).attr('data-id');
+      				$("#modal-content").load("<?= base_url('kelola_gizi/modalHistory') ?>", {
+      					id
+      				})
       			} else if (jenis == "BMI") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalBMI') ?>")
       			} else {

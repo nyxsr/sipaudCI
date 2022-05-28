@@ -40,12 +40,17 @@
 		},
 
 		plotOptions: {
+			line: {
+				dataLabels: {
+					enabled: true
+				}
+			},
 			series: {
 				label: {
 					connectorAllowed: false
 				},
 				pointStart: 1
-			}
+			},
 		},
 
 		series: [{

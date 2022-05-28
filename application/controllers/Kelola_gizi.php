@@ -32,11 +32,13 @@
 			$id = $this->input->post('id');
 			$charts = $this->M_Gizi->getDataGizi(["tbl_gizi.id_siswa" => $this->encryption->decrypt(base64_decode($id))])->result();
 			$data['nama']		= null;
+			$data['tanggal_input']	= null;
 			$tinggi_badan		= [0];
 			$berat_badan		= [0];
 			$lingkar_kepala	= [0];
 			foreach ($charts as $chart) {
 				$data['nama']	= $chart->nama;
+				$data['tanggal_input']	= $chart->tanggal_input;
 				array_push($tinggi_badan, intval($chart->tinggi_badan));
 				array_push($berat_badan, intval($chart->berat_badan));
 				array_push($lingkar_kepala, intval($chart->lingkar_kepala));
@@ -50,13 +52,24 @@
 		public function modalTambah()
 		{
 			$id_lembaga =  $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga")));
-			$data['siswa'] = $this->M_Siswa->getLembagabySiswa(['tbl_lembaga.id' => $id_lembaga])->result_array();
+			if (!empty($id_lembaga)) {
+				$data['siswa'] = $this->M_Siswa->getLembagabySiswa(['tbl_lembaga.id' => $id_lembaga])->result_array();
+			} else {
+				$data['siswa'] = $this->M_Siswa->getLembagabySiswa()->result_array();
+			}
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
 		public function modalBMI()
 		{
 			$this->load->view('Kelola_gizi/modalBMI');
+		}
+
+		public function modalHistory()
+		{
+			$id = $this->input->post("id");
+			$data['data'] = $this->M_Gizi->getHistory(["id_gizi" => $this->encryption->decrypt(base64_decode($id))])->result();
+			$this->load->view('Kelola_gizi/modalHistory', $data);
 		}
 
 		function datatable()
@@ -118,7 +131,7 @@
 					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] . " cm" : '-',
 					!empty($dt['berat_badan']) ? $dt['berat_badan'] . " kg" : '-',
 					!empty($dt['lingkar_kepala']) ? $dt['lingkar_kepala'] . " cm" : '-',
-					!empty($dt['tanggal_input']) ? date("d-M-Y", strtotime($dt['tanggal_input'])) : '-',
+					!empty($dt['tanggal_input']) ? '<a href="javascript:void(0);" class="modalButton"  data-toggle="modal" data-target="#modal" data-type="history"  data-id="' . base64_encode($this->encryption->encrypt($dt['id_siswa'])) . '">' . date("d-M-Y", strtotime($dt['tanggal_input'])) . '</a>' : '-',
 					!empty($dt['bmi']) ? $isiBMI : '-',
 					'<div class="row">
 						<div class="col-md-6 text-center">
