@@ -8,6 +8,18 @@ class M_Gizi extends CI_Model
 		return $this->db->get("tbl_gizi");
 	}
 
+	function getDataGizi($where = NULL)
+	{
+		$this->db->select("*");
+		$this->db->from("tbl_gizi");
+		$this->db->join("tbl_siswa", "tbl_gizi.id_siswa = tbl_siswa.id_siswa");
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		return $this->db->get();
+	}
+
 	function getWhere($where = NULL, $orderBy = NULL)
 	{
 		$this->db->select("*");
@@ -90,18 +102,25 @@ class M_Gizi extends CI_Model
 
 	function datatable($limit, $start, $search, $paramsSearch, $columnSortName, $typeSort, $selectFilterName, $selectFilterValue)
 	{
-		$this->db->select("tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.*");
+		// SELECT g.id_gizi, g.id_siswa, g.id_lembaga, g.tinggi_badan, g.berat_badan, g.lingkar_kepala, g.bmi, g.tanggal_input, lemb.nama_lembaga, s.nama FROM `tbl_gizi` g INNER JOIN (SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm ON g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate JOIN tbl_lembaga lemb ON g.id_lembaga = lemb.id JOIN tbl_siswa s ON s.id_siswa = g.id_siswa;
+		$this->db->select("g.id_gizi, g.id_siswa, g.id_lembaga, g.tinggi_badan, g.berat_badan, g.lingkar_kepala, g.bmi, g.tanggal_input, lemb.nama_lembaga, s.nama");
+		$this->db->from("tbl_gizi g");
+		$this->db->join("(SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm", "g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate");
+		$this->db->join("tbl_lembaga lemb", "g.id_lembaga = lemb.id");
+		$this->db->join("tbl_siswa s", "s.id_siswa = g.id_siswa");
 
-		$this->db->from("tbl_gizi");
-		$this->db->join("tbl_siswa", "tbl_siswa.id_siswa = tbl_gizi.id_siswa");
-		$this->db->join("tbl_lembaga", "tbl_lembaga.id = tbl_siswa.id_lembaga");
+		// $this->db->select("tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.*");
+
+		// $this->db->from("tbl_gizi");
+		// $this->db->join("tbl_siswa", "tbl_siswa.id_siswa = tbl_gizi.id_siswa");
+		// $this->db->join("tbl_lembaga", "tbl_lembaga.id = tbl_siswa.id_lembaga");
 
 		if (!empty($selectFilterName) && !empty($selectFilterValue)) {
 			$this->db->where($selectFilterName, $selectFilterValue);
 		}
 
 		if ($this->session->userdata("role") == "operator") {
-			$this->db->where("tbl_siswa.id_lembaga", $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))));
+			$this->db->where("s.id_lembaga", $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))));
 		}
 
 		if (!empty($search)) {

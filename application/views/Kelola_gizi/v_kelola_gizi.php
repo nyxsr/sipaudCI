@@ -183,37 +183,37 @@
       					},
       					{
       						data: 1,
-      						name: 'tbl_gizi.id_siswa',
+      						name: 's.nama',
       						width: '10%'
       					},
       					{
       						data: 2,
-      						name: 'tbl_gizi.id_lembaga',
+      						name: 'lemb.nama_lembaga',
       						width: '10%'
       					},
       					{
       						data: 3,
-      						name: 'tbl_gizi.tinggi_badan',
+      						name: 'g.tinggi_badan',
       						width: '10%'
       					},
       					{
       						data: 4,
-      						name: 'tbl_gizi.berat_badan',
+      						name: 'g.berat_badan',
       						width: '10%'
       					},
       					{
       						data: 5,
-      						name: 'tbl_gizi.lingkar_kepala',
+      						name: 'g.lingkar_kepala',
       						width: '10%'
       					},
       					{
       						data: 6,
-      						name: 'tbl_gizi.tanggal_input',
+      						name: 'g.tanggal_input',
       						width: '10%'
       					},
       					{
       						data: 7,
-      						name: 'tbl_gizi.bmi',
+      						name: 'g.bmi',
       						width: '8%',
       						align: 'middle'
       					},
@@ -264,13 +264,16 @@
       			if (jenis == "tambah") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalTambah') ?>")
       			} else if (jenis == "grafik") {
-      				$("#modal-content").load("<?= base_url('kelola_gizi/grafik') ?>")
+      				var id = $(this).attr('data-id');
+      				$("#modal-content").load("<?= base_url('kelola_gizi/grafik') ?>", {
+      					id
+      				})
       			} else if (jenis == "BMI") {
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalBMI') ?>")
       			} else {
       				var id = $(this).attr('data-id');
       				$("#modal-content").load("<?= base_url('kelola_gizi/modalEdit') ?>", {
-      					id: id
+      					id
       				})
       			}
       		});

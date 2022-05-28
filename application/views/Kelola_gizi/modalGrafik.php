@@ -17,9 +17,8 @@
 
 <script>
 	Highcharts.chart('container', {
-
 		title: {
-			text: 'Grafik Perkembangan'
+			text: 'Grafik Perkembangan <?= $nama ?>'
 		},
 
 		yAxis: {
@@ -51,13 +50,13 @@
 
 		series: [{
 			name: 'Tinggi Badan',
-			data: [0, 141, 151]
+			data: <?= $tinggi_badan ?>
 		}, {
 			name: 'Berat Badan',
-			data: [0, 45, 39]
+			data: <?= $berat_badan ?>
 		}, {
 			name: 'Lingkar Kepala',
-			data: [0, 50, 51]
+			data: <?= $lingkar_kepala ?>
 		}],
 
 		responsive: {

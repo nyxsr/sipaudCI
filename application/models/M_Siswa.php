@@ -8,11 +8,14 @@ class M_Siswa extends CI_Model
 		return $this->db->get("tbl_siswa");
 	}
 
-	function getLembagabySiswa()
+	function getLembagabySiswa($where = NULL)
 	{
 		$this->db->select("nama_lembaga, tbl_siswa.*");
 		$this->db->from("tbl_siswa");
 		$this->db->join("tbl_lembaga", "tbl_siswa.id_lembaga = tbl_lembaga.id");
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
 		$this->db->order_by("nama_lembaga", "asc");
 
 		return $this->db->get();

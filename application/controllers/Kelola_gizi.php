@@ -29,12 +29,28 @@
 
 		public function grafik()
 		{
-			$data['siswa'] = "Siti Anwar";
+			$id = $this->input->post('id');
+			$charts = $this->M_Gizi->getDataGizi(["tbl_gizi.id_siswa" => $this->encryption->decrypt(base64_decode($id))])->result();
+			$data['nama']		= null;
+			$tinggi_badan		= [0];
+			$berat_badan		= [0];
+			$lingkar_kepala	= [0];
+			foreach ($charts as $chart) {
+				$data['nama']	= $chart->nama;
+				array_push($tinggi_badan, intval($chart->tinggi_badan));
+				array_push($berat_badan, intval($chart->berat_badan));
+				array_push($lingkar_kepala, intval($chart->lingkar_kepala));
+			}
+
+			$data['tinggi_badan']		= json_encode($tinggi_badan);
+			$data['berat_badan']		= json_encode($berat_badan);
+			$data['lingkar_kepala']	= json_encode($lingkar_kepala);
 			$this->load->view('Kelola_gizi/modalGrafik', $data);
 		}
 		public function modalTambah()
 		{
-			$data['siswa'] = $this->M_Siswa->getLembagabySiswa()->result_array();
+			$id_lembaga =  $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga")));
+			$data['siswa'] = $this->M_Siswa->getLembagabySiswa(['tbl_lembaga.id' => $id_lembaga])->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -63,10 +79,10 @@
 			$output['data'] = array();
 
 			if ($search != "") {
-				$query = $this->M_Gizi->datatable($length, $start, $search, "tbl_siswa.nama", $columnName, $columnSortOrder, $selectFilterName, $selectFilterValue);
+				$query = $this->M_Gizi->datatable($length, $start, $search, "s.nama", $columnName, $columnSortOrder, $selectFilterName, $selectFilterValue);
 				$output['recordsTotal'] = $output['recordsFiltered'] = $query->num_rows();
 			} else {
-				$query = $this->M_Gizi->datatable($length, $start, $search, "tbl_siswa.nama", $columnName, $columnSortOrder, $selectFilterName, $selectFilterValue);
+				$query = $this->M_Gizi->datatable($length, $start, $search, "s.nama", $columnName, $columnSortOrder, $selectFilterName, $selectFilterValue);
 			}
 			$nomor_urut = $start + 1;
 			foreach ($query->result_array() as $dt) {
@@ -97,7 +113,7 @@
 
 				$output['data'][] = array(
 					$nomor_urut,
-					!empty($dt['nama']) ? '<a href="javascript:void(0);" class="modalButton"  data-toggle="modal" data-target="#modal" data-type="grafik">' . $dt['nama'] . '</a>' : '-',
+					!empty($dt['nama']) ? '<a href="javascript:void(0);" class="modalButton"  data-toggle="modal" data-target="#modal" data-type="grafik"  data-id="' . base64_encode($this->encryption->encrypt($dt['id_siswa'])) . '">' . $dt['nama'] . '</a>' : '-',
 					!empty($dt['nama_lembaga']) ? $dt['nama_lembaga'] : '-',
 					!empty($dt['tinggi_badan']) ? $dt['tinggi_badan'] . " cm" : '-',
 					!empty($dt['berat_badan']) ? $dt['berat_badan'] . " kg" : '-',
