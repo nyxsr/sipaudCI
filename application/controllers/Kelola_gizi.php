@@ -68,7 +68,9 @@
 		public function modalHistory()
 		{
 			$id = $this->input->post("id");
-			$data['data'] = $this->M_Gizi->getHistory(["id_gizi" => $this->encryption->decrypt(base64_decode($id))])->result();
+			$data = array(
+				'histories' => $this->M_Gizi->getHistory(["tbl_gizi.id_siswa" => $this->encryption->decrypt(base64_decode($id))])
+			);
 			$this->load->view('Kelola_gizi/modalHistory', $data);
 		}
 

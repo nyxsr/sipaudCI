@@ -15,25 +15,25 @@
 						<td>Kondisi</td>
 					</tr>
 					<?php
-					foreach ($data as $row) :
+					foreach ($histories as $history) :
 					?>
 						<tr>
-							<td><?= $row->tinggi_badan ?> cm</td>
-							<td><?= $row->berat_badan ?> Kg</td>
-							<td><?= $row->lingkar_kepala ?> cm</td>
-							<td style="font-size:10px ; font-weight:600"><?= date("d-M-Y", strtotime($row->tanggal_input)) ?></td>
+							<td><?= $history->tinggi_badan ?> cm</td>
+							<td><?= $history->berat_badan ?> Kg</td>
+							<td><?= $history->lingkar_kepala ?> cm</td>
+							<td style="font-size:10px ; font-weight:600"><?= date("d-M-Y", strtotime($history->tanggal_input)) ?></td>
 							<?php
-							if ($row->bmi >= 30) {
+							if ($history->bmi >= 30) {
 								$statusBMI = "Obesitas";
 								$color = "red";
 								$textColor = "white";
 								$tooltip = "anak memiliki BMI >= 30";
-							} elseif ($row->bmi <= 18.5) {
+							} elseif ($history->bmi <= 18.5) {
 								$statusBMI = "Kurus";
 								$color = "red";
 								$textColor = "white";
 								$tooltip = "anak memiliki BMI <= 18.5";
-							} elseif ($row->bmi >= 25) {
+							} elseif ($history->bmi >= 25) {
 								$statusBMI = "Pra-Obesitas";
 								$color = "yellow";
 								$textColor = "black";

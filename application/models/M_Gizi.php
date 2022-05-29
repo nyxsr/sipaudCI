@@ -30,7 +30,7 @@ class M_Gizi extends CI_Model
 			$this->db->where($where);
 		}
 
-		return $this->db->get();
+		return $this->db->get()->result();
 	}
 
 	function getWhere($where = NULL, $orderBy = NULL)
