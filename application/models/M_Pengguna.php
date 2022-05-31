@@ -45,6 +45,7 @@ class M_Pengguna extends CI_Model {
 	function datatable($limit,$start,$search,$paramsSearch,$columnSortName,$typeSort){
 		$this->db->select("*");
 		$this->db->from("tbl_users");
+        $this->db->join("tbl_lembaga", "tbl_lembaga.id_user = tbl_users.id");
 
 		if(!empty($search)){
 			$this->db->like($paramsSearch,$search);

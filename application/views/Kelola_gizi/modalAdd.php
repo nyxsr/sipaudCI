@@ -11,6 +11,27 @@
 		right: 5px;
 		top: 2px;
 	}
+
+	.dropdown_filter button {
+      		margin: 0;
+      	}
+
+      	.dropdown_filter .dropdown-menu .dropdown-item:focus,
+      	.dropdown_filter .dropdown-menu .dropdown-item:hover,
+      	.dropdown_filter .dropdown-menu a:active,
+      	.dropdown_filter .dropdown-menu a:focus,
+      	.dropdown_filter .dropdown-menu a:hover,
+      	.dropdown_filter .bootstrap-select .dropdown-item.active {
+      		background-color: #ff9800;
+      	}
+
+      	.dropdown_filter .bootstrap-select .btn.dropdown-toggle.select-with-transition {
+      		background-image: linear-gradient(0deg, #ff9800 2px, rgba(244, 67, 54, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0) !important;
+      	}
+
+      	.dropdown_filter .bootstrap-select>.dropdown-toggle.bs-placeholder {
+      		color: #ffff;
+      	}
 </style>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -33,7 +54,52 @@
 					<div class="card-body" style="margin-top:6px;">
 						<form method="POST" id="addForm" action="javascript:void(0);">
 							<div class="row" style="padding-bottom: 0px;">
-								<div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
+
+							<div class="col-md-12 my-1">
+								<div id="kecamatan-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<select id="filter_kecamatan" class="kecamatan filter" data-size="5" data-style="btn btn-sm btn-default d-inline-block" tabindex="-98">
+										<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Kecamatan</option>
+										<?php foreach ($kecamatan as $dataKecamatan) : ?>
+											<option value="<?= $dataKecamatan['kode_kec'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("kode_kec"))) == $dataKecamatan['kode_kec']) ? "selected" : "" ?>> <?= $dataKecamatan['kecamatan'] ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12 my-1">
+								<div id="desa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<select id="filter_desa" class="desa filter" data-size="5" data-style="btn btn-sm btn-success d-inline-block" tabindex="-98">
+										<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Desa</option>
+										<?php foreach ($desa as $dataDesa) : ?>
+											<!-- <option value="<?= $dataDesa['kode_desa'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("kode_desa"))) == $dataDesa['kode_desa']) ? "selected" : "" ?>> <?= $dataDesa['desa'] ?></option> -->
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							
+							<div class="col-md-12 my-1">
+								<div id="lembaga-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98">
+										<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Lembaga</option>
+										<?php foreach ($lembaga as $d) : ?>
+											<option value="<?= $d['id'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id']) ? "selected" : "" ?>><?= $d['nama_lembaga'] ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12 my-1">
+								<div id="lembaga-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-danger d-inline-block" tabindex="-98">
+										<option value="">Siswa</option>
+										<?php foreach ($lembaga as $d) : ?>
+											<option value="<?= $d['id'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id']) ? "selected" : "" ?>><?= $d['nama_lembaga'] ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+
+								<!-- <div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
 									<label for="id_siswa" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Siswa</label>
 									<select name="id_siswa" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-style="btn btn-link">
 										<?php
@@ -46,7 +112,7 @@
 										endforeach;
 										?>
 									</select>
-								</div>
+								</div> -->
 							</div>
 							<div class="row">
 								<div class="col-md-12">
@@ -108,6 +174,7 @@
 </div> -->
 
 <script>
+	$(document).ready(function() {
 	$('.selectpicker').selectpicker();
 
 	$('#tanggal_input').datetimepicker({
@@ -170,4 +237,16 @@
 		}
 
 	});
+	
+	$('.kecamatan').selectpicker({
+		liveSearch: true
+	});
+	$('.desa').selectpicker({
+		liveSearch: true
+	});
+	$('.lembaga').selectpicker({
+		liveSearch: true
+	});
+
+	})
 </script>

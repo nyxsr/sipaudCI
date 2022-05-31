@@ -108,7 +108,7 @@ form{
 	bottom: -2px;
 	width: 0%;
 	height: 2px;
-	background-color: #395EA9;
+	background-color: #864694;
 	transition: .4s;
 }
 
@@ -130,7 +130,7 @@ form{
 }
 
 .input-div.focus > .i > i{
-	color: #395EA9;
+	color: #864694;
 }
 
 .input-div > div > input{
@@ -162,7 +162,7 @@ a{
 }
 
 a:hover{
-	color: #395EA9;
+	color: #864694;
 }
 
 .btn{
@@ -172,7 +172,7 @@ a:hover{
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to left, #395EA9, #389fd3, #395EA9);
+	background-image: linear-gradient(to left, #864694, #9B4B9B, #864694);
 	/* background-image: linear-gradient(to right); */
 	background-size: 200%;
 	font-size: 1.2rem;
@@ -188,10 +188,58 @@ a:hover{
 }
 
 
+/* @media screen and (min-width: 1600px){
+	
+	.container{
+		grid-gap: 8rem;
+	}
+	form{
+		width: 530px;
+	}
+
+	.login-content h2{
+        font-size: 4rem;
+        margin: 10px 0;
+	}
+	.login-content img{
+    height: 160px;
+	
+}
+	.img img{
+		width: 900px;
+		padding-right: 80px;
+	}
+} */
+@media screen and (min-width: 1300px){
+	
+	.container{
+		grid-gap: 8rem;
+	}
+	form{
+		width: 430px;
+	}
+
+	.login-content h2{
+        font-size: 3rem;
+        margin: 8px 0;
+	}
+
+	.login-content img{
+    height: 160px;
+	
+}
+
+	.img img{
+		width: 400px;
+		padding-right: 80px;
+	}
+}
+
 @media screen and (max-width: 1050px){
 	.container{
 		grid-gap: 5rem;
 	}
+
 
 }
 
@@ -219,6 +267,10 @@ a:hover{
 		display: none;
 	}
 
+	form{
+		width: 430px;
+	}
+
 	.wave{
 		display: none;
 	}
@@ -228,19 +280,46 @@ a:hover{
 	}
 
 	.login-content h2 {
-		font-size: 1.3rem;
+		font-size: 1.8rem;
+		margin: 10px 0;
+	}
+}
+@media screen and (max-width: 500px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	form{
+		width: 330px;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+
+	.login-content h2 {
+		font-size: 1.2rem;
+		margin: 4px 0;
 	}
 }
 </style>
 
-<img class="wave" src="<?php echo base_url(); ?>assets/img/bgk.png">
+<img class="wave" src="<?php echo base_url(); ?>assets/img/bg5.png">
 	<div class="container">
 		<div class="img">
-			<img src="<?php echo base_url(); ?>assets/img/bg3.svg">
+			<img src="<?php echo base_url(); ?>assets/img/bg4.svg">
 		</div>
 		<div class="login-content">
 			<form method="POST">
-				<img src="<?php echo base_url(); ?>assets/img/avatar2.svg">
+				<img src="<?php echo base_url(); ?>assets/img/avatar1.svg">
 				<h2 class="title">Sistem Informasi Paud HI</h2>
 				<div class="input-div one">
 					<div class="i">

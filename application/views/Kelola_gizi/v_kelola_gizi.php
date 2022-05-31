@@ -132,7 +132,7 @@
       							<th>Berat Badan</th>
       							<th>Lingkar Kepala</th>
       							<th>Tanggal Input</th>
-      							<th>Kondisi<br><small>Sesuai dengan BMI Anak</small></th>
+      							<th>Kondisi</th>
       							<th>Aksi</th>
       						</tr>
       					</thead>

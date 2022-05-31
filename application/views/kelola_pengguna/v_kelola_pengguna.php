@@ -122,6 +122,7 @@ select:-webkit-autofill:focus {
                         <th>Username</th>
                         <th>Password</th>
                         <th>Level</th>
+                        <th>Lembaga</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -155,7 +156,8 @@ select:-webkit-autofill:focus {
                 {data : 1, name: 'username'},
                 {data : 2, "orderable": "false"},
                 {data : 3, name: 'role'},
-                {data : 4, "orderable": "false"}
+                {data : 4, name: 'tbl_lembaga.nama_lembaga'},
+                {data : 5, "orderable": "false"}
             ],
             autoWidth: false,
             columnDefs: [

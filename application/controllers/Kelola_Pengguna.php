@@ -55,6 +55,7 @@ class Kelola_Pengguna extends CI_Controller {
 				$this->encryption->decrypt($dt['password']),
 				$dt['role'],
 				($dt['username'] == "admin") ? "<i>Tidak ada</i>" :
+				$dt['nama_lembaga'],
 				'<div class="row">
 					<div class="col-md-6 text-center">
 						<a href="javascript:void(0);" class="text-success modalButton"  data-toggle="modal" data-target="#modal" data-type="edit" data-id="'.$dt['id'].'"><i class="fa fas fa-pencil"></i></a>
