@@ -79,7 +79,7 @@
 
 								<div class="col-md-12 my-1">
 									<div id="lembaga-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'pimpinan') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98">
+										<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98" <?= ($this->session->userdata("role") == "operator") ? "disabled" : "" ?>>
 											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Lembaga</option>
 											<?php foreach ($lembaga as $d) : ?>
 												<option value="<?= $d['id'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id']) ? "selected" : "" ?>><?= $d['nama_lembaga'] ?></option>
