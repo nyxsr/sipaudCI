@@ -8,6 +8,31 @@ class M_Gizi extends CI_Model
 		return $this->db->get("tbl_gizi");
 	}
 
+
+	function countGiziPra()
+	{
+		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE (bmi < 30 AND bmi >= 25);");
+		return $query->num_rows();
+	}
+
+	function countGiziObesitas()
+	{
+		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE bmi >= 30;");
+		return $query->num_rows();
+	}
+
+	function countGiziNormal()
+	{
+		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE (bmi >= 18.5 AND bmi <= 24.99);");
+		return $query->num_rows();
+	}
+
+	function countGiziKurus()
+	{
+		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE bmi < 18.5");
+		return $query->num_rows();
+	}
+
 	function getDataGizi($where = NULL)
 	{
 		$this->db->select("*");

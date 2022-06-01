@@ -114,7 +114,7 @@
       		<div class="card">
       			<div class="card-header card-header-primary">
       				<div class="d-inline-flex">
-      					<h4 class="d-inline-block align-middle" style="margin-top: 0;margin-bottom: 0;padding: 0.375rem 0.75rem;">Daftar Gizi Anak</h4>
+      					<h4 class="d-inline-block align-middle" style="margin-top: 0;margin-bottom: 0;padding: 0.375rem 0.75rem;">Daftar Gizi Anak </h4>
       				</div>
       				<div class="cold-md-4 align-middle <?= ($this->session->userdata('role') == "operator") ? "d-none" : "d-inline-flex" ?>" style="float:right;">
       					<div id="external_filter_container_8" style="width:100% !important;">
@@ -159,6 +159,7 @@
       				ordering: true,
       				processing: false,
       				serverSide: true,
+      				bInfo: false,
       				ajax: {
       					url: "<?php echo base_url('Kelola_gizi/datatable'); ?>",
       					type: "POST",
