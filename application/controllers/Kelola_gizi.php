@@ -24,7 +24,7 @@
 		{
 			$data['konten'] = "Kelola_gizi/v_kelola_gizi";
 			$data['judul'] = "Kelola Gizi Anak";
-			
+
 			$this->load->view('v_template', $data);
 		}
 
@@ -63,7 +63,11 @@
 			$data['lembaga'] = $this->M_Lembaga->get()->result_array();
 			$data['kecamatan'] = $this->M_Kecamatan->get()->result_array();
 			$data['desa'] = $this->M_Desa->get()->result_array();
-			$data['siswaDrop'] = $this->M_Siswa->get()->result_array();
+			if (!empty($id_lembaga)) {
+				$data['siswaDrop'] = $this->M_Siswa->getLembagabySiswa(['tbl_lembaga.id' => $id_lembaga])->result_array();
+			} else {
+				$data['siswaDrop'] = $this->M_Siswa->get()->result_array();
+			}
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 

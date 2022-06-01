@@ -56,7 +56,7 @@
 							<div class="row" style="padding-bottom: 0px;">
 
 								<div class="col-md-12 my-1">
-									<div id="kecamatan-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'pimpinan') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<div id="kecamatan-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
 										<select id="filter_kecamatan" class="kecamatan filter" data-size="5" data-style="btn btn-sm btn-default d-inline-block" tabindex="-98">
 											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Kecamatan</option>
 											<?php foreach ($kecamatan as $dataKecamatan) : ?>
@@ -67,7 +67,7 @@
 								</div>
 
 								<div class="col-md-12 my-1">
-									<div id="desa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'pimpinan') ? 'd-none' : '' ?>" style="width:100% !important;">
+									<div id="desa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
 										<select id="filter_desa" class="desa filter" data-size="5" data-style="btn btn-sm btn-success d-inline-block" tabindex="-98">
 											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Desa</option>
 											<?php foreach ($desa as $dataDesa) : ?>
