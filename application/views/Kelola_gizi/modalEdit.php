@@ -35,7 +35,7 @@
 							<div class="row" style="padding-bottom: 0px;">
 								<div class="list col-md-12 dropdown bootstrap-select dropdown" style="width:100% !important;">
 									<label for="id_siswa" style="font-size:.6875rem;margin-bottom:0px;" class="bmd-label-static">Nama Siswa</label>
-									<select name="id_siswa" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-style="btn btn-link">
+									<select name="id_siswa" class="selectpicker" data-style="select-with-transition" title="Pilih Siswa" data-style="btn btn-link" disabled>
 										<?php
 										foreach ($siswa as $index => $d) :
 										?>

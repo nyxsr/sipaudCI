@@ -24,10 +24,7 @@
 		{
 			$data['konten'] = "Kelola_gizi/v_kelola_gizi";
 			$data['judul'] = "Kelola Gizi Anak";
-			$data['jmlObesitas'] = $this->M_Gizi->countGiziObesitas();
-			$data['jmlPra'] = $this->M_Gizi->countGiziPra();
-			$data['jmlNormal'] = $this->M_Gizi->countGiziNormal();
-			$data['jmlKurus'] = $this->M_Gizi->countGiziKurus();
+			
 			$this->load->view('v_template', $data);
 		}
 

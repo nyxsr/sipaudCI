@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['M_Lembaga', 'M_tenagaPendidik', 'M_tenagaKependidikan', 'M_Sarana', 'M_Siswa', 'M_Prasarana','M_Desa','M_Kecamatan']);
+		$this->load->model(['M_Lembaga', 'M_tenagaPendidik', 'M_tenagaKependidikan', 'M_Sarana', 'M_Siswa', 'M_Prasarana','M_Desa','M_Kecamatan', 'M_Gizi']);
 		if (!$this->session->userdata('role')) {
 			redirect('login');
 		}
@@ -20,6 +20,10 @@ class Dashboard extends CI_Controller
 		$data['lembaga'] = $this->M_Lembaga->get()->result_array();
 		$data['kecamatan'] = $this->M_Kecamatan->get()->result_array();
 		$data['desa'] = $this->M_Desa->get()->result_array();
+		$data['jmlObesitas'] = $this->M_Gizi->countGiziObesitas();
+			$data['jmlPra'] = $this->M_Gizi->countGiziPra();
+			$data['jmlNormal'] = $this->M_Gizi->countGiziNormal();
+			$data['jmlKurus'] = $this->M_Gizi->countGiziKurus();
 		$this->load->view('v_template', $data);
 		
 	}

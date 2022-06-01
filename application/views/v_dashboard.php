@@ -458,7 +458,7 @@
 												<i class="material-icons">hail</i>
 											</div>
 											<p class="card-category">Normal</p>
-											<h3 class="card-title" id="totalTenagaPendidik">0
+											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlNormal?>
 											</h3>
 										</div>
 									</div>
@@ -470,7 +470,7 @@
 												<i class="material-icons">supervised_user_circle</i>
 											</div>
 											<p class="card-category">Kurus</p>
-											<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
+											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlKurus?></h3>
 										</div>
 									</div>
 								</div>
@@ -483,7 +483,7 @@
 												<i class="material-icons">supervised_user_circle</i>
 											</div>
 											<p class="card-category">Pra-Obesitas</p>
-											<h3 class="card-title" id="totalTenagaPendidik">0
+											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlPra?>
 											</h3>
 										</div>
 									</div>
@@ -495,7 +495,7 @@
 												<i class="material-icons">supervised_user_circle</i>
 											</div>
 											<p class="card-category">Obesitas</p>
-											<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
+											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlObesitas?></h3>
 										</div>
 									</div>
 								</div>
