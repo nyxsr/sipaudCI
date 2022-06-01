@@ -446,6 +446,64 @@
       					</div>
       				</div>
 
+      				<div class="col-lg-12 row">
+      					<div class="card">
+      						<div class="card-body" style="margin-top:6px;">
+      							<h3 class="text-center">Kesehatan</h3>
+      							<div class="row">
+								  <div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-success card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">hail</i>
+											</div>
+											<p class="card-category">Normal</p>
+											<h3 class="card-title" id="totalTenagaPendidik">0
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-default card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">supervised_user_circle</i>
+											</div>
+											<p class="card-category">Kurus</p>
+											<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
+										</div>
+									</div>
+								</div>
+      							</div>
+								  <div class="row">
+								  <div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-primary card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">supervised_user_circle</i>
+											</div>
+											<p class="card-category">Pra-Obesitas</p>
+											<h3 class="card-title" id="totalTenagaPendidik">0
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-danger card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">supervised_user_circle</i>
+											</div>
+											<p class="card-category">Obesitas</p>
+											<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
+										</div>
+									</div>
+								</div>
+								  </div>
+      						</div>
+      					</div>
+      				</div>
+
       			</div>
       		</div>
       	</div>
@@ -507,7 +565,7 @@
       			$("#filter_kecamatan").change(function() {
       				var value = $("#filter_kecamatan").val()
       				getDesa(value)
-      			});
+      			}); 
 
       			function getDesa(kode_kec) {
       				$.ajax({

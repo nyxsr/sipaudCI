@@ -29,7 +29,7 @@ class Dashboard extends CI_Controller
 		$data['desa']		= $this->M_Desa->getWhereKecId($kode_kec)->result();
 		echo json_encode($data);
 	}
-
+  
 	function getLembaga(){
 		$kode_kec 			= $this->input->post('kode_kec');
 		$kode_desa 			= $this->input->post('kode_desa');

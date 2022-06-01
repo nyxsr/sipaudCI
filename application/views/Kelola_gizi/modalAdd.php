@@ -89,7 +89,7 @@
 							</div>
 
 							<div class="col-md-12 my-1">
-								<div id="lembaga-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
+								<div id="siswa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
 									<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-danger d-inline-block" tabindex="-98">
 										<option value="">Siswa</option>
 										<?php foreach ($lembaga as $d) : ?>
@@ -114,7 +114,7 @@
 									</select>
 								</div> -->
 							</div>
-							<div class="row">
+							<div class="row mt-2">
 								<div class="col-md-12">
 									<div class="form-group form-inline">
 										<label class="bmd-label-floating">Tinggi Badan</label>
@@ -175,78 +175,222 @@
 
 <script>
 	$(document).ready(function() {
-	$('.selectpicker').selectpicker();
+		$('.selectpicker').selectpicker();
 
-	$('#tanggal_input').datetimepicker({
-		format: 'YYYY-MM-DD',
-		icons: {
-			time: 'fa fa-clock-o',
-			date: 'fa fa-calendar',
-			up: 'fa fa-plus',
-			down: 'fa fa-minus',
-			previous: 'fa fa-chevron-left',
-			next: 'fa fa-chevron-right'
-		},
-	});
+		$('#tanggal_input').datetimepicker({
+			format: 'YYYY-MM-DD',
+			icons: {
+				time: 'fa fa-clock-o',
+				date: 'fa fa-calendar',
+				up: 'fa fa-plus',
+				down: 'fa fa-minus',
+				previous: 'fa fa-chevron-left',
+				next: 'fa fa-chevron-right'
+			},
+		});
 
-	$('[name="btn_simpan"]').on('click', function() {
-		var id_siswa = $('[name="id_siswa"]').val();
-		var tinggi_badan = $('[name="tinggi_badan"]').val();
-		var berat_badan = $('[name="berat_badan"]').val();
-		var lingkar_kepala = $('[name="lingkar_kepala"]').val();
-		var tanggal_input = $('[name="tanggal_input"]').val();
+		$('[name="btn_simpan"]').on('click', function() {
+			var id_siswa = $('[name="id_siswa"]').val();
+			var tinggi_badan = $('[name="tinggi_badan"]').val();
+			var berat_badan = $('[name="berat_badan"]').val();
+			var lingkar_kepala = $('[name="lingkar_kepala"]').val();
+			var tanggal_input = $('[name="tanggal_input"]').val();
 
-		if (
-			id_siswa !== "" &&
-			tinggi_badan !== "" &&
-			berat_badan !== "" &&
-			lingkar_kepala !== "" &&
-			tanggal_input !== ""
+			if (
+				id_siswa !== "" &&
+				tinggi_badan !== "" &&
+				berat_badan !== "" &&
+				lingkar_kepala !== "" &&
+				tanggal_input !== ""
 
-		) {
+			) {
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url() ?>kelola_gizi/add",
+					dataType: "json",
+					data: {
+						id_siswa,
+						tinggi_badan,
+						berat_badan,
+						lingkar_kepala,
+						tanggal_input
+					},
+					success: function(data) {
+						$('#modal').modal('hide');
+						Swal.fire(
+							'Berhasil!',
+							'Data telah ditambah.',
+							'success'
+						);
+
+						datatable.ajax.reload(null, false);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						// $('#msg').show();
+						// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
+						console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+					}
+				});
+				return false;
+			} else {
+				notifikasi("danger", "Data gagal ditambahkan", "bottom", "center", "not_interested", "#informasi", "");
+			}
+
+		});
+		
+		$('.kecamatan').selectpicker({
+			liveSearch: true
+		});
+		$('.desa').selectpicker({
+			liveSearch: true
+		});
+		$('.lembaga').selectpicker({
+			liveSearch: true
+		});
+
+		function filterData() {
+					return {
+						lembaga: $("#filter_lembaga").val(),
+						desa: $("#filter_desa").val(),
+						kecamatan: $("#filter_kecamatan").val(),
+					}
+				}
+				
+		layout(filterData())
+			getData(filterData())
+
+		$(".filter").change(function() {
+			layout(filterData())
+			getData(filterData())
+		});
+
+		$("#filter_kecamatan").change(function() {
+			var value = $("#filter_kecamatan").val()
+			getDesa(value)
+		}); 
+
+		function getDesa(kode_kec) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>kelola_gizi/add",
+				url: "<?php echo base_url() ?>dashboard/getDesa",
 				dataType: "json",
 				data: {
-					id_siswa,
-					tinggi_badan,
-					berat_badan,
-					lingkar_kepala,
-					tanggal_input
+					kode_kec,
 				},
 				success: function(data) {
-					$('#modal').modal('hide');
-					Swal.fire(
-						'Berhasil!',
-						'Data telah ditambah.',
-						'success'
-					);
+					var desa = data.desa
+					$('#desa-list').empty()
 
-					datatable.ajax.reload(null, false);
+					$('#desa-list').append(`
+						<select id="filter_desa" class="desa filter" data-size="7" data-style="btn btn-sm btn-success d-inline-block" tabindex="-98">
+							<option value="" selected >Semua Desa</option>
+
+						</select>
+					`)
+					for (let index = 0; index < desa.length; index++) {
+						$('.desa').append(`
+							<option value="${desa[index].kode_desa}">${desa[index].desa}</option>
+						`)
+					}
+
+					$('.desa').selectpicker({
+						liveSearch: true
+					});
+
+					$(".filter").change(function() {
+						layout(filterData())
+						getData(filterData())
+					});
+
+					$("#filter_desa").change(function() {
+						var value_kec = $("#filter_kecamatan").val()
+						var value_desa = $("#filter_desa").val()
+						getLembaga(value_kec, value_desa)
+					});
+				},
+				beforeSend: function() {
+					// $('#totalTenagaPendidik').html('<div id="load" class="loader"></div>');
+					// $("#totalTenagaKependidikan").html('<div id="load" class="loader"></div>')
+					// $("#totalSiswa").html('<div id="load" class="loader"></div>')
+					// $("#totalSaranaPrasarana").html('<div id="load" class="loader"></div>')
+					// $("#totalSarana").html('<div id="load" class="loader"></div>')
+					// $("#statusAkreditasi").html('<div id="load" class="loader"></div>')
+
+					// $(".ct-chart .sarana").html('<div id="load" class="loader"></div>')
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
-					// $('#msg').show();
-					// $("#msg").html(textStatus + jqXHR.responseText + " " + errorThrown);
+					console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+				}
+			})
+		}
+
+		function getLembaga(kode_kec, kode_desa) {
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url() ?>dashboard/getLembaga",
+				dataType: "json",
+				data: {
+					kode_kec,
+					kode_desa,
+				},
+				success: function(data) {
+					console.log(data.lembaga)
+					var lembaga = data.lembaga
+					$('#lembaga-list').empty()
+
+					$('#lembaga-list').append(`
+						<select id="filter_lembaga" class="lembaga filter" data-size="7" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98">
+							<option value="" selected >Semua Lembaga</option>
+
+						</select>
+					`)
+					for (let index = 0; index < lembaga.length; index++) {
+						$('.lembaga').append(`
+							<option value="${lembaga[index].id}">${lembaga[index].nama_lembaga}</option>
+						`)
+					}
+
+					$('.lembaga').selectpicker({
+						liveSearch: true
+					});
+
+					$(".filter").change(function() {
+						layout(filterData())
+						getData(filterData())
+					});
+				},
+				beforeSend: function() {
+					// $('#totalTenagaPendidik').html('<div id="load" class="loader"></div>');
+					// $("#totalTenagaKependidikan").html('<div id="load" class="loader"></div>')
+					// $("#totalSiswa").html('<div id="load" class="loader"></div>')
+					// $("#totalSaranaPrasarana").html('<div id="load" class="loader"></div>')
+					// $("#totalSarana").html('<div id="load" class="loader"></div>')
+					// $("#statusAkreditasi").html('<div id="load" class="loader"></div>')
+
+					// $(".ct-chart .sarana").html('<div id="load" class="loader"></div>')
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log(textStatus + jqXHR.responseText + " " + errorThrown);
+				}
+			})
+		}
+
+		function getData(filter) {
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url() ?>dashboard/getData",
+				dataType: "json",
+				data: {
+					id_lembaga: filter.lembaga,
+					kode_desa: filter.desa,
+					kode_kec: filter.kecamatan,
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
 					console.log(textStatus + jqXHR.responseText + " " + errorThrown);
 				}
 			});
-			return false;
-		} else {
-			notifikasi("danger", "Data gagal ditambahkan", "bottom", "center", "not_interested", "#informasi", "");
 		}
 
-	});
-	
-	$('.kecamatan').selectpicker({
-		liveSearch: true
-	});
-	$('.desa').selectpicker({
-		liveSearch: true
-	});
-	$('.lembaga').selectpicker({
-		liveSearch: true
-	});
-
+		
 	})
 </script>

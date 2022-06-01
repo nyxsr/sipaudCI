@@ -152,6 +152,11 @@
 
 		public function getLembaga()
 		{
+			$kode_kec 			= $this->input->post('kode_kec');
+			$kode_desa 			= $this->input->post('kode_desa');
+			$data['lembaga']	= $this->M_Lembaga->getWhereKecIdDesId($kode_kec, $kode_desa)->result();
+			echo json_encode($data);
+
 			echo json_encode($this->M_Gizi->get()->result_array());
 		}
 
@@ -225,5 +230,49 @@
 			$data				= array('id_gizi' => $id_gizi);
 			$query				= $this->M_Gizi->delete($data);
 			echo json_encode($query);
+		}
+
+		public function getData()
+		{
+			$id_lembaga			= $this->input->post("id_lembaga");
+			$kode_kec			= $this->input->post("kode_kec");
+			$kode_desa 			= $this->input->post("kode_desa");
+			$filterWhere		= [];
+			$filterLembaga		= [];
+			if($id_lembaga){
+				$filterWhere['tbl_lembaga.id']	= $id_lembaga;
+				$filterLembaga['id']		= $id_lembaga;
+			} 
+			if($kode_desa){
+				$filterWhere['tbl_lembaga.kode_desa']	= $kode_desa;
+				$filterLembaga['kode_desa']	= $kode_desa;
+			}
+			if($kode_kec){
+				$filterWhere['tbl_lembaga.kode_kec']	= $kode_kec;
+				$filterLembaga['kode_kec']	= $kode_kec;
+			} 
+		}
+
+		function getFilter(){
+			$data['lembaga'] = $this->M_Lembaga->getWhere()->result_array();
+			$data['kecamatan'] = $this->M_Kecamatan->getWhere()->result_array();
+			$data['desa'] = $this->M_Desa->getWhere()->result_array();
+	
+			echo json_encode($data);
+		}
+
+		function getFilterKecamatan(){
+			$where = ['kode_kec' => $this->input->post('kode_kec')];
+	
+			$data['lembaga'] = $this->M_Lembaga->getWhere($where)->result_array();
+			$data['desa'] = $this->M_Desa->getWhere($where)->result_array();
+	
+			echo json_encode($data);
+		}
+
+		function getDesa(){
+			$kode_kec 			= $this->input->post('kode_kec');
+			$data['desa']		= $this->M_Desa->getWhereKecId($kode_kec)->result();
+			echo json_encode($data);
 		}
 	}
