@@ -90,9 +90,9 @@
 
 								<div class="col-md-12 my-1">
 									<div id="siswa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select id="filter_siswa" class="siswa filter" data-size="5" data-style="btn btn-sm btn-danger d-inline-block" tabindex="-98">
+										<select name="id_siswa" id="filter_siswa" class="siswa filter" data-size="5" data-style="btn btn-sm btn-danger d-inline-block" tabindex="-98">
 											<option value="">Siswa</option>
-											<?php foreach ($siswa as $d) : ?>
+											<?php foreach ($siswaDrop as $d) : ?>
 												<option value="<?= $d['id_siswa'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id_siswa']) ? "selected" : "" ?>><?= $d['nama'] ?></option>
 											<?php endforeach; ?>
 										</select>
@@ -190,7 +190,7 @@
 		});
 
 		$('[name="btn_simpan"]').on('click', function() {
-			var id_siswa = $('[name="id_siswa"]').val();
+			var id_siswa = $('#filter_siswa').val();
 			var tinggi_badan = $('[name="tinggi_badan"]').val();
 			var berat_badan = $('[name="berat_badan"]').val();
 			var lingkar_kepala = $('[name="lingkar_kepala"]').val();
@@ -277,7 +277,7 @@
 		function getDesa(kode_kec) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>dashboard/getDesa",
+				url: "<?php echo base_url() ?>Kelola_gizi/getDesa",
 				dataType: "json",
 				data: {
 					kode_kec,
@@ -332,7 +332,7 @@
 		function getLembaga(kode_kec, kode_desa) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>dashboard/getLembaga",
+				url: "<?php echo base_url() ?>Kelola_gizi/getLembaga",
 				dataType: "json",
 				data: {
 					kode_kec,
@@ -363,6 +363,11 @@
 						layout(filterData())
 						getData(filterData())
 					});
+
+					$("#filter_lembaga").change(function() {
+						var value_lembaga = $("#filter_lembaga").val()
+						getSiswa(value_lembaga)
+					});
 				},
 				beforeSend: function() {
 					// $('#totalTenagaPendidik').html('<div id="load" class="loader"></div>');
@@ -380,14 +385,12 @@
 			})
 		}
 
-		function getSiswa(kode_kec, kode_desa, id_lembaga) {
+		function getSiswa(id_lembaga) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>dashboard/getSiswa",
+				url: "<?php echo base_url() ?>Kelola_gizi/getSiswa",
 				dataType: "json",
 				data: {
-					kode_kec,
-					kode_desa,
 					id_lembaga
 				},
 				success: function(data) {
@@ -403,7 +406,7 @@
                             `)
 					for (let index = 0; index < siswa.length; index++) {
 						$('.siswa').append(`
-                                    <option value="${siswa[index].id}">${siswa[index].nama}</option>
+                                    <option value="${siswa[index].id_siswa}">${siswa[index].nama}</option>
                                 `)
 					}
 
@@ -455,12 +458,13 @@
 		function getData(filter) {
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url() ?>dashboard/getData",
+				url: "<?php echo base_url() ?>Kelola_gizi/getData",
 				dataType: "json",
 				data: {
 					id_lembaga: filter.lembaga,
 					kode_desa: filter.desa,
 					kode_kec: filter.kecamatan,
+					id_siswa: filter.siswa,
 				},
 				success: function(response) {
 					console.log(response)

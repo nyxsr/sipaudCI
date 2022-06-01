@@ -51,7 +51,18 @@ class M_Lembaga extends CI_Model
 		return $this->db->get();
 	}
 
-	function getWhereKecIdDesId($kode_kec, $kode_desa, $id_lembaga)
+	function getWhereKecIdDesId($kode_kec, $kode_desa)
+	{
+		$this->db->select("*");
+		$this->db->from("tbl_lembaga");
+		$this->db->join("tbl_kecamatan", "tbl_lembaga.kode_kec 	= tbl_kecamatan.kode_kec", 'LEFT');
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
+		$this->db->where("tbl_lembaga.kode_kec", $kode_kec);
+		$this->db->where("tbl_lembaga.kode_desa", $kode_desa);
+
+		return $this->db->get();
+	}
+	function getWhereKecIdDesIdSisID($kode_kec, $kode_desa, $id_lembaga)
 	{
 		$this->db->select("*");
 		$this->db->from("tbl_lembaga");

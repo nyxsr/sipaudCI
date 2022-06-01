@@ -54,6 +54,7 @@
 			$data['lingkar_kepala']	= json_encode($lingkar_kepala);
 			$this->load->view('Kelola_gizi/modalGrafik', $data);
 		}
+
 		public function modalTambah()
 		{
 			$id_lembaga =  $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga")));
@@ -65,6 +66,7 @@
 			$data['lembaga'] = $this->M_Lembaga->get()->result_array();
 			$data['kecamatan'] = $this->M_Kecamatan->get()->result_array();
 			$data['desa'] = $this->M_Desa->get()->result_array();
+			$data['siswaDrop'] = $this->M_Siswa->get()->result_array();
 			$this->load->view('Kelola_gizi/modalAdd', $data);
 		}
 
@@ -158,26 +160,6 @@
 			echo json_encode($output);
 		}
 
-		public function getLembaga()
-		{
-			$kode_kec 			= $this->input->post('kode_kec');
-			$kode_desa 			= $this->input->post('kode_desa');
-			$data['lembaga']	= $this->M_Lembaga->getWhereKecIdDesId($kode_kec, $kode_desa)->result();
-			echo json_encode($data);
-
-			echo json_encode($this->M_Gizi->get()->result_array());
-		}
-
-		public function getSiswa()
-		{
-			$kode_kec 			= $this->input->post('kode_kec');
-			$kode_desa 			= $this->input->post('kode_desa');
-			$id_lembaga 		= $this->input->post('id_lembaga');
-			$data['lembaga']	= $this->M_Lembaga->getWhereKecIdDesId($kode_kec, $kode_desa, $id_lembaga)->result();
-			echo json_encode($data);
-
-			echo json_encode($this->M_Gizi->get()->result_array());
-		}
 
 		public function add()
 		{
@@ -253,11 +235,16 @@
 
 		public function getData()
 		{
+			$id_siswa			= $this->input->post("id_siswa");
 			$id_lembaga			= $this->input->post("id_lembaga");
 			$kode_kec			= $this->input->post("kode_kec");
 			$kode_desa 			= $this->input->post("kode_desa");
 			$filterWhere		= [];
 			$filterLembaga		= [];
+			if ($id_siswa) {
+				$filterWhere['tbl_siswa.id_siswa']	= $id_siswa;
+				$filterLembaga['id_siswa']		= $id_siswa;
+			}
 			if ($id_lembaga) {
 				$filterWhere['tbl_lembaga.id']	= $id_lembaga;
 				$filterLembaga['id']		= $id_lembaga;
@@ -274,6 +261,7 @@
 
 		function getFilter()
 		{
+			$data['siswaDrop'] = $this->M_Siswa->getWhere()->result_array();
 			$data['lembaga'] = $this->M_Lembaga->getWhere()->result_array();
 			$data['kecamatan'] = $this->M_Kecamatan->getWhere()->result_array();
 			$data['desa'] = $this->M_Desa->getWhere()->result_array();
@@ -294,6 +282,20 @@
 		{
 			$kode_kec 			= $this->input->post('kode_kec');
 			$data['desa']		= $this->M_Desa->getWhereKecId($kode_kec)->result();
+			echo json_encode($data);
+		}
+		public function getLembaga()
+		{
+			$kode_kec 			= $this->input->post('kode_kec');
+			$kode_desa 			= $this->input->post('kode_desa');
+			$data['lembaga']	= $this->M_Lembaga->getWhereKecIdDesId($kode_kec, $kode_desa)->result();
+			echo json_encode($data);
+		}
+
+		public function getSiswa()
+		{
+			$id_lembaga 		= $this->input->post('id_lembaga');
+			$data['siswa']	= $this->M_Siswa->getWhere(['id_lembaga' => $id_lembaga])->result();
 			echo json_encode($data);
 		}
 	}
