@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jun 2022 pada 17.01
+-- Waktu pembuatan: 03 Jun 2022 pada 17.08
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -466,7 +466,8 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (42, 82, NULL, 'TK PERWANIDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (43, 83, NULL, 'TK PLUS MUTI MUIZ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (44, 84, NULL, 'TK PUSPA DEWI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(45, 85, NULL, 'TK SARI INDAH SGL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
+(45, 85, NULL, 'TK SARI INDAH SGL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(46, 86, NULL, 'KB SITI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -728,7 +729,8 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (82, 'perwanida', '5bfc2984a7df4c34caad66a78edbdceafc65e5435601462c0a07d39b14735c077baa35aae49fd8b301a778591991f0fcbbdcd4f9103e98197f6a74d1534b16293lez+Z7ZV+3yKBE6pEBscX5ee01XXBc0dN0y9aktvrE=', 'operator'),
 (83, 'plis muti muiz', '0305baf67bfe461c9274c2dee6054c4fde317930b9da7a80b6e3b8a12ad66322ad6a8d910179a0f11d2de25acf14ae28da9636371b6769f8699bec237a4b47d3wlg7yTn7EVyvTPR2jSt9z3Zg6CqmjXIi2DogPdYb4yE=', 'operator'),
 (84, 'puspa dewi', '93730e9400bb82af5d84dec3a85858409a34ded44fa11acfda70f7d18b0f5560957fbc25ae5795fe8fa43dd8c4c7bed93b3b47bedaa34a6c67ebcf76291df47brbUxVb+yeDm/LGIbxhfnywY16lMK0LfuKxIfjamCAMU=', 'operator'),
-(85, 'sari indah sgl', 'da1d5d8d0d9c40c4097292f45ceda94e9a03a3de5c538ba5743ebb7bedcbe774dea9994cb6ccd71b7960007111482b6aba62799b7d72284f2469ed84dd323e28/3eQSipHRk3eHLbJ3HUAM8uOjfjD9RgSi6L+SOpAhqk=', 'operator');
+(85, 'sari indah sgl', 'da1d5d8d0d9c40c4097292f45ceda94e9a03a3de5c538ba5743ebb7bedcbe774dea9994cb6ccd71b7960007111482b6aba62799b7d72284f2469ed84dd323e28/3eQSipHRk3eHLbJ3HUAM8uOjfjD9RgSi6L+SOpAhqk=', 'operator'),
+(86, 'siti', '3e5f79e2b3e4dae35233d945f2f34b97ff684569934d2ce5de1806a5f1b86186cfbc927645dd733edc1332cb84ee1f87846c9258241d345deccdd8e5dead0429TEexTQ7Brz2dn0cUwWVl4jnM6uUmXaj1liKGfkMmo9k=', 'operator');
 
 --
 -- Indexes for dumped tables
@@ -830,7 +832,7 @@ ALTER TABLE `tbl_gizi`
 -- AUTO_INCREMENT untuk tabel `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_prasarana`
@@ -872,7 +874,7 @@ ALTER TABLE `tbl_tenagapendidik`
 -- AUTO_INCREMENT untuk tabel `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
