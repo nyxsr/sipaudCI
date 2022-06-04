@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2022 at 04:37 AM
+-- Generation Time: Jun 04, 2022 at 07:01 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -468,7 +468,9 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (44, 84, NULL, 'TK PUSPA DEWI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (45, 85, NULL, 'TK SARI INDAH SGL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (46, 86, NULL, 'KB SITI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(47, 87, NULL, 'KB NARUTO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
+(47, 87, NULL, 'KB NARUTO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(48, 88, NULL, 'KB JUNAEDI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(49, 89, NULL, 'KB Nunung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -732,7 +734,9 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (84, 'puspa dewi', '93730e9400bb82af5d84dec3a85858409a34ded44fa11acfda70f7d18b0f5560957fbc25ae5795fe8fa43dd8c4c7bed93b3b47bedaa34a6c67ebcf76291df47brbUxVb+yeDm/LGIbxhfnywY16lMK0LfuKxIfjamCAMU=', 'operator'),
 (85, 'sari indah sgl', 'da1d5d8d0d9c40c4097292f45ceda94e9a03a3de5c538ba5743ebb7bedcbe774dea9994cb6ccd71b7960007111482b6aba62799b7d72284f2469ed84dd323e28/3eQSipHRk3eHLbJ3HUAM8uOjfjD9RgSi6L+SOpAhqk=', 'operator'),
 (86, 'siti', '3e5f79e2b3e4dae35233d945f2f34b97ff684569934d2ce5de1806a5f1b86186cfbc927645dd733edc1332cb84ee1f87846c9258241d345deccdd8e5dead0429TEexTQ7Brz2dn0cUwWVl4jnM6uUmXaj1liKGfkMmo9k=', 'operator'),
-(87, 'narto', '02cb6da0451533e0053bb4207718f02196020bd7c5e7b98d63a0d5f638167fe42f13772052604945d0703fd4df1b929dd14dc346517ab1a7ab5a9cb76863f80ekNfY2Z9WRw8ODuaHk669flvXV9njlRTMxE9/7x1ArqA=', 'operator');
+(87, 'narto', '02cb6da0451533e0053bb4207718f02196020bd7c5e7b98d63a0d5f638167fe42f13772052604945d0703fd4df1b929dd14dc346517ab1a7ab5a9cb76863f80ekNfY2Z9WRw8ODuaHk669flvXV9njlRTMxE9/7x1ArqA=', 'operator'),
+(88, 'junaedi', 'deda100a4a4b13f118ee5357b18efd7a4ea651d2f22fe462f3222becd135e438b588d4df9fb2241723338cd85ceb751a21d4c5bfe6239398c15a94d4abf7f3574mLm6/WupvOs/xm35WqTiuPdKpGx/22B/1X/OJ7PWpU=', 'operator'),
+(89, 'nunung', 'ddcf8a789d975adc0b2f680e3033f82b069ef65ccdefc92980af4a8eabda1bdcd1d821d72d7861d51f685cafe326899eca4afe6b88ae5d27f75a95243f2d09f468EBQy+tuPObhwVNUhQueA9tpvw10RoQ4HOlECszTC0=', 'operator');
 
 --
 -- Indexes for dumped tables
@@ -834,7 +838,7 @@ ALTER TABLE `tbl_gizi`
 -- AUTO_INCREMENT for table `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tbl_prasarana`
@@ -876,7 +880,7 @@ ALTER TABLE `tbl_tenagapendidik`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- Constraints for dumped tables
