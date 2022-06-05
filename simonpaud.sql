@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 08:52 PM
+-- Generation Time: Jun 04, 2022 at 07:01 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -430,7 +430,47 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (6, 40, '33321313', 'PAUD Kenanga', '011', '', 'Desa Tanjung RT 15/RW 20', 2020, 'Jumsin', 'TK (Taman Kanak-kanak)', 2020, 'B', 'image_placeholder.jpg', '107.75954501047475', '-6.570946780813654'),
 (7, 41, NULL, 'PAUD Mawar', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (8, 42, NULL, 'PAUD Bagus', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(9, 43, '', 'PAUD Cempaka', '021', '', 'Subang', 2011, 'Jaja', 'RA (Raudhatul Athfal)', 2019, 'B', '422e3868f6267d3fa72e545c5c97c172.jpg', '107.76295587008634', '-6.571710185081761');
+(9, 43, '', 'PAUD Cempaka', '021', '', 'Subang', 2011, 'Jaja', 'RA (Raudhatul Athfal)', 2019, 'B', '422e3868f6267d3fa72e545c5c97c172.jpg', '107.76295587008634', '-6.571710185081761'),
+(10, 50, NULL, 'KB AL-KAUTSAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(11, 51, NULL, 'KB AL-MUHYI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(12, 52, NULL, 'KB ANUGRAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(13, 53, NULL, 'KB AR-RADHWA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(14, 54, NULL, 'KB AR-ROHMAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(15, 55, NULL, 'KB HARAPAN BUNDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(16, 56, NULL, 'KB KASIH IBU ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(17, 57, NULL, 'KB KENANGA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(18, 58, NULL, 'KB MIFTAHUSSAADAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(19, 59, NULL, 'KB MUTI BAROKAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(20, 60, NULL, 'RA Ibnu Shina', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(21, 61, NULL, 'RA/BA/TA AL MAMUN BAIBARS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(22, 62, NULL, 'RA/BA/TA RIYADHUSHOLIHIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(23, 63, NULL, 'SPS AL-MUAWANAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(24, 64, NULL, 'SPS IBTISAAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(25, 65, NULL, 'SPS ILHAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(26, 66, NULL, 'SPS MARIPOSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(27, 67, NULL, 'SPS NABILA AL FIYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(28, 68, NULL, 'SPS NURUL BAYAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(29, 69, NULL, 'SPS NURUL ILMI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(30, 70, NULL, 'SPS PELITA HATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(31, 71, NULL, 'SPS RAUDHOTUL MUTA ALIMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(32, 72, NULL, 'SPS SEJAHTERA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(33, 73, NULL, 'TK CINTA NUSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(34, 74, NULL, 'TK DEWI RATIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(35, 75, NULL, 'TK DEWI SARTIKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(36, 76, NULL, 'TK IT SALSABILA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(37, 77, NULL, 'TK MEKAR SARI ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(38, 78, NULL, 'TK MIFTAHUL ULUM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(39, 79, NULL, 'TK NEGERI SAGALAHERANG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(40, 80, NULL, 'TK PASIR ENDAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(41, 81, NULL, 'TK PELITA KASIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(42, 82, NULL, 'TK PERWANIDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(43, 83, NULL, 'TK PLUS MUTI MUIZ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(44, 84, NULL, 'TK PUSPA DEWI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(45, 85, NULL, 'TK SARI INDAH SGL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(46, 86, NULL, 'KB SITI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(47, 87, NULL, 'KB NARUTO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(48, 88, NULL, 'KB JUNAEDI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(49, 89, NULL, 'KB Nunung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -656,7 +696,47 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (41, 'agus', '713b02398294c12849119ef63381a4fd80056f121b68b4e07ffba9aeab08274c021cda76f904f002d377c5c1d9787f2eb22351f9a867d717755e7851827d8419vIL2sj6nplyZvjuYRtiQBUhnMVUqZa3SqCbDej90zPw=', 'operator'),
 (42, 'bagus', 'a522c25414acdcd5af76f12854d4a0e4ecdd2bc9b524839ea70357b8908d698a03bdaa4ed63e2bb0d18eddbb75b5d9d189e0c4ffbe9d31e509b81c7155d923cbyELQ53smFZAPzdwni31ChqhjTGvkamA10ntpZsQn77Y=', 'operator'),
 (43, 'abdul', '394fc4780bb106d3ed6419c7e66e35064d1d3515b334458c6ca432f6e56d07cd401c24c87d9138387192f5941206494714999af4296ae60b3386f0945b7ea5a9VSJJlj6i+dsncMqUB9sWgZIQsErTx++rZ/oYjFViEXQ=', 'operator'),
-(49, 'pimpinan', '430e47b33817660319af8765898e52063707c7d14ea2b44e0ea98064eee0c55a9ab40cd579ec59d9cfe272a80907216525c3abab4e80f9ca2165bffdb5f1ed89T9ZNk9Di6INipvhYOfMavW5G4HnOouyEUguD0qjq5Uc=', 'pimpinan');
+(49, 'pimpinan', '430e47b33817660319af8765898e52063707c7d14ea2b44e0ea98064eee0c55a9ab40cd579ec59d9cfe272a80907216525c3abab4e80f9ca2165bffdb5f1ed89T9ZNk9Di6INipvhYOfMavW5G4HnOouyEUguD0qjq5Uc=', 'pimpinan'),
+(50, 'kautsar', '9abb32ac80e3e16431a460b30161c7298bf6eb5f94470d02dbd728ac0b89fa7f09dc5e2be48ead0ad3f01c8d9a754c690bf479814cccf6de3d9f6bcc910ca950DGydZ/pFs9Hsg7sc2RMmHzPSk36CCOt3pGgSmtJoxxA=', 'operator'),
+(51, 'muhyi', '83b77a292720bb4a647c211d9ea43b7dd0c7c97d36145f7105cd38e802ed5159f9c3e64f8de3c384e29bd73f52e9d7dcde172c006d365273b83710ff686275750SrT19+yY+kCVPSMgUA9qC/m7FDlJ01+8mRNP7pDpQo=', 'operator'),
+(52, 'anugrah', '4900babeb8984ef6c8ff5f7325a097b9c61b24a54280c32a9e8fed9bc78bdec6d99642304c44096ffda20653798a77c7fd764a3ed05e23dfd41c63e331d0fc61Kg8vx6SnEQBCeoNK6DjU+6e+QZd1bS01Fb9bz/lwKK4=', 'operator'),
+(53, 'radhwa', '459f5063307da743a91c2f114445c7c18df7df2fc4607d69578f13d5fa41bcf7ae1df378fbc5374663fad1d721c72d5c7d00be8aa9156b77c1ef7d07dff81c65lI49vS9QKtxj7Kqg+ubY/SDdabeEoKTQ1yJ3hBinjw8=', 'operator'),
+(54, 'rohmah', '01e615f2e1b6b080ea2274c8cbd6b90466e8910df9afe6ac4954e65d7dbaf6fa42dc73cda682c63484e7abe2cdeb74b31f1ff9387bef9694ae675dbbfb95c472aZb+MGUbF3Ty0x3jevIGIysxbt9gkzAt+f5JijNNU3A=', 'operator'),
+(55, 'harapan bunda', '107a45110432e7e24eaa825e3a10688397c5e8244f152ddd48916928bc94fe46d7795d7dabcf885098872bafe6f6a7a30cb51018c6e31ab1f5c189fe3a7d16d0xqEmQczHIbEmVrsZGXQmNGBu6nD1puDhbAQaEz2vluo=', 'operator'),
+(56, 'kasih ibu', '96ac596507b52ceb1d1058588e707e5ee064f0b3b056d2ce5369f1835f32f5747ee0a9d3ed6c07f2642ba5258b47188e2cce3180e854634cb4bdb9477d31f508lvSSHI8eP+xF87V9fX2SmODJqt//k3GceS3QgjTe/HU=', 'operator'),
+(57, 'kenanga', '946cb894353d6da97643ce0df986d27db5cb876a697b4ee8cb111fb529d4822a0417b2ea919f494c462177582e39ee83699c52b067003ed43223682edcdc969aVx3AGqW99+yJTB7CnzY0e9O0h2TIy4ASrlUkgi/d8eg=', 'operator'),
+(58, 'miftahussaadah', '6b004630e219968179ff044ad0f4a31c0f5a7c5b017467701304eaab1df74d648f9da27cd53fd37cb7d4d1149deb9994fe91832341b90500931f601494c62db1sWc63GJX8XcrdrQTUDQoi1331JEOk+XeL/kalzpGDmM=', 'operator'),
+(59, 'muti barokah', '2e4aa91344f1511fc283c59244ac1863dfa0488b9040ac6fedf7ee08853824c75d6d535f8ab4240f2ae2f56af1a7217873859d0efcc7ef94f0d757edef6d17d3FOTA+t7Wc2OprazdCSQ69PF1thsx5bAttlXA87O3VK0=', 'operator'),
+(60, 'ibnu shina', '6e201c57e44c5870d9374ef3cdb3996b3ea0f00bcea6b2c2d665fbd72f023442f6a6825b06b2748205a5c988264ae832d4950b5793e613f50799fc3cc21560ffnfLxk1ep0yg0jOQbBKoaQYTL8VB2qUU4Rk/QHgxWA04=', 'operator'),
+(61, 'almamun', '061648fa069797eed3aaca8226316ed12cc75c300ced90249db1e145f69450501ac3ff48c6b3b11fab04163cd2fdc1ccdaa141c961b3fba0c383700b48e5fc40Xd9xymwN7OPon7Y93Q8a1eactXu2z5/kj7DHSnChQ30=', 'operator'),
+(62, 'riyadhusholihin', '43556dd47584a018847991f750e0853e8bb9df9d5b2f70e0885b1d4293a44935a9203378edeeb0a3523734039bfacdc0a2e1cb7ff8248fab8efe3719b0e86cc7mAGHLp28c40G+YkWFsW00DrjzPE2kkJIxEgH7cH8HvY=', 'operator'),
+(63, 'al-muawanah', '046c5dfb22df9a70ab2f39256a73434abe589ea21e85b09940df9a0c88970b6e6b2930d7fba5f4db2b2e2f6cacadb6284b7e8c0ada78998ad799c6ce6c3d4659FnDDDeclfCXmuQEy2HlG8JV1hRw2lwBYu2VXFz6XAOw=', 'operator'),
+(64, 'ibtisaam', '65be985fd5cb85e5a100a06d09734835cfd80f41f5e6f00791d72b18aab43550296e4c8ed65a790282d3cdba92510ebb895feffb8e7a3179a2271b674648805blApZ6yXV+Q2wvEJb1gBVPZYktO0q5UKZ0Z2wyyWTdOU=', 'operator'),
+(65, 'ilham', '9428eeb315f51a13fd8ac0ff0ef75289d2539cf956230d85e618e481a0bee6bf9ee8d4e6a3a63a243dbcb4fa87dfd62894f0070927ccc683467ba2b3375637b0WbQlyAtfHTauBvHMWGzABfgvPBNLRFrH+eU/lGnMcQU=', 'operator'),
+(66, 'mariposa', '3b77cb7e4572673abbfba91a851178cb64a873d637f2329d99d48f4e08d805122f9e98ca654af19d58b0d0ba04337d42cd4d44c8daa5234b28c923795c308e88dYifpxwUzSa3T2XnL2S4XgsfdkKwA1NDTtSvEkl1aFU=', 'operator'),
+(67, 'nabila', '8b4a6cbc82b4d86e1eaddbecbfbd706e60074f7e0709a5686e967437b60d45a7f83dfa2594644bd6c953badb9fa39079cbdaea9e3d0ccd8088bfee37203fc957IEaaVXoI75ml9vA8aaaSAVKbrzoh2SYl6js+KOnnnyA=', 'operator'),
+(68, 'nurul bayan', '5fad0f51369697c460a91d6295b79d35f6319094d5e7610e8652607b013b5dbb610f5f4c27652b646c91555943abb43c32501378ba80530cd66c7caefec54ca7QTgml+i/OG/IBgq/6hN9Cs1/2HGqPcy1a+VLlyBv/00=', 'operator'),
+(69, 'nurul ilmi', '3e27073d8bd0bc65fd9120806cb14f18fb044b42e46ddf145fe35b6e94998c1cfa2d33e43f8920574323ba1d5530b6de0faed499de672c04ce623c337f2ec7e2UmCSnpWQUYfu5mrnkzxkWmakwqUsMdlgkW/ftnxUtTE=', 'operator'),
+(70, 'pelita hati', 'a80f19186b2782089e534b2a43df23b4606b5dc267e792b4f479ca9c3e5fc07ef633d7e0829ec3aa6e540aaf116e373e76b4d9d3dfa7b2aab0948803877e2d7aV4PV6PRckYAnCcO6JqjHf5fl57syf6TRyYR44DH+P4M=', 'operator'),
+(71, 'raudhotul', 'b0bd28b03b6675c2e4dc95972fff4491462f7631fe107a928f8e2525cb611fb6cda3ad8f0798917686f55f0cb76f70e02afaed978ddfd9f80ae3ecdbca74b8c1XHhk6kg9letYgWzSGqtxi15ft8kX/7PbjjbM5TizVxc=', 'operator'),
+(72, 'sejahtera', '7a7a6feecaa98861f62aa67ace9cd9ef402e0bb0048edacf51252f4376b6c1d6b3373260e7f9fd2c17b2ee4f994a3709752a83691fcb4e0a2684e281e6efaffcmUGlOdWlBUcxUf+72ZbMJC1RrpbZB6ZSRG3W5GdAed0=', 'operator'),
+(73, 'cinta nusa', 'e35c913e9f7b27e0aedde14584d5417f76b559fa8ab507d9b9e011637cdf3a8bcd52db8686a7a55cd9e2993f07f49e03d9259b34d31d563eae35af96394dee66rKhBCii2yDLI8/qcbOBOgn+mQUXBZiDOaEepp/t0CiA=', 'operator'),
+(74, 'dewi ratih', 'eb2f2b33db7a4b78d29bbc0c311cd0694fce3b64daae86fd77abe68d9ef407638046be124b4c61a8dafde17771add3028e1d3ced6f8714e0401d7e4afa6f5d575DntUnqKVxBex57SesCT+l3wwKkzs8fQ5IMsMp5GGtU=', 'operator'),
+(75, 'dewi sartika', 'c0b33715e3110d4068c694421d65f3b9aee66695100ef6f8504aecbd745d70029e287a229d01d238687594144229ab34026ba1e9fbb2c93bd7379d490368ca045xilHslVC+f1Ck3bYaf3VFxlvFljqokBxma84eAsO3A=', 'operator'),
+(76, 'it salsabila', '5586ad067c2addab371bec1aff9fd20be561d30688a6f2745066c3cac2b71b9e36717ba66d03ba03e4c82ee3dcb32a04d7380b43aabcfebb99c9e7151b575630iFHQUFMyIXInBZzQAoWqFlGjvjKOzXIIaBLv87rKSnA=', 'operator'),
+(77, 'mekar sari', '63997be90709a49ebd7ce1e27a09ada7cb96cb56094127052cdc24328bef9f0b49f7c3ce7b7f21d0a1dbf0dea0e8ddfe4112dd0be35332c3caf5bedb34769f54Jc+/iwrfdbzvEvWfI17nLT6s4feL2hwDlVbNk/rjeGQ=', 'operator'),
+(78, 'miftahul ulum', '69bf086471231de1c5cceee6830bad4e10e50eba1008e4f2be8d0bc69e4d2251868480a9969668ba0ab82ff93d4891343751119427f03b146b2e691a440e6f38SlGTmVelzMRak6ARrxIUkvLcSa45YVlQlDqNRo95iwU=', 'operator'),
+(79, 'negeri sagalaherang', 'ada7a8d8e46067f409f7c20fa92dd3a16268476bb26c6e27518adc0181b2faf0a63484b73f594c376ba74328433c853e4f40cdc6a9e4f8a469b155f5acffa70f+HP+VqMw4TkcW9mB8XkDkctiLOIeMTArZ2LuwACPtam2OqqJk8iQ8P4quNoFec2b', 'operator'),
+(80, 'pasir endah', 'dcea0f3416575e23af5ba72ba358b0ab905cc041de9ce27ca137edb1073761369bbcdca02adf57775ba7de8d52e4f5f1638352994f3a06fe7ac008da8950ca443Ah3jzgy5pMhIFkUl0or08peHF18gkLhfoPPx4ah/4M=', 'operator'),
+(81, 'pelita kasih', 'd7d20a8f9638e95575ae156e0c1942bd3228ff7916074d9e5d18bc7247315f17c66706478812e8778da77571bc3edc12ea1fb142b5525fb3e0535a5be840410cgXm7PnCV1vQp49l5VYng1RyoEY0blADpFUF7JyvfTFI=', 'operator'),
+(82, 'perwanida', '5bfc2984a7df4c34caad66a78edbdceafc65e5435601462c0a07d39b14735c077baa35aae49fd8b301a778591991f0fcbbdcd4f9103e98197f6a74d1534b16293lez+Z7ZV+3yKBE6pEBscX5ee01XXBc0dN0y9aktvrE=', 'operator'),
+(83, 'plis muti muiz', '0305baf67bfe461c9274c2dee6054c4fde317930b9da7a80b6e3b8a12ad66322ad6a8d910179a0f11d2de25acf14ae28da9636371b6769f8699bec237a4b47d3wlg7yTn7EVyvTPR2jSt9z3Zg6CqmjXIi2DogPdYb4yE=', 'operator'),
+(84, 'puspa dewi', '93730e9400bb82af5d84dec3a85858409a34ded44fa11acfda70f7d18b0f5560957fbc25ae5795fe8fa43dd8c4c7bed93b3b47bedaa34a6c67ebcf76291df47brbUxVb+yeDm/LGIbxhfnywY16lMK0LfuKxIfjamCAMU=', 'operator'),
+(85, 'sari indah sgl', 'da1d5d8d0d9c40c4097292f45ceda94e9a03a3de5c538ba5743ebb7bedcbe774dea9994cb6ccd71b7960007111482b6aba62799b7d72284f2469ed84dd323e28/3eQSipHRk3eHLbJ3HUAM8uOjfjD9RgSi6L+SOpAhqk=', 'operator'),
+(86, 'siti', '3e5f79e2b3e4dae35233d945f2f34b97ff684569934d2ce5de1806a5f1b86186cfbc927645dd733edc1332cb84ee1f87846c9258241d345deccdd8e5dead0429TEexTQ7Brz2dn0cUwWVl4jnM6uUmXaj1liKGfkMmo9k=', 'operator'),
+(87, 'narto', '02cb6da0451533e0053bb4207718f02196020bd7c5e7b98d63a0d5f638167fe42f13772052604945d0703fd4df1b929dd14dc346517ab1a7ab5a9cb76863f80ekNfY2Z9WRw8ODuaHk669flvXV9njlRTMxE9/7x1ArqA=', 'operator'),
+(88, 'junaedi', 'deda100a4a4b13f118ee5357b18efd7a4ea651d2f22fe462f3222becd135e438b588d4df9fb2241723338cd85ceb751a21d4c5bfe6239398c15a94d4abf7f3574mLm6/WupvOs/xm35WqTiuPdKpGx/22B/1X/OJ7PWpU=', 'operator'),
+(89, 'nunung', 'ddcf8a789d975adc0b2f680e3033f82b069ef65ccdefc92980af4a8eabda1bdcd1d821d72d7861d51f685cafe326899eca4afe6b88ae5d27f75a95243f2d09f468EBQy+tuPObhwVNUhQueA9tpvw10RoQ4HOlECszTC0=', 'operator');
 
 --
 -- Indexes for dumped tables
@@ -758,7 +838,7 @@ ALTER TABLE `tbl_gizi`
 -- AUTO_INCREMENT for table `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tbl_prasarana`
@@ -800,7 +880,7 @@ ALTER TABLE `tbl_tenagapendidik`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- Constraints for dumped tables
