@@ -22,11 +22,11 @@
 	.dropdown_filter .dropdown-menu a:focus,
 	.dropdown_filter .dropdown-menu a:hover,
 	.dropdown_filter .bootstrap-select .dropdown-item.active {
-		background-color: #ff9800;
+		background-color: #0CB4C9;
 	}
 
 	.dropdown_filter .bootstrap-select .btn.dropdown-toggle.select-with-transition {
-		background-image: linear-gradient(0deg, #ff9800 2px, rgba(244, 67, 54, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0) !important;
+		background-image: linear-gradient(0deg, #0CB4C9 2px, rgba(244, 67, 54, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0) !important;
 	}
 
 	.dropdown_filter .bootstrap-select>.dropdown-toggle.bs-placeholder {
@@ -53,12 +53,12 @@
 					</div>
 					<div class="card-body" style="margin-top:6px;">
 						<form method="POST" id="addForm" action="javascript:void(0);">
-							<div class="row" style="padding-bottom: 0px;">
+							<div class="row w-100" style="padding-bottom: 0px;">
 
 								<div class="col-md-12 my-1">
-									<div id="kecamatan-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select id="filter_kecamatan" class="kecamatan filter" data-size="5" data-style="btn btn-sm btn-default d-inline-block" tabindex="-98">
-											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Kecamatan</option>
+									<div id="kecamatan-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>">
+										<select id="filter_kecamatan" class="kecamatan filter" data-size="5" data-style="select-with-transition" data-style="btn btn-link" tabindex="-98">
+											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Pilih Kecamatan</option>
 											<?php foreach ($kecamatan as $dataKecamatan) : ?>
 												<option value="<?= $dataKecamatan['kode_kec'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("kode_kec"))) == $dataKecamatan['kode_kec']) ? "selected" : "" ?>> <?= $dataKecamatan['kecamatan'] ?></option>
 											<?php endforeach; ?>
@@ -68,7 +68,7 @@
 
 								<div class="col-md-12 my-1">
 									<div id="desa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'operator') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select id="filter_desa" class="desa filter" data-size="5" data-style="btn btn-sm btn-success d-inline-block" tabindex="-98">
+										<select id="filter_desa" class="desa filter" data-size="5" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98">
 											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Desa</option>
 											<?php foreach ($desa as $dataDesa) : ?>
 												<!-- <option value="<?= $dataDesa['kode_desa'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("kode_desa"))) == $dataDesa['kode_desa']) ? "selected" : "" ?>> <?= $dataDesa['desa'] ?></option> -->
@@ -79,7 +79,7 @@
 
 								<div class="col-md-12 my-1">
 									<div id="lembaga-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'pimpinan') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98" <?= ($this->session->userdata("role") == "operator") ? "disabled" : "" ?>>
+										<select id="filter_lembaga" class="lembaga filter" data-size="5" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98" <?= ($this->session->userdata("role") == "operator") ? "disabled" : "" ?>>
 											<option value="" <?= ($this->session->userdata("role") == "operator") ? "" : "selected" ?>>Lembaga</option>
 											<?php foreach ($lembaga as $d) : ?>
 												<option value="<?= $d['id'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id']) ? "selected" : "" ?>><?= $d['nama_lembaga'] ?></option>
@@ -90,7 +90,7 @@
 
 								<div class="col-md-12 my-1">
 									<div id="siswa-list" class="dropdown_filter dropdown bootstrap-select <?= ($this->session->userdata("role") == 'pimpinan') ? 'd-none' : '' ?>" style="width:100% !important;">
-										<select name="id_siswa" id="filter_siswa" class="siswa filter" data-size="5" data-style="btn btn-sm btn-danger d-inline-block" tabindex="-98">
+										<select name="id_siswa" id="filter_siswa" class="siswa filter" data-size="5" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98">
 											<option value="">Siswa</option>
 											<?php foreach ($siswaDrop as $d) : ?>
 												<option value="<?= $d['id_siswa'] ?>" <?= ($this->session->userdata("role") == "operator" && $this->encryption->decrypt(base64_decode($this->session->userdata("id_lembaga"))) == $d['id_siswa']) ? "selected" : "" ?>><?= $d['nama'] ?></option>
@@ -287,7 +287,7 @@
 					$('#desa-list').empty()
 
 					$('#desa-list').append(`
-                                <select id="filter_desa" class="desa filter" data-size="7" data-style="btn btn-sm btn-success d-inline-block" tabindex="-98">
+                                <select id="filter_desa" class="desa filter" data-size="7" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98">
                                     <option value="" selected >Semua Desa</option>
 
                                 </select>
@@ -344,7 +344,7 @@
 					$('#lembaga-list').empty()
 
 					$('#lembaga-list').append(`
-                                <select id="filter_lembaga" class="lembaga filter" data-size="7" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98">
+                                <select id="filter_lembaga" class="lembaga filter" data-size="7" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98">
                                     <option value="" selected >Semua Lembaga</option>
 
                                 </select>
@@ -399,7 +399,7 @@
 					$('#siswa-list').empty()
 
 					$('#siswa-list').append(`
-                                <select id="filter_siswa" class="siswa filter" data-size="7" data-style="btn btn-sm btn-warning d-inline-block" tabindex="-98">
+                                <select id="filter_siswa" class="siswa filter" data-size="7" data-style="select-with-transition" data-style="btn btn-link"  tabindex="-98">
                                     <option value="" selected >Semua siswa</option>
 
                                 </select>
