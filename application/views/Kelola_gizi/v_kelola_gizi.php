@@ -107,7 +107,14 @@
 
       <div class="container-fluid">
       	<!-- tambah data -->
-      	<button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
+		  <div class="row">
+			  <div class="col-md-6">
+				  <button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
+			  </div>
+			  <div class="col-md-6 text-right">
+				  <p style="font-size: 14px;">Klik nama <strong style="color:#A03AB6">Siswa</strong> untuk melihat Grafik</p>
+			  </div>
+		  </div>
       	<!-- cetak data -->
       	<!-- <button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="cetak">Cetak</button> -->
       	<div class="col-md-12">

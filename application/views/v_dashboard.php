@@ -289,6 +289,65 @@
       				</div>
       			</div>
       			<div class="card-body row dashboard">
+
+				  <div class="col-lg-12 row">
+      					<div class="card">
+      						<div class="card-body" style="margin-top:6px;">
+      							<h3 class="text-center">Kesehatan</h3>
+      							<div class="row">
+								  <div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-success card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">insert_emoticon</i>
+											</div>
+											<p class="card-category">Normal</p>
+											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlNormal?>
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-default card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">sentiment_satisfied</i>
+											</div>
+											<p class="card-category">Kurus</p>
+											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlKurus?></h3>
+										</div>
+									</div>
+								</div>
+      							</div>
+								  <div class="row">
+								  <div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-primary card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">sentiment_dissatisfied</i>
+											</div>
+											<p class="card-category">Pra-Obesitas</p>
+											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlPra?>
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-danger card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">mood_bad</i>
+											</div>
+											<p class="card-category">Obesitas</p>
+											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlObesitas?></h3>
+										</div>
+									</div>
+								</div>
+								  </div>
+      						</div>
+      					</div>
+      				</div>
+
       				<div class="row" id="rincian">
       					<div class="col-lg-6 col-md-12">
       						<div class="card card-stats">
@@ -325,6 +384,7 @@
       						</div>
       					</div>
       				</div>
+
       				<div class="row" id="akreditasi">
       					<div class="card">
       						<div class="card-header card-header-primary">
@@ -446,63 +506,6 @@
       					</div>
       				</div>
 
-      				<div class="col-lg-12 row">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Kesehatan</h3>
-      							<div class="row">
-								  <div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-success card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">hail</i>
-											</div>
-											<p class="card-category">Normal</p>
-											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlNormal?>
-											</h3>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-default card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">supervised_user_circle</i>
-											</div>
-											<p class="card-category">Kurus</p>
-											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlKurus?></h3>
-										</div>
-									</div>
-								</div>
-      							</div>
-								  <div class="row">
-								  <div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-primary card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">supervised_user_circle</i>
-											</div>
-											<p class="card-category">Pra-Obesitas</p>
-											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlPra?>
-											</h3>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-danger card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">supervised_user_circle</i>
-											</div>
-											<p class="card-category">Obesitas</p>
-											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlObesitas?></h3>
-										</div>
-									</div>
-								</div>
-								  </div>
-      						</div>
-      					</div>
-      				</div>
 
       			</div>
       		</div>
