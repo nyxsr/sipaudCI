@@ -9,28 +9,88 @@ class M_Gizi extends CI_Model
 	}
 
 
-	function countGiziPra()
+	function countGiziPra($where = NULL, $orderBy = NULL)
 	{
-		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE (bmi < 30 AND bmi >= 25);");
-		return $query->num_rows();
+		$this->db->select("g.id_gizi, g.id_siswa, g.id_lembaga, g.bmi, g.tanggal_input, tbl_lembaga.nama_lembaga, tbl_lembaga.*, tbl_kecamatan.* , tbl_desa.*");
+		$this->db->from("tbl_gizi g");
+		$this->db->join("(SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm", "g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate");
+		$this->db->join("tbl_lembaga", "g.id_lembaga = tbl_lembaga.id");
+		$this->db->join("tbl_kecamatan", "tbl_kecamatan.kode_kec = tbl_lembaga.kode_kec", "LEFT");
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
+		$this->db->where("(bmi < 30 AND bmi >= 25)");
+
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		if (!empty($orderBy)) {
+			$this->db->order_by($orderBy);
+		}
+
+		return $this->db->get();
 	}
 
-	function countGiziObesitas()
+	function countGiziObesitas($where = NULL, $orderBy = NULL)
 	{
-		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE bmi >= 30;");
-		return $query->num_rows();
+		$this->db->select("g.id_gizi, g.id_siswa, g.id_lembaga, g.bmi, g.tanggal_input, tbl_lembaga.nama_lembaga, tbl_lembaga.*, tbl_kecamatan.* , tbl_desa.*");
+		$this->db->from("tbl_gizi g");
+		$this->db->join("(SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm", "g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate");
+		$this->db->join("tbl_lembaga", "g.id_lembaga = tbl_lembaga.id");
+		$this->db->join("tbl_kecamatan", "tbl_kecamatan.kode_kec = tbl_lembaga.kode_kec", "LEFT");
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
+		$this->db->where("bmi >= 30");
+
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		if (!empty($orderBy)) {
+			$this->db->order_by($orderBy);
+		}
+
+		return $this->db->get();
 	}
 
-	function countGiziNormal()
+	function countGiziNormal($where = NULL, $orderBy = NULL)
 	{
-		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE (bmi >= 18.5 AND bmi <= 24.99);");
-		return $query->num_rows();
+		$this->db->select("g.id_gizi, g.id_siswa, g.id_lembaga, g.bmi, g.tanggal_input, tbl_lembaga.nama_lembaga, tbl_lembaga.*, tbl_kecamatan.* , tbl_desa.*");
+		$this->db->from("tbl_gizi g");
+		$this->db->join("(SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm", "g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate");
+		$this->db->join("tbl_lembaga", "g.id_lembaga = tbl_lembaga.id");
+		$this->db->join("tbl_kecamatan", "tbl_kecamatan.kode_kec = tbl_lembaga.kode_kec", "LEFT");
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
+		$this->db->where("(bmi >= 18.5 AND bmi <= 24.99)");
+
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		if (!empty($orderBy)) {
+			$this->db->order_by($orderBy);
+		}
+
+		return $this->db->get();
 	}
 
-	function countGiziKurus()
+	function countGiziKurus($where = NULL, $orderBy = NULL)
 	{
-		$query = $this->db->query("SELECT * FROM `tbl_gizi` WHERE bmi < 18.5");
-		return $query->num_rows();
+		$this->db->select("g.id_gizi, g.id_siswa, g.id_lembaga, g.bmi, g.tanggal_input, tbl_lembaga.nama_lembaga, tbl_lembaga.*, tbl_kecamatan.* , tbl_desa.*");
+		$this->db->from("tbl_gizi g");
+		$this->db->join("(SELECT id_siswa, max(tanggal_input) as MaxDate FROM tbl_gizi GROUP BY id_siswa) gm", "g.id_siswa = gm.id_siswa AND g.tanggal_input = gm.MaxDate");
+		$this->db->join("tbl_lembaga", "g.id_lembaga = tbl_lembaga.id");
+		$this->db->join("tbl_kecamatan", "tbl_kecamatan.kode_kec = tbl_lembaga.kode_kec", "LEFT");
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
+		$this->db->where("bmi < 18.5");
+
+		if (!empty($where)) {
+			$this->db->where($where);
+		}
+
+		if (!empty($orderBy)) {
+			$this->db->order_by($orderBy);
+		}
+
+		return $this->db->get();
 	}
 
 	function getDataGizi($where = NULL)
@@ -75,14 +135,11 @@ class M_Gizi extends CI_Model
 
 	function getWhereStatistic($where = NULL, $orderBy = NULL)
 	{
-		// $this->db->select("*");
-		// $this->db->from("tbl_gizi");
-		// $this->db->join("SELECT tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.tinggi_badan, tbl_gizi.berat_badan, tbl_gizi.lingkar_kepala FROM `tbl_gizi` JOIN tbl_siswa ON tbl_siswa.id_siswa = tbl_gizi.id_siswa JOIN tbl_lembaga ON tbl_lembaga.id = tbl_gizi.id_lembaga");
-
-		$this->db->select("tbl_siswa.nama, tbl_lembaga.nama_lembaga , tbl_gizi.tinggi_badan, tbl_gizi.berat_badan, tbl_gizi.lingkar_kepala");
+		$this->db->select("*");
 		$this->db->from("tbl_gizi");
-		$this->db->join("tbl_siswa", "tbl_siswa.id_siswa = tbl_gizi.id_siswa");
 		$this->db->join("tbl_lembaga", "tbl_lembaga.id = tbl_gizi.id_lembaga");
+		$this->db->join("tbl_kecamatan", "tbl_kecamatan.kode_kec = tbl_lembaga.kode_kec", "LEFT");
+		$this->db->join("tbl_desa", "tbl_lembaga.kode_desa = tbl_desa.kode_desa AND tbl_lembaga.kode_kec = tbl_desa.kode_kec", "LEFT");
 
 		if (!empty($where)) {
 			$this->db->where($where);
@@ -92,7 +149,7 @@ class M_Gizi extends CI_Model
 			$this->db->order_by($orderBy);
 		}
 
-		// $this->db->group_by('tbl_siswa.id_siswa');
+		// $this->db->group_by('fbl_tenagapendidik.id_tenagaPendidik');
 
 		return $this->db->get();
 	}

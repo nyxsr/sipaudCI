@@ -290,60 +290,60 @@
       			</div>
       			<div class="card-body row dashboard">
 
-				  <div class="col-lg-12 row">
+      				<div class="col-lg-12 row">
       					<div class="card">
       						<div class="card-body" style="margin-top:6px;">
       							<h3 class="text-center">Kesehatan</h3>
       							<div class="row">
-								  <div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-success card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">insert_emoticon</i>
-											</div>
-											<p class="card-category">Normal</p>
-											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlNormal?>
-											</h3>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-default card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">sentiment_satisfied</i>
-											</div>
-											<p class="card-category">Kurus</p>
-											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlKurus?></h3>
-										</div>
-									</div>
-								</div>
+      								<div class="col-lg-6 col-md-12">
+      									<div class="card card-stats">
+      										<div class="card-header card-header-success card-header-icon">
+      											<div class="card-icon">
+      												<i class="material-icons">insert_emoticon</i>
+      											</div>
+      											<p class="card-category">Normal</p>
+      											<h3 class="card-title" id="totalGiziNormal">0
+      											</h3>
+      										</div>
+      									</div>
+      								</div>
+      								<div class="col-lg-6 col-md-12">
+      									<div class="card card-stats">
+      										<div class="card-header card-header-default card-header-icon">
+      											<div class="card-icon">
+      												<i class="material-icons">sentiment_satisfied</i>
+      											</div>
+      											<p class="card-category">Kurus</p>
+      											<h3 class="card-title" id="totalGiziKurus">0</h3>
+      										</div>
+      									</div>
+      								</div>
       							</div>
-								  <div class="row">
-								  <div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-primary card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">sentiment_dissatisfied</i>
-											</div>
-											<p class="card-category">Pra-Obesitas</p>
-											<h3 class="card-title" id="totalTenagaPendidik"><?= $jmlPra?>
-											</h3>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-12">
-									<div class="card card-stats">
-										<div class="card-header card-header-danger card-header-icon">
-											<div class="card-icon">
-												<i class="material-icons">mood_bad</i>
-											</div>
-											<p class="card-category">Obesitas</p>
-											<h3 class="card-title" id="totalTenagaKependidikan"><?= $jmlObesitas?></h3>
-										</div>
-									</div>
-								</div>
-								  </div>
+      							<div class="row">
+      								<div class="col-lg-6 col-md-12">
+      									<div class="card card-stats">
+      										<div class="card-header card-header-primary card-header-icon">
+      											<div class="card-icon">
+      												<i class="material-icons">sentiment_dissatisfied</i>
+      											</div>
+      											<p class="card-category">Pra-Obesitas</p>
+      											<h3 class="card-title" id="totalGiziPra">0
+      											</h3>
+      										</div>
+      									</div>
+      								</div>
+      								<div class="col-lg-6 col-md-12">
+      									<div class="card card-stats">
+      										<div class="card-header card-header-danger card-header-icon">
+      											<div class="card-icon">
+      												<i class="material-icons">mood_bad</i>
+      											</div>
+      											<p class="card-category">Obesitas</p>
+      											<h3 class="card-title" id="totalGiziObesitas">0</h3>
+      										</div>
+      									</div>
+      								</div>
+      							</div>
       						</div>
       					</div>
       				</div>
@@ -568,7 +568,7 @@
       			$("#filter_kecamatan").change(function() {
       				var value = $("#filter_kecamatan").val()
       				getDesa(value)
-      			}); 
+      			});
 
       			function getDesa(kode_kec) {
       				$.ajax({
@@ -711,6 +711,10 @@
       						$("#totalTenagaPendidik").html(response.totalTenagaPendidik)
       						$("#totalTenagaKependidikan").html(response.totalTenagaKependidikan)
       						$("#totalSiswa").html(response.totalSiswa)
+      						$("#totalGiziNormal").html(response.totalGiziNormal)
+      						$("#totalGiziKurus").html(response.totalGiziKurus)
+      						$("#totalGiziPra").html(response.totalGiziPra)
+      						$("#totalGiziObesitas").html(response.totalGiziObesitas)
       						// $("#totalSaranaPrasarana").html(response.totalSaranaPrasarana ? response.totalSaranaPrasarana : 0)
       						$("#statusAkreditasi").html(response.akreditasi ? response.akreditasi : "-")
       						$(".ct-chart.sarana").empty()
