@@ -339,7 +339,7 @@
       											<div class="card-body" style="margin-top:6px;">
       												<h3 class="text-center font-weight-bold">Data SI-PAUD HI</h3>
       												<hr>
-      												<div class="row justify-content-center text-center" style="margin-top: 50px;">
+      												<div class="row d-flex justify-content-center align-items-center text-center" style="margin-top: 50px;">
       													<div class="col-lg-6  ">
       														<h4> Jumlah Siswa </h4>
       														<button id="totalSiswa" class="btn a " style="font-size:30px ;">0</button>
@@ -347,6 +347,10 @@
       													<div class="col-lg-6 ">
       														<h4> Jumlah Lembaga </h4>
       														<button id="totalLembaga" class="btn a " style="font-size:30px ;">0</button>
+      													</div>
+      													<div class="col-lg-4 " id="akreditasi">
+      														<h4> Akreditasi </h4>
+      														<button id="statusAkreditasi" class="btn a " style="font-size:30px ;">-</button>
       													</div>
       												</div>
       											</div>
@@ -398,11 +402,13 @@
       					</div>
       				</div>
 
-      				<div class="row" id="rincian">
+					  <div class="col-lg-12 row">
+      					<div class="card">
+      						<div class="card-body" style="margin-top:6px;">
       					<div class="col-12">
       						<h3 class="text-center font-weight-bold">Pendidikan</h3>
       					</div>
-      					<div class="col-lg-6 col-md-12">
+      					<div class="col-lg-12 col-md-4">
       						<div class="card card-stats">
       							<div class="card-header card-header-warning card-header-icon">
       								<div class="card-icon">
@@ -414,7 +420,7 @@
       							</div>
       						</div>
       					</div>
-      					<div class="col-lg-6 col-md-12">
+      					<div class="col-lg-12 col-md-4">
       						<div class="card card-stats">
       							<div class="card-header card-header-success card-header-icon">
       								<div class="card-icon">
@@ -437,18 +443,11 @@
       						</div>
       					</div> -->
       				</div>
+							</div>
+						</div>
+					  </div>
 
 
-      				<div class="row" id="akreditasi">
-      					<div class="card">
-      						<div class="card-header card-header-primary">
-      							<h4 class="card-title text-center">Akreditasi</h4>
-      						</div>
-      						<div class="card-body text-center" style="margin-top:6px;">
-      							<h1 class="akreditasi" id="statusAkreditasi">A</h1>
-      						</div>
-      					</div>
-      				</div>
 
       				<div class="col-lg-12 row">
       					<div class="card">
