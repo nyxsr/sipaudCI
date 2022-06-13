@@ -546,7 +546,7 @@
       									</div>
       								</div>
       							</div>
-								<div class="col-lg-12 row">
+								<!-- <div class="col-lg-12 row">
 									<div class="card">
 										<div class="card-body" style="margin-top:6px;">
 											<h3 class="text-center">Gizi Anak</h3>
@@ -577,8 +577,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-lg-12 row">
+								</div> -->
+								<!-- <div class="col-lg-12 row">
 									<div class="card">
 										<div class="card-body" style="margin-top:6px;">
 											<h3 class="text-center font-weight-bold"> Grafik Perkembangan Gizi Anak</h3>
@@ -588,7 +588,7 @@
 											
 										</div>
 									</div>
-								</div>
+								</div> -->
       						</div>
       					</div>
       				</div>
