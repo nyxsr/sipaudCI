@@ -85,6 +85,7 @@ class Dashboard extends CI_Controller
 			'totalGiziKurus' => $this->M_Gizi->countGiziKurus($filterWhere)->num_rows(),
 			'totalGiziPra' => $this->M_Gizi->countGiziPra($filterWhere)->num_rows(),
 			'totalGiziObesitas' => $this->M_Gizi->countGiziObesitas($filterWhere)->num_rows(),
+			'totalLembaga' => $this->M_Lembaga->getWhere($filterWhere)->num_rows(),
 			// 'totalSaranaPrasarana' => $this->M_saranaPrasarana->getWhere($filterWhere)->num_rows(),
 			// 'totalSarana' => $this->M_Sarana->getSumWhere($filterWhere),
 			'totalSiswa' => $this->M_Siswa->getWhereStatistic($filterWhere)->num_rows(),

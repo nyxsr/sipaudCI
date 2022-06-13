@@ -107,14 +107,11 @@
 
       <div class="container-fluid">
       	<!-- tambah data -->
-		  <div class="row">
-			  <div class="col-md-6">
-				  <button class="btn btn-sm btn-success modalButton" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
-			  </div>
-			  <div class="col-md-6 text-right">
-				  <p style="font-size: 14px;">Klik nama <strong style="color:#A03AB6">Siswa</strong> untuk melihat Grafik</p>
-			  </div>
-		  </div>
+      	<div class="row">
+      		<div class="col-md-6">
+      			<button class="btn btn-sm btn-success modalButton py-2" data-toggle="modal" data-target="#modal" data-type="tambah">Tambah</button>
+      		</div>
+      	</div>
       	<!-- cetak data -->
       	<!-- <button class="btn btn-sm btn-Primary modalButton" data-toggle="modal" data-target="#modal" data-type="cetak">Cetak</button> -->
       	<div class="col-md-12">
@@ -385,3 +382,13 @@
       			});
       		}
       	</script>
+      	<div class="row">
+      		<div class="col-md-12 text-right">
+      			<p style="font-size: 14px;">Klik nama <strong style="color:#A03AB6">Siswa</strong> untuk melihat <b>Grafik</b></p>
+      		</div>
+      	</div>
+      	<div class="row">
+      		<div class="col-md-12 text-right">
+      			<p style="font-size: 14px;">Klik <strong style="color:#A03AB6">Tanggal Input</strong> untuk melihat <b>History Input</b></p>
+      		</div>
+      	</div>
