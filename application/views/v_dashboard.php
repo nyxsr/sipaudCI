@@ -290,7 +290,7 @@
       			</div>
       			<div class="card-body row dashboard mt-3">
       				<div class="col-12">
-      					<h2 class="text-left font-weight-bold">Selamat Datang, <?= ($this->session->userdata("role") == 'operator') ? $this->session->userdata("nama") : 'Admin' ?></h2>
+      					<h2 class="text-left font-weight-bold">Selamat Datang, <?= ($this->session->userdata("role") == "operator") ? ucfirst(($this->session->userdata("nama"))) : (($this->session->userdata("role") == "admin") ? ('Admin') : ('Pimpinan')) ?></h2>
       					<hr class="sidebar-divider" />
       				</div>
 
