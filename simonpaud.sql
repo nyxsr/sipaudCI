@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 06:15 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- Waktu pembuatan: 13 Jun 2022 pada 15.06
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_bantuan`
+-- Struktur dari tabel `tbl_bantuan`
 --
 
 CREATE TABLE `tbl_bantuan` (
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_bantuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_bantuan`
+-- Dumping data untuk tabel `tbl_bantuan`
 --
 
 INSERT INTO `tbl_bantuan` (`id_bantuan`, `tahun`, `jenis_bantuan`, `jumlah`, `sumber_bantuan`, `keterangan_bantuan`, `id_lembaga`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `tbl_bantuan` (`id_bantuan`, `tahun`, `jenis_bantuan`, `jumlah`, `su
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_desa`
+-- Struktur dari tabel `tbl_desa`
 --
 
 CREATE TABLE `tbl_desa` (
@@ -63,7 +63,7 @@ CREATE TABLE `tbl_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_desa`
+-- Dumping data untuk tabel `tbl_desa`
 --
 
 INSERT INTO `tbl_desa` (`kode_kec`, `kode_desa`, `desa`) VALUES
@@ -324,7 +324,7 @@ INSERT INTO `tbl_desa` (`kode_kec`, `kode_desa`, `desa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_gizi`
+-- Struktur dari tabel `tbl_gizi`
 --
 
 CREATE TABLE `tbl_gizi` (
@@ -339,7 +339,7 @@ CREATE TABLE `tbl_gizi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_gizi`
+-- Dumping data untuk tabel `tbl_gizi`
 --
 
 INSERT INTO `tbl_gizi` (`id_gizi`, `id_siswa`, `id_lembaga`, `tinggi_badan`, `berat_badan`, `lingkar_kepala`, `bmi`, `tanggal_input`) VALUES
@@ -353,7 +353,7 @@ INSERT INTO `tbl_gizi` (`id_gizi`, `id_siswa`, `id_lembaga`, `tinggi_badan`, `be
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kecamatan`
+-- Struktur dari tabel `tbl_kecamatan`
 --
 
 CREATE TABLE `tbl_kecamatan` (
@@ -362,7 +362,7 @@ CREATE TABLE `tbl_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_kecamatan`
+-- Dumping data untuk tabel `tbl_kecamatan`
 --
 
 INSERT INTO `tbl_kecamatan` (`kode_kec`, `kecamatan`) VALUES
@@ -400,7 +400,7 @@ INSERT INTO `tbl_kecamatan` (`kode_kec`, `kecamatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_lembaga`
+-- Struktur dari tabel `tbl_lembaga`
 --
 
 CREATE TABLE `tbl_lembaga` (
@@ -422,7 +422,7 @@ CREATE TABLE `tbl_lembaga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_lembaga`
+-- Dumping data untuk tabel `tbl_lembaga`
 --
 
 INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, `kode_desa`, `alamat_lembaga`, `tahun_berdiri`, `kepala_sekolah`, `pengelompokan`, `tahun_akreditasi`, `status_akreditasi`, `foto_lembaga`, `longitude`, `latitude`) VALUES
@@ -431,59 +431,58 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (7, 41, NULL, 'PAUD Mawar', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (8, 42, NULL, 'PAUD Bagus', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (9, 43, '', 'PAUD Cempaka', '021', '', 'Subang', 2011, 'Jaja', 'RA (Raudhatul Athfal)', 2019, 'B', '422e3868f6267d3fa72e545c5c97c172.jpg', '107.76295587008634', '-6.571710185081761'),
-(10, 50, '69824004', 'KB AL-KAUTSAR', '010', '013', 'JL. CURUG AGUNG', 2022, '', 'KB (Kelompok Bermain)', 2022, 'A', 'image_placeholder.jpg', '', ''),
-(11, 51, ' 69823959', 'KB AL-MUHYI', '010', '013', 'KP Cembul', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(12, 52, ' 69861414', 'KB ANUGRAH', '010', '012', 'Kp Mande RT 25 RW 09', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(13, 53, ' 69952595', 'KB AR-RADHWA', '010', '013', 'KP SINAPEUL RT 06 RW 02', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(14, 54, ' 69824192	', 'KB AR-ROHMAH', '010', '013', 'Kp. Cikadu RT.20 RW.06', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(15, 55, ' 69823936', 'KB HARAPAN BUNDA', '010', '003', 'CICEURI', 2017, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(16, 56, ' 69861642', 'KB KASIH IBU ', '010', '005', 'KP. KAUM RT.008/003', 2019, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(17, 57, ' 69824001', 'KB KENANGA', '010', '004', 'PANARUBAN', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(18, 58, ' 69824129', 'KB MIFTAHUSSAADAH', '010', '005', 'Kp. Krajan RT.12 RW.09 Desa Sagalaherang', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(19, 59, ' 69953925', 'KB MUTI BAROKAH', '010', '013', 'KP. BATUKAPUR RT 024 RW 004', 2018, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(20, 60, ' 69940981', 'RA Ibnu Shina', '010', '005', 'Krajan Rt 12/09 Desa Sagalaherang', 2017, '', 'RA (Raudhatul Athfal)', 2021, 'B', 'image_placeholder.jpg', '', ''),
-(21, 61, 'almamun', 'RA/BA/TA AL MAMUN BAIBARS', '010', '013', 'Jl. Alun-Alun Timur No. 11 Rt. 09 Rw. 03', 2017, '', 'RA (Raudhatul Athfal)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(22, 62, ' 69737437', 'RA/BA/TA RIYADHUSHOLIHIN', '010', '004', 'Jl Raya Cicadas II Rt 14/03 Ds. Cicadas', 2017, '', 'RA (Raudhatul Athfal)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(23, 63, ' 69824097', 'SPS AL-MUAWANAH', '010', '003', 'SUKAMANDI', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(24, 64, 'ibtisaam', 'SPS IBTISAAM', '010', '012', 'Jl. Cibuntu RT.19 RW.07 Desa Sagalaherang Kaler', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(25, 65, ' 69824161	', 'SPS ILHAM', '010', '003', 'KP . PASIRMENYAN', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2017, 'A', 'image_placeholder.jpg', '', ''),
-(26, 66, ' 69824167', 'SPS MARIPOSA', '010', '004', 'Jl. Cicadas RT. 07 RW. 02', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(27, 67, ' 69959053', 'SPS NABILA AL FIYAH', '010', '003', 'KP. SUKAMANDI RT 17 RW 08', 2018, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(28, 68, ' 69911607', 'SPS NURUL BAYAN', '010', '004', 'KP.CIGEUREUNG RT 17/04', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(29, 69, ' 69911605', 'SPS NURUL ILMI', '010', '006', 'KP.CIWAHANG RT 14/04', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2017, 'A', 'image_placeholder.jpg', '', ''),
-(30, 70, ' 69861640', 'SPS PELITA HATI', '010', '006', 'BOJONGRANGKAS', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(31, 71, ' 69911604', 'SPS RAUDHOTUL MUTA ALIMIN', '010', '006', 'Jl. Margaluyu RT.08 RW.03 Desa Dayeuhkolot Kecamatan Sagalaherang', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(32, 72, ' 69861644', 'SPS SEJAHTERA', '010', '012', 'GUDANG GARAM', 2017, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(33, 73, ' 69968497', 'TK CINTA NUSA', '010', '012', 'KAMPUNG CILEUNGSING', 2007, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(34, 74, ' 20264553', 'TK DEWI RATIH', '010', '006', 'Jl. Yudha Prawira RT. 02 RW. 01', 2008, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(35, 75, ' 20264556', 'TK DEWI SARTIKA', '010', '005', 'Kp. Krajan RT. 12 RW. 08', 2004, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(36, 76, ' 69988148', 'TK IT SALSABILA', '010', '004', 'Kp. Panaruban RT.24 RW.05 Desa Cicadas Kec. Sagalaherang', 2005, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(37, 77, ' 20264595', 'TK MEKAR SARI ', '010', '003', 'Jl. Sukamandi RT. 16 RW. 08', 2007, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(38, 78, '69912221', 'TK MIFTAHUL ULUM', '010', '011', 'Kp. Ciherang RT. 04 RW. 02', 2003, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(39, 79, ' 20264636', 'TK NEGERI SAGALAHERANG', '010', '005', 'Jl. Alun-alun Selatan Kp. Keripik RT. 09 RW. 03', 2005, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(40, 80, ' 20264630', 'TK PASIR ENDAH', '010', '003', 'Jl. Pasirmenyan RT. 08 RW. 04', 2004, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(41, 81, ' 69861344', 'TK PELITA KASIH', '010', '011', 'L DESA LELES', 2004, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(42, 82, '20264637', 'TK PERWANIDA', '010', '005', 'Jl. Citalutug RT. 13 RW. 05', 2007, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(43, 83, ' 69922538', 'TK PLUS MUTI MUIZ', '010', '013', 'Jl. Curugagung RT. 014/004', 2007, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(44, 84, ' 20264643', 'TK PUSPA DEWI', '010', '004', 'Jl. Cicadas RT. 01 RW. 01', 2003, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(45, 85, '20264660', 'TK SARI INDAH SGL', '010', '003', 'JL. CICEURI SAGALAHERANG', 2007, '', 'TK (Taman Kanak-kanak)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(46, 86, NULL, 'KB SITI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(47, 87, ' 69958025', 'AL-MA RUF', '020', '015', 'Kp. Caringin Rt.13 Rw.04', 2007, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(48, 88, ' 69976144	', 'AN-NUR', '020', '016', 'JL. RAYA PATROL RT 20 RW 07', 2003, '', 'SPS (Satuan PAUD Sejenis)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(49, 89, '	 69823980', 'KB AL-HUDA', '020', '016', 'CICARIANG RT.20/06', 2003, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(50, 90, '	 69968535', 'KB AL-MUJAHIDU', '020', '016', 'Bunihayu RT. 06 RW. 02', 2005, '', 'KB (Kelompok Bermain)', 2007, 'A', 'image_placeholder.jpg', '', ''),
-(51, 91, ' 69823979', 'KB DIRAASAH AL-QUR ANNIYYAH', '020', '015', 'JALAN CAGAK', 2008, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(52, 92, ' 69911193', 'KB NURUL INSANI', '020', '017', 'Dusun Simpang RT. 07/03 Desa Tambak Mekar Kec. Jalancagak', 2007, '', 'KB (Kelompok Bermain)', 2007, 'A', 'image_placeholder.jpg', '', ''),
-(53, 93, ' 69861416', 'KB SANGGA BUANA', '020', '017', 'JLN. BABAKAN SUKAMAJU KP. PATROL RT.22/06', 2007, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(54, 94, ' 69824126', 'KB SINAR CEMPAKA', '020', '016', 'Kp. Cicariu RT.022 RW.003 Desa Bunihayu Kec. Jalancagak', 2005, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(55, 95, ' 69861415', 'KB SINAR MENTARI', '020', '015', 'Jalancagak RW.01 Desa Jalancagak Kecamatan Jalancagak', 2007, '', 'KB (Kelompok Bermain)', 2007, 'A', 'image_placeholder.jpg', '', ''),
-(56, 96, '	 69823982', 'KB TARBIYATUL UMMAT', '020', '015', 'CISEUTI', 2003, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(57, 97, ' 70011761', 'KB TASDIIQUL INSAN', '020', '007', 'Kp. Jabong II RT.026 RW.009 Desa Curugrendeng Kec. Jalancagak Kab. Subang', 2007, '', 'KB (Kelompok Bermain)', 2007, 'A', 'image_placeholder.jpg', '', ''),
-(58, 98, ' 69987766', 'Kober AL-BAROKAH', '020', '016', 'Kp. Cicariu RT.15 RW.04 Desa Bunihayu Kec. Jalancagak', 2007, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(59, 99, ' 69911207', 'KOBER ASSIROJ', '020', '014', 'Tambakan RT. 015/004', 2003, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(60, 100, ' 69911211', 'KOBER BINA WARGA', '020', '007', '	Kp. Curugrendeng RT. 10/03', 2007, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(61, 101, '69911196', 'KOBER INSAN CIPTA', '020', '014', 'Tambakan RT. 021/005', 2004, '', 'KB (Kelompok Bermain)', 2021, 'A', 'image_placeholder.jpg', '', ''),
-(62, 102, ' 69911200', 'KOBER UMI BINA MANDIRI', '020', '016', 'Kp. Bunihayu RT. 003/001', 2007, '', 'KB (Kelompok Bermain)', 2021, 'B', 'image_placeholder.jpg', '', ''),
+(10, 50, NULL, 'KB AL-KAUTSAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(11, 51, NULL, 'KB AL-MUHYI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(12, 52, NULL, 'KB ANUGRAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(13, 53, NULL, 'KB AR-RADHWA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(14, 54, NULL, 'KB AR-ROHMAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(15, 55, NULL, 'KB HARAPAN BUNDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(16, 56, NULL, 'KB KASIH IBU ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(17, 57, NULL, 'KB KENANGA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(18, 58, NULL, 'KB MIFTAHUSSAADAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(19, 59, NULL, 'KB MUTI BAROKAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(20, 60, NULL, 'RA Ibnu Shina', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(21, 61, NULL, 'RA/BA/TA AL MAMUN BAIBARS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(22, 62, NULL, 'RA/BA/TA RIYADHUSHOLIHIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(23, 63, NULL, 'SPS AL-MUAWANAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(24, 64, NULL, 'SPS IBTISAAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(25, 65, NULL, 'SPS ILHAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(26, 66, NULL, 'SPS MARIPOSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(27, 67, NULL, 'SPS NABILA AL FIYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(28, 68, NULL, 'SPS NURUL BAYAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(29, 69, NULL, 'SPS NURUL ILMI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(30, 70, NULL, 'SPS PELITA HATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(31, 71, NULL, 'SPS RAUDHOTUL MUTA ALIMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(32, 72, NULL, 'SPS SEJAHTERA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(33, 73, NULL, 'TK CINTA NUSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(34, 74, NULL, 'TK DEWI RATIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(35, 75, NULL, 'TK DEWI SARTIKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(36, 76, NULL, 'TK IT SALSABILA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(37, 77, NULL, 'TK MEKAR SARI ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(38, 78, NULL, 'TK MIFTAHUL ULUM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(39, 79, NULL, 'TK NEGERI SAGALAHERANG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(40, 80, NULL, 'TK PASIR ENDAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(41, 81, NULL, 'TK PELITA KASIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(42, 82, NULL, 'TK PERWANIDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(43, 83, NULL, 'TK PLUS MUTI MUIZ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(44, 84, NULL, 'TK PUSPA DEWI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(45, 85, NULL, 'TK SARI INDAH SGL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(47, 87, NULL, 'AL-MA RUF', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(48, 88, NULL, 'AN-NUR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(49, 89, NULL, 'KB AL-HUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(50, 90, NULL, 'KB AL-MUJAHIDU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(51, 91, NULL, 'KB DIRAASAH AL-QUR ANNIYYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(52, 92, NULL, 'KB NURUL INSANI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(53, 93, NULL, 'KB SANGGA BUANA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(54, 94, NULL, 'KB SINAR CEMPAKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(55, 95, NULL, 'KB SINAR MENTARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(56, 96, NULL, 'KB TARBIYATUL UMMAT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(57, 97, NULL, 'KB TASDIIQUL INSAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(58, 98, NULL, 'Kober AL-BAROKAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(59, 99, NULL, 'KOBER ASSIROJ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(60, 100, NULL, 'KOBER BINA WARGA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(61, 101, NULL, 'KOBER INSAN CIPTA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(62, 102, NULL, 'KOBER UMI BINA MANDIRI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (63, 103, NULL, 'RA EDUFAZA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (64, 104, NULL, 'RA KHOLIFI AZAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (65, 105, NULL, 'RA/BA/TAAL HUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
@@ -818,8 +817,7 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (394, 434, NULL, 'SPS ALFURQON 83', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (395, 435, NULL, 'SPS ANUGRAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (396, 436, NULL, 'SPS AR RAHMA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(397, 437, NULL, 'SPS ASH-SHIDIQ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
-INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, `kode_desa`, `alamat_lembaga`, `tahun_berdiri`, `kepala_sekolah`, `pengelompokan`, `tahun_akreditasi`, `status_akreditasi`, `foto_lembaga`, `longitude`, `latitude`) VALUES
+(397, 437, NULL, 'SPS ASH-SHIDIQ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (398, 438, NULL, 'SPS BAITUL ILMU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (399, 439, NULL, 'SPS BANGUN BANGSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (400, 440, NULL, 'SPS BAYANGKARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
@@ -838,12 +836,142 @@ INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, 
 (413, 453, NULL, 'TK NEGERI PEMBINA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (414, 454, NULL, 'TK NURUL ALBAB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
 (415, 455, NULL, 'TK NUSA INDAH SBG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
-(416, 456, NULL, 'TK PANJI KENCANA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
+(416, 456, NULL, 'TK PANJI KENCANA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(417, 457, NULL, 'TK PEMBINA GOLDEN AGE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(418, 458, NULL, 'TK PLUS BUDIMAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
+INSERT INTO `tbl_lembaga` (`id`, `id_user`, `npsn`, `nama_lembaga`, `kode_kec`, `kode_desa`, `alamat_lembaga`, `tahun_berdiri`, `kepala_sekolah`, `pengelompokan`, `tahun_akreditasi`, `status_akreditasi`, `foto_lembaga`, `longitude`, `latitude`) VALUES
+(419, 459, NULL, 'TK RAHAYU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(420, 460, NULL, 'TK SEKARWANGI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(421, 461, NULL, 'TK TERPADU BINA INSANI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(422, 462, NULL, 'TK YOS SUDARSO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(423, 463, NULL, 'TK DARUTTAUBAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(424, 464, NULL, 'TKIT AL HAQQ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(425, 465, NULL, 'TKIT AL-HIDAYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(426, 466, NULL, 'TPA AL MADINA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(427, 467, NULL, 'KB SRIKANDI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(428, 468, NULL, 'RA/BA/TA AL GHIFARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(429, 469, NULL, 'SPS PUTRA CERIA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(430, 470, NULL, 'TK AL AZZAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(431, 471, NULL, 'TKIT RIYADLOTUL FIKRI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(432, 472, NULL, 'KB THORIQUL HUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(433, 473, NULL, 'RA/BA/TA AL MUKHLIS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(434, 474, NULL, 'SPS AL-AMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(435, 475, NULL, 'SPS MANAARUL HUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(436, 476, NULL, 'TK IT BABUL ILMI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(437, 477, NULL, 'KB ANEKA ASIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(438, 478, NULL, 'RA/BA/TA BAETUS SALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(439, 479, NULL, 'SPS AL-KHOIROT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(440, 480, NULL, 'SPS RAUDHATUL IRFAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(441, 481, NULL, 'TK ASSYIFA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(442, 482, NULL, 'KB AN NIDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(443, 483, NULL, 'KB BINANGKIT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(444, 484, NULL, 'RA/BA/TA SIROJUL MUNIR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(445, 485, NULL, 'SPS KUNCUP MELATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(446, 486, NULL, 'TK SERENGSENG JAYA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(447, 487, NULL, 'KB BINTANG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(448, 488, NULL, 'KB JENAKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(449, 489, NULL, 'SPS DAHLIA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(450, 490, NULL, 'TK RA KARTINI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(451, 491, NULL, 'TKIT ASSALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(452, 492, NULL, 'KB CERIA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(453, 493, NULL, 'RA/BA/TA AS SALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(454, 494, NULL, 'SPS AL-JIHAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(455, 495, NULL, 'SPS AL QURAISY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(456, 496, NULL, 'TK ANNISA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(457, 497, NULL, 'KB LAYUNG SARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(458, 498, NULL, 'KB MADANI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(459, 499, NULL, 'RA BAITUROHIM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(460, 500, NULL, 'SPS AL-MUSRI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(461, 501, NULL, 'SPS SAYANG ANAK 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(462, 502, NULL, 'TK GANDA MEKAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(463, 503, NULL, 'KB AGUNG MAKMUR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(464, 504, NULL, 'KB TERATAI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(465, 505, NULL, 'RA/BA/TA AL-AFGHANI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(466, 506, NULL, 'SPS ANAK SOLEH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(467, 507, NULL, 'TK DEMAS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(468, 508, NULL, 'TKIT CAHAYA IMAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(469, 509, NULL, 'KB AT-TAQWA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(470, 510, NULL, 'PAUD AL FALAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(471, 511, NULL, 'RA/BA/TA AL-IQDAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(472, 512, NULL, 'SPS AR RUYAT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(473, 513, NULL, 'TK AL-AZKIA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(474, 514, NULL, 'TL IT AS SHIDIQIYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(475, 515, NULL, 'KB KEDIRI 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(476, 516, NULL, 'RA/BA/TA AN-NUUR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(477, 517, NULL, 'SPS CITRA INDAH LESTARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(478, 518, NULL, 'SPS MAWAR PUTIH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(479, 519, NULL, 'TK VIKRA ERMAYA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(480, 520, NULL, 'KB AL-MUGNI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(481, 521, NULL, 'KB VIA BINANGKIT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(482, 522, NULL, 'RA/BA/TA AL-HAJRAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(483, 523, NULL, 'SPS RAMA MUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(484, 524, NULL, 'TK ADHITANI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(485, 525, NULL, 'KB AL-HUSEN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(486, 526, NULL, 'KB AT TAFWID', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(487, 527, NULL, 'RA RODHIYA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(488, 528, NULL, 'SPS ANYELIR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(489, 529, NULL, 'TK PLAMBOYAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(490, 530, NULL, 'KB AL-ITTIHAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(491, 531, NULL, 'KB PURNAMA PUSAKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(492, 532, NULL, 'SPS MERPATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(493, 533, NULL, 'TK PELITA IBU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(494, 534, NULL, 'TK NAHDLATUL ULAMA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(495, 535, NULL, 'KB BOUGENVILE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(496, 536, NULL, 'KB PATRIOT BANGSA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(497, 537, NULL, 'SPS DARUSSALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(498, 538, NULL, 'SPS ANGGREK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(499, 539, NULL, 'TKIT PERMATA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(500, 540, NULL, 'KB CEMERLANG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(501, 541, NULL, 'KB.KEMUNING', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(502, 542, NULL, 'RA/BA/TA IQRO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(503, 543, NULL, 'SPS BAHARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(504, 544, NULL, 'TK RAUDLATUL MUKHLISIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(505, 545, NULL, 'KB MENTARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(506, 546, NULL, 'KOBER KUNTUM BIL KHORI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(507, 547, NULL, 'SPS AR RASYID', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(508, 548, NULL, 'SPS IBNU SINA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(509, 549, NULL, 'TK CINTA QURAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(510, 550, NULL, 'KB MEKAR WANGI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(511, 551, NULL, 'KB MEKARSARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(512, 552, NULL, 'KB.SANGKURIANG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(513, 553, NULL, 'SPS SEKAR AYU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(514, 554, NULL, 'TK DARUNNAZAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(515, 555, NULL, 'KB ASSALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(516, 556, NULL, 'KB FIRDAUS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(517, 557, NULL, 'KB TULIP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(518, 558, NULL, 'SPS SEHATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(519, 559, NULL, 'TK ANANDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(520, 560, NULL, 'KB AL-MUNA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(521, 561, NULL, 'KB AL-UMM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(522, 562, NULL, 'SPS ABASSY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(523, 563, NULL, 'SPS KANDAGA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(524, 564, NULL, 'TK SEKAR ARUM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(525, 565, NULL, 'KB BANI SHOLEH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(526, 566, NULL, 'KB INSAN CITA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(527, 567, NULL, 'KB MAYANG ARUM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(528, 568, NULL, 'SPS CINTA MEKAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(529, 569, NULL, 'TK AMALIYYAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(530, 570, NULL, 'KB BIDARA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(531, 571, NULL, 'AR ARIMUS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(532, 572, NULL, 'SPS MENUR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(533, 573, NULL, 'SPS NYI AGENG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(534, 574, NULL, 'TK ASY-SYITA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(535, 575, NULL, 'KB AL MUSTAQIEM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(536, 576, NULL, 'KB SARTIKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(537, 577, NULL, 'SPS BABUSSALAM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(538, 578, NULL, 'TK A B C', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(539, 579, NULL, 'TK BUAH HATI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(540, 580, NULL, 'KB ANGGASARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(541, 581, NULL, 'KB WALADUN SOLIHUN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(542, 582, NULL, 'SPS MANYAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(543, 583, NULL, 'SPS PURWAKARYA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(544, 584, NULL, 'SPS SADEWA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL),
+(545, 585, NULL, 'TK KARYA NUGRAHA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'image_placeholder.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_prasarana`
+-- Struktur dari tabel `tbl_prasarana`
 --
 
 CREATE TABLE `tbl_prasarana` (
@@ -863,7 +991,7 @@ CREATE TABLE `tbl_prasarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_prasarana`
+-- Dumping data untuk tabel `tbl_prasarana`
 --
 
 INSERT INTO `tbl_prasarana` (`id_prasarana`, `Ruang_Kepala_Sekolah`, `Internet`, `Listrik`, `RK_Baik`, `RK_Rusak`, `RG_Baik`, `RG_Rusak`, `TS_Baik`, `TS_Rusak`, `TG_Baik`, `TG_Rusak`, `id_lembaga`) VALUES
@@ -875,7 +1003,7 @@ INSERT INTO `tbl_prasarana` (`id_prasarana`, `Ruang_Kepala_Sekolah`, `Internet`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sarana`
+-- Struktur dari tabel `tbl_sarana`
 --
 
 CREATE TABLE `tbl_sarana` (
@@ -892,7 +1020,7 @@ CREATE TABLE `tbl_sarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_sarana`
+-- Dumping data untuk tabel `tbl_sarana`
 --
 
 INSERT INTO `tbl_sarana` (`id_sarana`, `APEL_perosotan`, `APEL_jungkitan`, `APEL_ayunan`, `APEL_bola_dunia`, `APED_sensori_motor`, `APED_pembangunan`, `APED_bermain_peran`, `APED_imtaq`, `id_lembaga`) VALUES
@@ -905,7 +1033,7 @@ INSERT INTO `tbl_sarana` (`id_sarana`, `APEL_perosotan`, `APEL_jungkitan`, `APEL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sarana_prasarana`
+-- Struktur dari tabel `tbl_sarana_prasarana`
 --
 
 CREATE TABLE `tbl_sarana_prasarana` (
@@ -918,7 +1046,7 @@ CREATE TABLE `tbl_sarana_prasarana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_sarana_prasarana`
+-- Dumping data untuk tabel `tbl_sarana_prasarana`
 --
 
 INSERT INTO `tbl_sarana_prasarana` (`id_sarana`, `nama_sarana`, `tanggal_pengadaan`, `jumlah`, `kondisi`, `id_lembaga`) VALUES
@@ -929,7 +1057,7 @@ INSERT INTO `tbl_sarana_prasarana` (`id_sarana`, `nama_sarana`, `tanggal_pengada
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_siswa`
+-- Struktur dari tabel `tbl_siswa`
 --
 
 CREATE TABLE `tbl_siswa` (
@@ -950,7 +1078,7 @@ CREATE TABLE `tbl_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_siswa`
+-- Dumping data untuk tabel `tbl_siswa`
 --
 
 INSERT INTO `tbl_siswa` (`id_siswa`, `NISN`, `nama`, `nama_ortu`, `no_telp_ortu`, `pekerjaan_ortu`, `usia_adik`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `tanggal_masuk`, `tanggal_keluar`, `id_lembaga`) VALUES
@@ -965,7 +1093,7 @@ INSERT INTO `tbl_siswa` (`id_siswa`, `NISN`, `nama`, `nama_ortu`, `no_telp_ortu`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tenagakependidikan`
+-- Struktur dari tabel `tbl_tenagakependidikan`
 --
 
 CREATE TABLE `tbl_tenagakependidikan` (
@@ -987,7 +1115,7 @@ CREATE TABLE `tbl_tenagakependidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_tenagakependidikan`
+-- Dumping data untuk tabel `tbl_tenagakependidikan`
 --
 
 INSERT INTO `tbl_tenagakependidikan` (`id_tenagaKependidikan`, `nuptk`, `nip`, `nama`, `no_telp`, `alamat`, `pendidikan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `diklatdasar`, `diklatlanjut`, `diklatmahir`, `diklatlainnya`, `id_lembaga`) VALUES
@@ -998,7 +1126,7 @@ INSERT INTO `tbl_tenagakependidikan` (`id_tenagaKependidikan`, `nuptk`, `nip`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tenagapendidik`
+-- Struktur dari tabel `tbl_tenagapendidik`
 --
 
 CREATE TABLE `tbl_tenagapendidik` (
@@ -1020,7 +1148,7 @@ CREATE TABLE `tbl_tenagapendidik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_tenagapendidik`
+-- Dumping data untuk tabel `tbl_tenagapendidik`
 --
 
 INSERT INTO `tbl_tenagapendidik` (`id_tenagaPendidik`, `nuptk`, `nip`, `nama`, `no_telp`, `alamat`, `pendidikan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `diklatdasar`, `diklatlanjut`, `diklatmahir`, `diklatlainnya`, `id_lembaga`) VALUES
@@ -1042,7 +1170,7 @@ INSERT INTO `tbl_tenagapendidik` (`id_tenagaPendidik`, `nuptk`, `nip`, `nama`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_users`
+-- Struktur dari tabel `tbl_users`
 --
 
 CREATE TABLE `tbl_users` (
@@ -1053,7 +1181,7 @@ CREATE TABLE `tbl_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_users`
+-- Dumping data untuk tabel `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
@@ -1101,7 +1229,6 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (83, 'plis muti muiz', '0305baf67bfe461c9274c2dee6054c4fde317930b9da7a80b6e3b8a12ad66322ad6a8d910179a0f11d2de25acf14ae28da9636371b6769f8699bec237a4b47d3wlg7yTn7EVyvTPR2jSt9z3Zg6CqmjXIi2DogPdYb4yE=', 'operator'),
 (84, 'puspa dewi', '93730e9400bb82af5d84dec3a85858409a34ded44fa11acfda70f7d18b0f5560957fbc25ae5795fe8fa43dd8c4c7bed93b3b47bedaa34a6c67ebcf76291df47brbUxVb+yeDm/LGIbxhfnywY16lMK0LfuKxIfjamCAMU=', 'operator'),
 (85, 'sari indah sgl', 'da1d5d8d0d9c40c4097292f45ceda94e9a03a3de5c538ba5743ebb7bedcbe774dea9994cb6ccd71b7960007111482b6aba62799b7d72284f2469ed84dd323e28/3eQSipHRk3eHLbJ3HUAM8uOjfjD9RgSi6L+SOpAhqk=', 'operator'),
-(86, 'siti', '3e5f79e2b3e4dae35233d945f2f34b97ff684569934d2ce5de1806a5f1b86186cfbc927645dd733edc1332cb84ee1f87846c9258241d345deccdd8e5dead0429TEexTQ7Brz2dn0cUwWVl4jnM6uUmXaj1liKGfkMmo9k=', 'operator'),
 (87, 'al maruf', '1e3f2b50925b8298aac8a64f93d6b107d2c67952dff3976a0530314bab0f00d1cb8b1e491ea703c38140d0d7caca71542cbf8b3ccfa3bc640a76ccabd963d1b8cHjgoWNaBOCmgMLA78xe/NIBFewe9h2pvEDTmufroNw=', 'operator'),
 (88, 'annur', '3a78edd2108f62e2502d8c14ad8463a43003b2bda89bb8f92a594515bf98530bcb72dab2dbe1670b36e1a64ede4dc0c97f6f4d64b9b3c215c5c7042bc5c27743FBe3wKNt8IIyP/UGAXHdX2HbuQhvU4WCnv0UkkBFkgg=', 'operator'),
 (89, 'alhuda', '90f0503e71c76620f58eb4a9e3e0bdbdec21584b0f50b430c44b18037f2056bf6a894185c5a38fe2cab7c05e35e82ccf4151edbc1b0a7cca332272c1ed15af67tt24VYv8Xon05F+PuoVWi+6hjSPYLZoFr64uo2EvSr8=', 'operator'),
@@ -1299,9 +1426,9 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (281, 'aster', '5840704371d5cbf245c82708376978820e6e2ff295291d000fa6ecf5bdbc0a0361fb8f96ba3528ed928c858389eb15ab7e7f589eecddf447c7f326e353d20e5djJtCh0p8lNojKW3nOnxJlT1w6PvfZ4bOSvQlPuOhqTI=', 'operator'),
 (282, 'ulum', 'c4a35a5b78bfb3122421e1e77129e3fddec63049ece688610bcae248a238c4ecb7bc76fccbea09f75c0e6a27a3c7a3011c050c77d846d501438656c0338ba2a1Pv9qaPe/Ve57MzcuY+t64S+fRp09GMeHSGdTbr91Y0M=', 'operator'),
 (283, 'cempaka', '37def17fbf6e7e40b05fbace2bfb8d466c3fe2b2cdceee29dbbe06225a92e298cb82ec7204b9f818977b933f3f6247a001349072a0b8a4330b5677cb8ce9ed7cq9uktPi/F2ibs/5ADuCx81Yhm2EJGnd2VcaFXLaM1Y0=', 'operator'),
-(284, 'dahlia', '5a41562ab724f4ef4267b29c4bb9e06debe31c0c6a2972373586033587c94973eccbec57a5d8209cb1aa08fd40cf34f8b66f9c4ce2be05d4bb43938dbeb4ce46X/v1assssm1fVQMvklVTSoqewLEoRQjPxSUgUc3c0cg=', 'operator');
+(284, 'dahlia', '5a41562ab724f4ef4267b29c4bb9e06debe31c0c6a2972373586033587c94973eccbec57a5d8209cb1aa08fd40cf34f8b66f9c4ce2be05d4bb43938dbeb4ce46X/v1assssm1fVQMvklVTSoqewLEoRQjPxSUgUc3c0cg=', 'operator'),
+(285, 'kenangaa', '346002ff45f47791794f42c420cce38e4aef3d752cbd4cdf7e483b55ba42ab270a3fe6c22d59ae43349885670846769e62b26ac1ee95765c79e2d2c0269f5101MteKOAA8u09BYpVAY5VwAkEOzVrMqvG/JUfGTA2I1IA=', 'operator');
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
-(285, 'kenangaa', '346002ff45f47791794f42c420cce38e4aef3d752cbd4cdf7e483b55ba42ab270a3fe6c22d59ae43349885670846769e62b26ac1ee95765c79e2d2c0269f5101MteKOAA8u09BYpVAY5VwAkEOzVrMqvG/JUfGTA2I1IA=', 'operator'),
 (286, 'abadi', '493c97f124d7ec79ec8e7be25083ba00354c964ff792ac81a8b2d9fc27bcd924c3d1a448689f473fd64cc109efdd0dff51f916b9b3dcc5e6702363e38ecc49a1yC/OMDqQs+WXsqA5tKW0abKNf/E141N8xuHlZDPGc6k=', 'operator'),
 (287, 'mekar', 'dd5a33afd4435357da8aaf513b5dac8b764ff0a8b76dea0d6a82bf4e5152a23c4993a8d8a4c8ced369c652eb5a38108f9811fdd22d985cff5408076700be7326cYA03qll6kE652SqrCTMitQ9Lf/9C2kglRkKolnzXHc=', 'operator'),
 (288, 'miftahussaadah_', 'b8482d70e28af541afb9f27379cf368684c8b0d39d040f2376de1b480f292c5bfab1cbe7e24d26d4d8dfffc950b4d764412b5964892adae6dfef6ea3145e5e03OlAHbbqQGRnlCua3TTVUqkFZxz11UuzJhOs/HM2xLsM=', 'operator'),
@@ -1473,22 +1600,150 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
 (454, 'albab', '8210641913dff11b00e0fd7ad7b1a51b93899dc0c4e77d7e7563481398eb1dcdfd331d6d447529a08d5074132d1740d6fd2bb7d53bebafde7688d6d35b077486YANn/PC80PZ0R/EJxlg7IuptYcfxvwtTUK/GmV2gSdo=', 'operator'),
 (455, 'indah', 'f8cd57698a5a2558bba49b84e9ffbd63a07ef344173a4c257b928ca348c899a9cba4f83012469ce3b81edc7d38015cc2827643e9e95e726d998e0fc361df7ab5rMwOA+ay0EDp274cC4/IspakmD5efWF01MynDG3zEmk=', 'operator'),
 (456, 'panji', 'ae3c82990ca9bc27a0df4b708a8453da8fbca65c6edcbf278edc908927746e73427e161a0a95bd922e202a1cdf095b5a15295ecefc51978ee31567b1c88d092d8tvwFCAIttdsFWgPvuGxiHYK/GfUelcqx3w2m5XN93k=', 'operator'),
-(457, 'silit', 'b29285c4067675d6212c4eb70e9bdcd2bf78ab053d2a4aab141b0a2b6e1c80708090cd298f39f1656bb033a60aacf6e9e2c120e323fac03910410945e97abd4bZB+wmab9eSntz4oNyCelo6RujhhngWTvQBfcl3aih7U=', 'pimpinan'),
-(458, 'aaaa', 'f74124acf4a81d942463e4ee8a0dbe79ebc3bb9698a7e244bbf6a1c63208f04a712f9f1a59446711a1457fbafaa55735ed058fad12674376e8b913307900c921x40i9zXiHX3ibzCpWrFSPmBJ5g41ObH6+e8Kk5su5nw=', 'admin');
+(457, 'golden_', '844efbef38b07695d1e0931649262c73f69c3fa1aa05d76d5706c31144eee93ce6e9e9dd3871a3d58646c61ede3e440e2897ac73479d3198ca0b7045ffb7768fJHEWo5E4lybXrvuZkzSZmuAa2hk8xU9zuxy7YsjNjUc=', 'operator'),
+(458, 'budiman', '477b35d798d52d9aad449270d9063da794920701c6abd55f884ef860c23e49ac4f4b5fc3ae4bd7116d8e35a53bc33ae067791a2466c96f9a8e46e3d4458dcff09n3IgwlYgqGp7EW2sbxW6Oq9+hDCL2tq3nsrSlrkNig=', 'operator'),
+(459, 'rahayu', '5d019474dabf96c4daadaa5ab18f67ef2aee0f959c7a2b4ec64c3a21811e835302357444398940db15aa2af29dba87a9a7a0cab28ad177aa097710175fc1bddfMGOtujjipj/ZGLIJh4G7JsAX2UE4tR+FZb64yEVQ8Bs=', 'operator'),
+(460, 'sekarwangi', '84f50fca2411f0fe470c212bed4e125c43bb426c51543db1df638126fdd699ffbca332518f907015d6bd41463abc68785828a8ab817e0c524ffa23e31dc91f9co+LRJHMdh4FsX6cx48rp5QTkx+EWDRhwbuwP1OKcA5w=', 'operator'),
+(461, 'insani', '56999ed7206ffca020fd9831ff45df09434fb5cbc20009e50826b2b7f5a36bbbf6f63802d4f2be7454f4d26c06b4318650b8d4fd7f4d0af158daca64e5b86ef7mSyEgqHkpax2KuI+mtmrYr4RiT8OXYklPsOdCVb/suo=', 'operator'),
+(462, 'yos', 'bdda8c85caab25ec4aa08c1b1935a04bc2b5a4e3127bfc81216c69f5ac601b1ce8caedf4c75002d727d13de197c64009666365330d8b2ba7ec197465f120333fpWonTjM8qZsFhCZX2PFsHMx3pI98qDHE+I4n2q4kgvs=', 'operator'),
+(463, 'daruttaubah', 'b6976443acaf18599ca5aed36eea65cc5586451cbd7054e8772c0b6e8b24d2e16f0c9e6684225ceda8134c3736a72eee4906c08a85697b97626008a1f32c1b43QAwtrWcISh+ApJg2xpLbjJNOTm78GtQmMTRiGgSvCVU=', 'operator'),
+(464, 'haqq', '03dd5c8b1c4f58e13f4ff51f05e25882a92687cfe7d1098e67cfd9d777f336d1e2d653683a7893ffec2f5eb5828350078ba7925d9f3fccb538d950dc72bf71a0gzpWw9lodfwHhoBRLXoQQ6J92PyIu39lq7Galp0vac0=', 'operator'),
+(465, 'tkit', '3d1a1f0853d745396c793188a3ac891065d9325984cc1e1ec4c0c15ade87229647aa606e423d7a508ce1442ec2459eda3e4e0a4fa56e814754cf8bb761f56966DnTwNvmMhhq36Pz0Xe833hRcxm6FUbKsVn1i0ai3E3g=', 'operator'),
+(466, 'al-madina', 'f67a79cd977df01ff345a614ce829b806635809ef55cc59c42a8a30baa13d8f60dbfca8867db74259426077695648f845540158cc515149be61cb136d2f2ef091cW4Py/TeI3lIWdLxPYbMfIQO/rEbh47F/LTeAE9xBw=', 'operator'),
+(467, 'srikandi', 'd8daaac16bfad52630427a32f6dc7be11b9fa5912bc61f2d4ac927441755a74feccbbdab8a7fc90aa4019c0d976d5c84f1d259edb7831c1b467ade923708b2da4EP0LPHLf0+ej9dPme5lf4zRQhXMS7LAQ+V7JfGCKCg=', 'operator'),
+(468, 'ghifari', '227c82d45960c5d609a3428ff48a19fb0142612b04629d2b650503144817afcb803471cd3f24d4ed82f80a2c477e228b66c38467396875e0210a97ca9d71ba82Q0nVYZ1MClQF0tyCq5FaD+FFVQ8vb3dQu/WB0ZSFU4M=', 'operator'),
+(469, 'putra', '3348f9df7892d449b6c6994056b1942f59ddb79db1a2173bf0d880ba4476a3ccb62e1e418c125640ce0837fba84a3dbf1576cfe7a2d5c205512b703889824f59GFXxJ5K2hqU/6h7YtNDbjh/LIwbD2SSamn99NMVOOOI=', 'operator'),
+(470, 'azzam', '72306ed81ecfe9520ea067db06094d9b703622cb984ea1222e97f0c261b0ed0516540e1a1654fd67f9010d758b22de8e541ad123ed5b13fcb7cac154a3204849Hq6gREA0S0DASTlidoQ8SXaCMnXNkQlm8PeltUMTXOc=', 'operator'),
+(471, 'fikri', '52ab978905c689bd7ce16d7c1f9d81dc2f0da0ba3548d2d478ef14fd4214c760cfd373e0486878771bbd65aa87c05608c1c7e1f5c7c032d37478f05a6516293cDQK6533WlucpDtqu1KBtvNNwFlR55vp+fjW9c83/vbc=', 'operator'),
+(472, 'huda_', 'e4a3788b75ed77be0e86be11981b7d6d253beeac6c621781cd128669583be8f56e04da5735d9805046d8e37bb2f8284a5856085410984d16b77f9959286332463UngGzKYSIg3FcdtvpcJuy2tmLe6xKSmUVjvCCDsL4k=', 'operator'),
+(473, 'mukhlis', '191f84ade4975ff2ae90b0633913b139422cb0b64eddf3817bd526beee1ad2ce4782ab9a42affed893f5868615f659aa9b7166eeabbc4b9f1fece2e3af3861d1wrzHa18NFIQuWVuUjQm4V9RzZvc3U2z6hNYgKUOJuEY=', 'operator'),
+(474, 'al-aminn', '17fe2b57ac11733b7d18478d4f98cb0465d2d069a337fbf0b57f12c7cb4dc223f4d580212e21d81bed9c272d1da165caaee9a25ed8c1d1797f7fb9f3e8426cb7g8UUVtkTDoN+B7fp/rYlNDPuQ5IEhy/vJ4W23oe7xeo=', 'operator'),
+(475, 'manaarul', '86f02f87b140ab9bac17e24d57c610bae7fea0bf6b6bad98cb98b2c869af1f9e8451da677bae56075d1dd52b1b4f61da474f9df419e198686ba442b15ea114e1ZMJKpGe8HFlJGxt4EVsFPHBVhHT98F3QePf2GIgF2OI=', 'operator'),
+(476, 'babul ilmi', 'e65d1846488ae7e80d5405750988f4335ed41f1de7e83970a86e6f2c7579844d38fcfd31502fafed95b1cbb514a1cfbb3c2eab12ae22b6c929f92a1894008034pU2wCV9zp8l2TM7raXpZQ7HskZd34ap80dUZOvLtBZc=', 'operator'),
+(477, 'aneka', 'fed86e54f0fe47cc29164bec33a82999f80d52a840de67e58881770baa212fb427363b237f4686a5ae87ea14ab918ef61ab90a5c662b8b8cb98e73cb9187783cR9s0DXXXmPf3UlPQ7OpaKbUc3SuyKHR1CagtAo76SLI=', 'operator'),
+(478, 'baetus', '854957e332a7e49f50353dc0385608a6854e4a5ff1a924f1bd4b86367f4f61baf425617981deb57def5007ae65defa098c42eb88f9f56d34db5331634d62d8c5V8URhv5HfLMI43OYfs+X7sjF9bjbAlNHerg3GWTxF+w=', 'operator'),
+(479, 'khoirot', '5b059b09832d4aaeece442e98bf95f4f37bb6c170d4915cb4944177285441f6d0760dc80cc6085deb31b805c351d70b0b46266a97846f02c1de904b106414027chwznC7SqpJCCehapJRg+KWUaoft4GlhqvgEmzRLHco=', 'operator'),
+(480, 'irfan', '665c80cb070e960622fc6b8aeba4bf7cd1c51ba9eb6cec07127a3723f355bcf02fb519485fae482fca9046508d385ee6e506e45407c11dc9c3ac1d85be41fcb4MQuxMOlLDzUXbndjVPbpjkReF83G0OKBDytew5eyEtU=', 'operator'),
+(481, 'assyifa', '577dae0f523da48c2515464e44f110581490fac3b7367f28e34654159fb6bfae5fc8aff948c979af62dc8b7bc862c6de69570e4e66db0c0629afb81733412856dsT1oDlqW8gwcpFZF/7hXWe4/bYwGz6DAZHy10SIBLg=', 'operator'),
+(482, 'annida_', 'f297cf541016fa780dc39816abf2ab0f41933608dc77297da0212ee18f53f1374260e0cada71bc66812d14fd2401ddfc6fe40feac1d2bfa522060ef7db9cb4733H3scoZVumPoDAwdw8vjq8bYyC30CHmjss/9rQmZdd0=', 'operator'),
+(483, 'binangkit', '0b9fb5c7159c7ec4983719133fa573ace11bf725b7794c6fd83439465b615714ed2213460e0a912b0610dc8e1138d4fdce6090f9947dd6484206386a236fdc8atgTDjgsIEOwEccizHWsVjbTdIGJdQhpWsY+vI5xqWpo=', 'operator'),
+(484, 'sirojul', '137d4e78445228759102e3c2f2679e9caa4eeabf9fc6e5b078144581154802d3905ac538aa5423efb57b1ac4f5dea63e782657483577834a88451670fd0d763cmHwpG4ZYNEgI0io/+w2/Szls1mO+4Lgaz0KFXo+1SX8=', 'operator'),
+(485, 'kuncup melati', 'abc7e6add79d659a313cd4e3176d8174f75d31e7d4d9ad60d52e267ac72923b115ed9d631e0fddda8e4a8dc3f7a21de93979beacdc1eb05378ecbd30e4a66728Q0lx/WOnE2mHxoGVEr6h4Q8g4GRqOrNvp4An9P6Mpy8=', 'operator'),
+(486, 'serengseng', 'ece7f94102ff843395cb6550f04ba221c4a7fb74c80b72445e1a6f3d1f0453e219028d1bf153375dd4c9e03f523aea120d32982086b30291814a9c348c80c4c5xgvm4bnpoTzU+gjVb/YrJ9quRbQgnYnEa/3adymPakk=', 'operator'),
+(487, 'bintang', '2c8039253aee6101cc80fa3e48137e99e9ac24f7ebe54843d79c5ede818da98545de47f6e05f91e21d52e7247f9c365d12d960a5dcbe0f3f4acf650aa0cf6753TO2k91xxxHUdg4KSZFLjPCXY1GGRBmXnWJ0wAyiX2Qk=', 'operator'),
+(488, 'jenaka', 'daf543711473afcd038c7c5e572cd0b3fbcbd5ca1fa1f6f70a377ced715a0bba53d1a2a0bd44916a2fb8be43a01b1da20f44745a609b66cfa1007f409032e979TeBhvomlcRS4FXp5ob3vbfST0h+5lUwcfYgPa/PPYEo=', 'operator'),
+(489, 'dahliaa', 'dede07112aa1380e3f242cbc369a8b49e962f970be3594a0daa26813d4839d87235907c244f8621c8957d55946a054895814c10cede2ecd587a1e0828c5c8da5TcmMX5UvNDFRLECNLouLqNH+PCYu5IUb2YrwGJgWDu8=', 'operator'),
+(490, 'ra kartini', 'cf2faa954c6b3f01c445e01c1cdd5d6ac4025e1b03f7a59d7fc2acde80ada93ad4b64fa56c5b0403fc509b9814881ebd94d2508599eb1bd24a5d3864ded82dd0v17iacNZCbweH/JWjlU0IRDnWH+QQ9JnthJE5PY/vRI=', 'operator'),
+(491, 'assalam', '9b14d312f8808a442fefaecb52bc36782be0bdbbf7e8606cb8593acc765a8f8965f7b167d981cd036281ee4f0b2f26d6645a58ec6abe4d99827cbb7463f055dbO1ue4AOX2An8Zyc3jRRbumLAz3x0TdDHZMoEiYheyPE=', 'operator'),
+(492, 'ceria_', '7dadbec7c4a8a20c585a9efeb7ebe31f683d7e019c24501e999830a4e3219dcf6fe8bfaef8cd6c6ed6cecc652b07aab07e476b555884dca5ca88b600923fc5a2PbFgX1Mz2Ld/5ShhxCE9RRlW3DLjG9kOzdzdN2W9FfU=', 'operator'),
+(493, 'assalamm', 'f1704855bd5651670b37bd87b02497a32e0e0e7ae1cf27f85d11657c753ca72df3388489d24dc903d59b5cfdd1420c281bf578879d3fdad053e6d9ec692c6565zmLrizcMAzWou9p8bAsmWgr+VA8gvJrkyy8nATp4b/0=', 'operator'),
+(494, 'al-jihad', '6d47098990123081812221197c6411623a718c984351d4d3245339ee6cb7397a55623a270304d942a8c6df03ac34d768f7bb5c162fd4063947613cca7ac3e713+PqOpXLzQDj2wngW8VGlMNrKyXdiBYKVwxdkQ0uaX6g=', 'operator'),
+(495, 'al-quraisy', '0bf0f7a6aa29950a5e6ecf9ce034f35c0cc35acdb4d9dbf7b6b8a16c09348b910885e0054bcb3e6d22613b5b79713f0eb91c9265b99e51a97a70f7ca1202a910G5PFKnH1ayL/8k6uh1P5WZ2//Zeh/1DVMxE3fquXlKI=', 'operator'),
+(496, 'annisa', 'ac2a8baadd2c6760ba3bc664bb26fe05e478532512b4624d71c243c1f59c9f1addda39749e80577ed2a32d673c23945c167688f9669d7e142a9f771b85f3cd97IN889/8tyy+7zziJunX7Ku50S3FgF3eOJXgGvD2XWfQ=', 'operator'),
+(497, 'layung', '1acb6cd22b6dbf3ea4216da149779f2c91fc4b0609ae2754dfa05c7664652d92117eaf5a1a3cb0fe70f0167c928c3f623775de95b8ba56e245097dd20d23424088msEclETTYJvP7CzMylwIgzLTIefchFDOqaMHtSwo0=', 'operator'),
+(498, 'madani_', 'c41a3131b3b6f0964625f31d1dbb9ffe1e448ab450943268020bb65b5feca970ccb8d53421f1fbfecf7be014f1c268432a39e4656f67c51dbb2dba38ed7122dd0If95w7h39wFx+ihLT+AHuHQt2EW9P7X1nu1Wse4g8o=', 'operator'),
+(499, 'baiturohim', '3320561fcd5fcdf26e038044004ffa90b8e6afd946b00d00dff93fae9669d5769041e8783cc068c602964769d2b29b527b2f62a8531c31cc564b89859e0c2173ahWgKmxe1aws4oTHuth1ZAskyzY6LhzG1NZEfU0PayA=', 'operator'),
+(500, 'musri', '62eb372241baa65b86f3972fcab3f105764ad6e9efc413aae561e780abd1f3b9fd8295e328f519ff3c07ee4871d286ce9a79ed0068d3ffe4fe7823f2583117dc2uLqc//nu1VMHcSN5tPOIk9wbrKwdu+XGmdA+r7hYck=', 'operator'),
+(501, 'sayang', 'd269af094177dfd4b6803c157a6d9c1baa6343f8fd95d6831f431dd03bb0add3f0fe4b2ee323bbd219cf44a0c1017be0631957af26d30297879b2c5271eeaf0fvWJKlj1DLDNW+GidYSmr/+OMRrtCGQxNamSk4O6kFtk=', 'operator'),
+(502, 'ganda_', '612a860fc05f9cc002c1c94fbff273c20e4359f3c1f1450f88b2faccedfe7389ed3fa0db06060f68660e18a044481fa243308807a16afe5604bee6d1f2c74034O464DbrH1uHfTI9Z01Jy1f+Ty8e8tlD6qz/7x5SIXDE=', 'operator'),
+(503, 'agung makmur', '062868592055915f07a7e1509e7bac8c81a2e6a3cd9713bccce502a6bcfbb4caadbfaa02ea1014b93a76c60f677a5051013a652964dd557bca19cc69406308f0Z5Hhr62gO7k/hW5yOOLWJf0emVXNkNnOJvRf2/Zu/rQ=', 'operator'),
+(504, 'terataii', '463d9a56ebc5e1ab790a3c3b35198a95ca7d173d9d41d0daed2a368ce9dfbe5a7f6b522485acacfac75ea0ed262ef8a3155021c9c544bb163e17c51ad1561e8aD9VhADfns7eOyh+wQ+OGKvA4msd7GFoi99nqveRjqNE=', 'operator'),
+(505, 'afghani', '71cf5b4b77a0c59d5a5042af6dba43d85f6b3b6e02887c6cba34a88336fde6200d5abb6e035021054f1449084e761727519573785affcd96d77f2057057265ce5ANUsN1sKQAhnnHanwHLviW5eq/VSivA/dhABVpiLNc=', 'operator'),
+(506, 'anak soleh', '270c28d64707a7737dff9edfeb19d60e6d2b8722ecc542e784f50714b94c49eab3fbd96c325976bccbe62b58d3562133a62ca5ac84d78f3833cce2c79250bf62Em4y2CX8t8//vjdfZdnxVBuXa/NsatPan3ELGxyoz6Q=', 'operator'),
+(507, 'demas', 'db6c25d4bf0faf231056be86e48133b4b1cbd0586efead0d94f51446f526e2a007b611882d04b116d0be789a63d605652f29a284a1517aeb79dc03b7f3c39494Izr8NmXvPfsoICUOOw67K3lwqV3bMsVrqHTR3CBWd3o=', 'operator'),
+(508, 'cahaya iman', '017a88729d9aab9daf0d673cae857026f5e1b3bfa6c8b7d58dddfeb041bed1898bbf793be4d991af4f6ddc1bca47d6e093ed058b4967fc634d57cce7a24c3624HyWW219SoAoHyLjLdgfSBNuotYhY8P/CjS7i1VuYQd8=', 'operator'),
+(509, 'at-taqwa', '1889a61f4258c62c6c6a164f1cc755ea610ad9596aa5a150e57b46aaff3ac05bb4fffee14f8c591254a79556ad5b90b5cdf7cccb7a39f8cf3c0dcedbc09a82c1cEWLdrPV8OJ1mAEIrEMPli7ViikGieW6Iyrg2cqtDUg=', 'operator'),
+(510, 'al-falah', '776fc98c5109157584c4fe448b9a3f9f43c5811e34a461c4b4b8b518aacbb86b79e0bab372ffec5e48940b6ecfbe82a79f1f0ac50fca983a593d3feb1da6eac4QnCXm1+NDCnRow36tg1Q4bcu46lS77FsvorUcihWK3Q=', 'operator'),
+(511, 'al-iqdam', 'ab49efb175f40f97c45685c4ff92684174eb260c90a30a91eb00f3cee15dbc400d5df0ab94874de31bb49db3e4842dccf110bc1bd80d9573e68aa67ed67558detXB+tqWUsUVv/EqLQoB6qbjkGAIfyjxU1r9EdL0G/BM=', 'operator'),
+(512, 'ar-ruyat', '511f5fd584a8661f87fdd5c0bf3c08cabbe7f342d97ea78cd77c5d26dfa774a4f6bee3f099f0e1daba6587e79f569bff8c437d5e687ccb3a97c6d287a9774437IENDBz3iZ01uoN+/dCXb1xEEu/y4SfFTtJIf+4l61bM=', 'operator'),
+(513, 'al-azkia', 'd2df2e31301a7f5ef553e87682c23fc36a16c9efab4b24fa4718ca7632ac8bd6c152528f456298ee4f31d8d3fc15ce26f9d2a71f9c256b7072463cc976953948MEilGQMsGi88N76CzwvPR8PBcsjlBPiV8ClzFu0B/KI=', 'operator'),
+(514, 'as shidiqiyah', '7ea58a067a2e8e28beda46c1b7ad5aebc671be565e2691b23feaa866dc03ffbde40bcdac6dca93b196059a94d0877ac6e4811cd57805b64be7751e7a31373cd16sTTLVXvjRuPUt8z5N+b1jvM4UsiNfpAMTPGLOxq42A=', 'operator'),
+(515, 'kediri', 'fb4f192372ba27e070a9aad496653f32f66bbad1720f027ce211b5a9f5ecb3faa50e2f4f87dc76c8994ceb1948b22d936d9b3baf46a1b744753fef4a509e621aFuobq5tk22Y7ic9xDjuU7Oa2FSA53fwMpJD57Uq7i2w=', 'operator'),
+(516, 'an-nuur', 'fcb9ffbcbde79b3fed00a70b0fefc3946d702a3875a5bc0524b8eeddc523f2100cfc93f8c68c06a915e87ee11322d302e9b124a97b18709ad2362489b18337a9RKBckQ0cONj782EJ8pxHxCRR9A/ljM1qy6EJsDB6CSg=', 'operator'),
+(517, 'citra', '859187ec65257e52ca712957c449431fd0439194d87d10c302ba5f0e8ea855e7540fc6332eb4928ed764f5eda981a1d2058070027187f4978212bdb50505d58bs7FpguL2Fds1zs1HF10dD/Xh1NHLhQJ1dQfLYJjomPU=', 'operator'),
+(518, 'putih', '825c4826495341f1115fa29894fe82147d4819c5b47de120d0c48777e23e72512ab2fc933491040edd91f303498ba1687a8bfbc964ab747a0197b3aa87ac292ao739roQmID0joNqadkAKjHZCi88w2HpN2K1A/Wkg3H0=', 'operator'),
+(519, 'vikra', '8f0d564a6e2562dd32ed8b485054628d0d02987f3b08ed76a94d382a2a4ea49ee064e1ae33f4ff34b05ff70f69d04544366987c11d50bc7c855b1c65bffa39fb9QVmX36vgdqeLCxC53cpZBJw/f9+ltPCmQKFqfpgBhI=', 'operator'),
+(520, 'mugni', '09c49171df29fea52502607fce3559f8b110af68bd0ff5a0b3581b0bb69c4858f8f61e5859bbb8849862c5f206aabfbc8f225edb7959bed70ce02b69a43ced76MqMR12Nuhy/Ags4AndpoB1bFISZjkN2KS78A45qN7sQ=', 'operator'),
+(521, 'via', 'f0bf8085e7d81c8a40a48c1228df6f6eed6473b327787f217cc7177e3f957915a4a62c46ced6affb70a353bdd54b2a78ea76946cc2398c8f10e674f12170da60fzdDHSO2DHq+LNBpzQiwuQHYAn1GwyXj/maSA8mJS+I=', 'operator'),
+(522, 'al-hajrah', 'b9035cd87bab65ae94fcc28a187872d5ba292d58d3d0afd10769b3a1665f0d51ba1a349727c1e50c853da2930d82a14343891541f224fd9ac785723da4e4197eYMii5QOIjyPidgOE+tB3cwlLxQb9A/Dp5P2Y9U2+1G4=', 'operator'),
+(523, 'rama', '44833edd2b972c66c21c45229cce6c3c2efd09a5505376262df3cec9ee4b600e29654dd7895564e067e8f345d965d41aac2ae844b0f08a7cfb5838568be89d282E+SCX79RzXpjauCvX8hSmNhDFVIQhRwquXQ6TF61M4=', 'operator'),
+(524, 'adhitani', 'b99eee2272927d0cf745a70ee06bfab611edb94ba7d2fa5ef89e698c82b287e9ca7db6677e635d35d8a5ee90516a4c51fcf10226dcdcbd18c315630cb05deea7I83dJpV8WZmrg5m264B7C+zB5/vw4UqzUYC7A6xF3/Y=', 'operator'),
+(525, 'al-husen', '6fc616f58eda273724df2aaf3b9bb28d34fdf69c11091158cb1d858d716623f5dddc63b51585122ecf2c200c5b1463b1117568367ce91b2542cbf1c4f73f49c2jmZg/xxhWoyb9xjZN9S2A63Czk5cB1gcvEymbNWVowc=', 'operator'),
+(526, 'at-tafwid', 'aeaf134b9eb65c22914d4df4ad0c31a18a8187d4e391a6828bed50be00e1ebf78be447dcb764780bc0b205a5ea0a4ccbc386a1387f3206908a16d7e46bc3f1e4YszyezN7YrGaQ635h5Duo30vh4CfRF9eHiQJZowhJv4=', 'operator'),
+(527, 'rodhiya', '829384b9250d355eb0d464149a611e7703e8ffee6537ea3b60db1c83ca70894e3d5c4a37f6b591e982dc442465e972e080fda3b33b7a90c163f1c65915795a2aH9SS5+k1Nee5w3OSsLi8CItZJKLTY7EHkvD1yFcGw0o=', 'operator'),
+(528, 'anyelir', 'c9f78c3b3da5a4ad88379b85377339600e3460bae7a57c47db5ba0153acf551cac3512bd4bf80934b0af0fd7c74b90f322b02cada4084838f11249e7489b236bsJLDl7x8q4BJok/hj24lCMQEeWJOtmvHl+5MFR9Eds4=', 'operator'),
+(529, 'plamboyan', 'e3b676cfd5236666c45883c03988c7a0b6a99f3f9c0d305a0a2e46e28f6f208f9f17ac7716d1f918f2b1fc3f4d8d1b1dad1d58d421dadd1121d18a47451c36bc1XcU93j+YiGf89O+9dvaaZM1z/1gg1FGoTnEDw/gn5w=', 'operator');
+INSERT INTO `tbl_users` (`id`, `username`, `password`, `role`) VALUES
+(530, 'al-ittihad', '83dbac6e842e320d6e01ebb5ef33a9232ec503e612eabb3ed5fe70188db1136e38aa5c208d349a093e956f0467985b726418dc6934639f5885294c5c56c39bb11RVY1qBIVucgaqWX3qq/g1hR444czARwt7s9O2EZt/Q=', 'operator'),
+(531, 'pusaka', 'bc7ead599386f4a39a4ad5cfb45976739301076583f186ece6c555949d2109843395a344cb14177ca76251d42abe76fa04eacf5a2d0dca1ede9931b24144e888/FD/bFW14CTn8UG17eu1AI2kBBW7KxvFAsmNE4SGl40=', 'operator'),
+(532, 'merpati', '227db833cc17710e74f18440a8380bcdd0d0b111d633a0faeb87adf9761873270721779d7d72b747a3c1791b626e63bdb3d3186c2947b4618986ed02897e0f54MdV4Cm/fyMKiVcBnpTJVSdWkNGoonE/XhDo7+CaNgzM=', 'operator'),
+(533, 'pelita_', '7c758795512d5252300763e93768b2f4f2dc49e9bc3c01004e6b32540fae38c33857dc5f477f761eff739dc4cbc1b0c52369613f527dc1a447c807938f2a7330E9sDCj7o0fr9MUX1x0JFpkQ4PxQcU3xTCJN1PrUeNV8=', 'operator'),
+(534, 'ulama', '1a2d1faa310c0ec3a28f24557e0c29d51a9d7eb100a67b6db25d8c2bde0164d20135924ee1bb0f37ae33058abe0ef3a790bd389d79e36552a49ea54efbf793f4YskDubWcVLUvtrmGxEENCpJXfjiWOuwn26wiPsMvfx8=', 'operator'),
+(535, 'bougenvile', 'c70d493835196080a8cddb325b1d40b3c8903538cefd6bb0b3ca3088003a4ee8d755362c1bf118e8d8835fb33cdeb5c33bf5263a0aadc25c650cd203d3682902rrMGNypngALxpmDDdyE5KR7b+lB74Mvo36WrcUyJy9U=', 'operator'),
+(536, 'patriot', 'd68186d67b7162ae79c82e5bd2912def09f8732c3cfa3ddeb802ae0e11f467e2afd2880d88ebf0db1763bc13167ef5ddf65fd797805daaf5c29623ee2abd8b17hLgcl7wGFRs8Rr7lqqC5Zs6Oti4DjnOk9MPgj62ge0Y=', 'operator'),
+(537, 'darussalamm', '8d68ee0d9f44a06b4e977a0df62469f64d75a8ae651eb5d8db5a8a67c5ba11eab36aa045233ad49ba7ef86dbc0090f9646029c2bf771207019d3533066851c41h9CbPjnksPGbqcYbmoFhO9KFyDGzNPBvjcZFB+pyflo=', 'operator'),
+(538, 'anggrek_', 'a03de8486a0220ca5eef52e59d4a85ad9af7d9aaf9161d57220e784c6c33883c4876f35898271ebf2e53a41f711b8e16f0383d58c34f1c48d169a9bb7d9d2229FYYfgF/csDeFSrnzAEtHFJSE7ojumSGv38YE5GTX1nM=', 'operator'),
+(539, 'permataa', 'dd7fc3c69e11fe4d8b89ed9a4e87e590eabb1222b5657ed2e322fa5cc70b8ed0a5bd13bd91e935dbae50deb5e41ed88ddac2e39e487abdc260379101fd8e178aPK9t+JLt4E5qrBufUNWIFUe14vXAXIg7ozciJjGac9c=', 'operator'),
+(540, 'cemerlang', 'bf8a85af9195e5fc4aac8b592d2278b4b23ccfc4b2ae516ba839f4eabb32d1116d8614a1a77a5cca2b9ac6df7b27c6d96b37884d945313c6cc4f52fc196da56afBd9CG9AEo42qEyYF7ng6H+7qhD5ODXcSP8voMTNFR0=', 'operator'),
+(541, 'kemuning', '2723fc362da89431a57b67edd8d37e3f03e929b467ab5ed87a83bbab55e6372c07cd76d0f75e1a120000c61ca068569d7be4ee9d83953da13b61b1f005192687qxXfKimTVqzfd0nlr0jIddkX/60Ec+cjJ3nQcjXc+f4=', 'operator'),
+(542, 'iqro', '9c684177365b6c13303a40daec8fedc1ea582bb7a4d3d8abfe97eae1a6b4bad255abc079ee3d45c845a97fcc88463d0af4a09f0f50c774f301be054f88c4f685wfCziqXzAv0pYbRrMLYJhdn5PGwXaik1JAVfI86h0Zo=', 'operator'),
+(543, 'bahari', 'ca9b115164deadb1b16cc9e568a2dde3489721a9bb635c260bf7e95b862a3bf0c528332d31fca326a9bbd9147206e276ebeff86b19ff59e1be522d93658a43159Wwn68CSFrgdAsjjP3iVNk/RjeQgYxjE1o8NNvTEUxw=', 'operator'),
+(544, 'mukhlisin', '8aba43a772d7c1f71a13846033e7dad4ce285c706b0d1e1f6015930abbb1eb0d9dde9b59fa780b685a9f9fee989167882d1dfe78e6afc8df34133218d700592c+ZtwlBUCtx9wcGt44t4aiTekdlbFLodmi+NH3IN36dY=', 'operator'),
+(545, 'mentari', '7b9a9a4b60a9f3b4121a1e41c0e9c626a4c8eb7046756fb6a58ae4b7b1adabd73c4e976163ae6ff03a4fab69a334d1fd118a6f1796bed1329cb51f105489c822hS6ncYeHszRDyifC4l1Sic0yQbY+P3PDGa8wh64FZjM=', 'operator'),
+(546, 'khori', '3fbda1df635de957d75851f46ef6693829096e4d56ed0a4ffd118fc1341bb9d4750502b80f020630b3f366e8ce26ccf4a935ed1f4842d4e4ddd6c7be79ca2356hVwKTGALUwYaM088N7tF1DRsQuqWxJI1C1HLn878PSI=', 'operator'),
+(547, 'ar-rasyid', 'dd8eb10685c20007ff38f6d01db1c764614e617705677fa21e03ea7e206c91ccc46f6d1ba35c533018d5d2458a78cf0f205b634fd98b8ca521fd460c748cd782JUNnZzpNeIPBjvsDUwz0PqZ/aRtdtUV54xFu1YEyHBs=', 'operator'),
+(548, 'sina', '0bdd976a9eddc8b21e662ca4d556d19d81cc6f381641471e4f70037c1a836f934e96fd2abb972478b8c37ab6cfeb5cd58bf3df8d72ff635be200bf4f9b3985e5PQmmqwDaoCwowhQyhUhzWcO43iUBEYrcP04ltZXL2g0=', 'operator'),
+(549, 'cinta', '5e77216b1d9183429ea82fab0ef8481e66269fe1fdc85c5af4f44d3d3b98c625cdff562f124a2ece6a469a10c36b73f88c14e643835843365eb7aaf57d5fe944SjZbC+Kea33D47bd/wxUw3+h7rRe5pfSNjiDowaP7+k=', 'operator'),
+(550, 'wangi', '6a1e693203ae0d110c6adcde4a9e5cb2c18b13df9941383d400654e652256cc91e3b666b97e82e64e8dde686a96ff68bb4bb5376330fe1f29640730fe76362b8VBvl9MGG9vEc3tPKCLKqq8gSF4bdEMbjutv34F/C4/8=', 'operator'),
+(551, 'mekarsarii', '70cd21989630711b84ff63a2098eade2669eaf7c198220d882ab644674094a52e145a9e6b70c22c70df3e2de65968a3244e183e998c6ff6d146776e4cfe0eb24i18hAavsTxNSWTpU/phwTmbJPwKkT7ulJrsbi8W8yW4=', 'operator'),
+(552, 'sangkuriang', 'd9c064fbfdb970b42ff11fdfb9d76ba8b34464e24688341e23f8c07a2ba07853e92e2f904457040370cc8db099c9b84bd1bea1097e51b691f6f7864c356aae40OJOIxZHXB19EZ2i1KZmzgLBkYOZC6ZFcm8S8Hvq1gOA=', 'operator'),
+(553, 'sekar', 'bc9f7f016ec0de2263eead418abe9b894a92d3cea37df40a037407dd9bdf3c8a1a62d6a975628654614af93d6cb892681459385fb4f9a97406836fc1213e3f70wIQvl/rxTDPzFaMNr/tPiwI8YtJrCmKVRZbauxhQfx4=', 'operator'),
+(554, 'darunnazah', 'ff1cefd861d822974db50949c63c0848b34bab202c97c6f251d85d33fecb692c5a0335773a5f3798651b3997751df86888c3da8640ddbcac7b892c979056581f+d9cgNZ0BrAr08j99wGIegB2dUIlou0kAeTNvQhhlzU=', 'operator'),
+(555, 'assalam_', '697eb9f6286eb6759da42fbdf546a66165309caa49bc3f30e299468d4631e8966113812e3ac1f986990515a64c88ab74449cf704e50ba424b1b194f9e41326a2316V1v257ToHj9idO0FqnKqnzIiRbKBWoyRhBpqDcas=', 'operator'),
+(556, 'firdaus', '9517402f46c21dd277d549bc9d8861849b1323415312c5cbd8d5d99d1d5b1c66d448c92d1f2bea40fe3076c94cc86ea9898331266aa9050e03740d49403200ban//LLZ15ID/MioB7KcYstYKBUOVpG9cAmLyDYUwW15g=', 'operator'),
+(557, 'tulip', 'cb709c1188db268eb064368eafe6d794f8816e8404536a9169cd3005265eb5b6a9251d30eb78e0139f47821bd37138c9b1260e9c8d8a62f16e3be1790d0ea0329AAWk8SXTOr/YDCP+sLyUG2iRvpiccd8Cx+o5ROA+1E=', 'operator'),
+(558, 'sehati', '57e616ff0af03e8aaae2aa447d3ea6c682443a3709001f80de890afb7dea3ee527632ef632fa5b65d682222f0e247439612a452f10d9304c337843cc13d1523atXXLPEc9JpEJs+uMLjgnhMTIASGsFTZfPDzHucLY9Zc=', 'operator'),
+(559, 'ananda', '0f131ddcb9e70a120fada52077a003ef6b993da26cc7de6eb4f08e630f1ade31b4fba4f1aed20261096f4cb11a38a7338804557b214c32f3e98916c0db1d7026p1EaA0dw8GwfAClfYW+azQyfcFnkV5SlF/ppm/Zky3c=', 'operator'),
+(560, 'al-muna', 'cce922c7579d7b3858f1e72f6e44b3694c9f861d6ef4de0bb5ffdb338345b99b5bbd2c50cb8f5310af21e374eb902c910ebbed46bd2c90a95ec686fdba280bdbZKDkOmVEqvYnPkPL4nrbm6JQRTVqVxIE5hmfbPzKSZA=', 'operator'),
+(561, 'al-umm', '0209624d72967151454f2e8fd5b2bdc93d529017ede9159fc4141353ad8a9ca5acb484d718c35fbe6fddd83a65ea4a69e83490432e4fd4cc077138e06c2db4c7xVXvAUleZLF2zO4psyDjv2n2bCsX1u5dmPBa2277vJU=', 'operator'),
+(562, 'abassy', '145db184dd1c97a7913036f3cdd5b1a278bdbb00bdfd7003f355e133c9902e17a57d6cb97a454c784b399c08b1da68db7d479a78b10c1cab4eb00f060bf66744znkWMlLH/pVyvKdbSbIp2B+ZXaKyPb/GYtrmq0LG9aw=', 'operator'),
+(563, 'kandaga', 'c818ff432cf4e514a393252f63f879e5bc1d4dc63876a2928859e9f4721e404a17bc75650d84f91382cbe741fe03eb07c116271f3769795fe3431e0a9f6881557ZTab0HA4K5eyqt1/yMA5bsstxeaLo24MTSWfP7Dzmc=', 'operator'),
+(564, 'arum', '1032244940f20a147dbc38e636e8ca9e88ab66cfa2c52016b669d8564e3ddf1c5df1dc7b3eee64d16446ad880836808f3fb7cb4c6ae21efd8eb420545ab50715AXNP9RFMTnvgDmJQde3LS3LivZ1OTsKqYvPSyYmLPUQ=', 'operator'),
+(565, 'bani', '868e75705e884fdfa8dac952f1461449f131699cda131ebe62a6255be32440af988ca54cad46980f6a6ff80dbf86e9e6e98c84dce7c13b25938b42e4467ab058sCuVhITcQLeH67yO/SNs7uhVAMs8CahS0iYX31OSrXI=', 'operator'),
+(566, 'insan cita', 'ecab4749ffa7e93ff6818d9a433399ce1bd04cc904afbfd269cda57e1108fe7d0aa031ef9d260585a6255b64417f5433c4d0d350e5b16dc63364926db2d9ca115T4KKAfi6aXLOCTwBckY0Gfs6YHBs0yrFlj7qvCDhfc=', 'operator'),
+(567, 'mayang', '09dbbe7d026b10bd34f89c47bd9168df4a9cfecef2a9a7b7f314abc66ea23856eae85a0603ed58fcb75d783cb70dd7f4d1e842617b1262dff45e6832c0674c28O6jVKB8KAMgx6cQHJYCUHom60o8dGb0m7gHR+tPBgZs=', 'operator'),
+(568, 'cinta mekar', '22cc487b488d8d5b544cfc0ace503dda5322c217ad8ebbd25b9be85fc4a26bf40ba46930444cc6042666130cbc48af0ddc0f76934897bbc7131988db4f20659cBrpWqpOIq+k1QMgy0XoImBIUhYsG6RpXidhveXNBjjk=', 'operator'),
+(569, 'amaliyyah', 'a3bdb60985bc9ca5a4ec9de5623d1e6b0b2d6594e19b96d821f14f786e39c3b9181f9d515905c0f5b47c64e06ec900616a9be2c8312f2a3bb11b27212919a5b0KhkmKWqi3Srjl7MACueLH9Sm18GeaO70DJzPvxzxivQ=', 'operator'),
+(570, 'bidara', '9c8a83dcc49e11288e9d8cdc5b992e8a55289f6feb5432fff427d9708babc244ac5a69a01dba294ccc164b5fb9463642d56cef085ac9df4eded368d4d0d870f9kU9zWpOvFEALB2E5jvwR7J/bjONbTeeXx9cZSMxw0UA=', 'operator'),
+(571, 'ar-arimus', 'd7cbd9c46e608df851f55a1c6c7bbfeda655e5117ae67b8b92f61e1fceeddb2c1deeffbbcefb1370a09320fe0213dd240b22914c24d17e442aad2c0b393b73f0J6HLMRwZJCCdRUhwgeDs+v16PdrASg9/vF7yZAhgvHo=', 'operator'),
+(572, 'menur', '595a2367e99135a17fecb28713d15f161fec90ce8738325d9f5930ab937388c018cb179b46872ada9aebdff77981f8f4b49902b95db2aad0dd36a770deeae2c4aZXvAJ9Svr7R7avpyeFJMzHMvRQZOB1dOBX0rhwVwxo=', 'operator'),
+(573, 'nyi', '2ef431705a2ab833282bb415ebde1160445882d9d7ead17babaceebf48d6e391af8a455972809a3dc9fb3b93a6456fb7b52c5df91507cc58293508a0375110977w6TvZdS01GkoxqqGA2JrKljta0s6inXFE7sz99QGV8=', 'operator'),
+(574, 'asy-syita', '0dacb6fe9253a677a4f2353da23faa65462aa502ea8866fffaec9417de3ba1048ee3f9a5ec9f6dedb3e1afe1134a9a8073726515913743f150b8269ec2508340I+lc7Rd3yBfjsyW92ETd17teO2Q6DiM/aT0oekBiDLE=', 'operator'),
+(575, 'al-mustaqiem', '8271985ed6eb168a2cfc6644b3efafd8b20e721f52e8cfc4f9ba1295c07f1e56ffff59fa982883ce3f7550964e9a6c3e29e3a6cfd11c51a15736fc7b8e488ae92YVT2Y/jK5s5RdSfrUhQjGNVvHEaN3xpWPBvCZB7kpc=', 'operator'),
+(576, 'sartika', 'a12ec8c308c8f047761ea6e514ab4cb29d358188a4d8e475340a020d7f1b95e78fdaa796c37cde9c1beaeb2a75130f6f739243dcd1473f855e5d9411fdd68f4bIuiirBjlK3MwjlXZbCh7Er+Pf8DDzCsxeJ5G1izEpDs=', 'operator'),
+(577, 'babussalam', 'f292ecc16bcb6d652cc5f2c4b28d4b3e7bffc15dda937fa5f12c63ae07562e8118ca8d2dfa923d26cff84bf84e90f382cdfd731b53be8ce37c154473f23cabaeufoFThpZknngWbt9xF9xoc54i5PSb+7lG9pzymHDMso=', 'operator'),
+(578, 'abc', '45e62526cc68ad5339f9f4a7510b5c07df3ccb0a3aad1e69e76ce125565d24c0d960bb6c2c62a213f659a4e50628a02b320a70f500571e078a17db1a68f3a389zbQIa3eNlZ52zhfFd8/fh24X5U7/zZhso8P5mC+eBBA=', 'operator'),
+(579, 'buah', '78177c772e8e806b7c3a9f459f99708d1be9c39d587fb2f440bc30159ee4eb6f51076f2f315b95dadf167fab933309357510b3cc32adb223f1d0fd2f428b0830Vse+8WZPD82iTXfOvLsWacoC4Xy/7YiPXlmbO43bjRw=', 'operator'),
+(580, 'anggasari', '5f9e453652ffb12a698e2134995a8276551a63adc879c06f54790eb35729b981a184adc369ff2a2c921b9455736e2330a99dbe47ddb17c5a26f32fffc2e70842sEuvBJ+lcBVLa01cFMBcma6Xf4uVYk+fdLlgb6pK5eQ=', 'operator'),
+(581, 'solihun', 'd9b7175b10d3eb88bf019192baf6de459ef6191899c324d0560e72583e55bdd74564ef9f72fe5a77de198c5ba08a97a14f9588b2c642c12b79dae06380280866WTtOD/KREA7cxHv6/yq9CIBF72wSuE6sRarmghCfTRs=', 'operator'),
+(582, 'manyar', 'f8b49a066665db0ed67b5b4ce2daa8d8564f4711cba34bc3556600f03e24ba118fac0d47a06894c6eae0868c794cc86d4178705314fe8dcec2b7c40ac8f7e3e431HmAm+J6QzM+xpw3qeYkcZOh9bmqFp/C5VK0Efnn5E=', 'operator'),
+(583, 'purwakarya', 'a921ced2a0fbdc4f091d6730d8ba865df2d1cfa1280059ab389d8a78ae531387f03f2ee188cd70952afa313702b148afc7212715a45633a1d9295f244f063af1qVaWE2ypo8fJq1MeaNquO8knb6qvINLUh5Lw6QRkVAk=', 'operator'),
+(584, 'sadewa', '536835e057828c6c933c14c5052d706a435fd221706da4186fd753f160e0d005a8f6cda3cdfb98d42563d62385376d1cfefa7b551f69f266f4867b9a388c7f8esPfSaEe24TGiQUoZaxQ6JHLCDhmRDk2mJZ5VJKCHmok=', 'operator'),
+(585, 'nugraha', '76d27e206bf40bd6ae51fabc55444c97ee6008cc2edad0b11810c68fc3051c411daf7072ea655fa8e8f11414e137281992ad28a6618b7ae3bb1f5bb716883aa2uNQv4XVQBScub+bni4eYENnuiYyhemlN6nszqJKRGfY=', 'operator');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_bantuan`
+-- Indeks untuk tabel `tbl_bantuan`
 --
 ALTER TABLE `tbl_bantuan`
   ADD PRIMARY KEY (`id_bantuan`),
   ADD KEY `id_lembaga` (`id_lembaga`) USING BTREE;
 
 --
--- Indexes for table `tbl_gizi`
+-- Indeks untuk tabel `tbl_gizi`
 --
 ALTER TABLE `tbl_gizi`
   ADD PRIMARY KEY (`id_gizi`),
@@ -1496,13 +1751,13 @@ ALTER TABLE `tbl_gizi`
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indexes for table `tbl_kecamatan`
+-- Indeks untuk tabel `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
   ADD PRIMARY KEY (`kode_kec`);
 
 --
--- Indexes for table `tbl_lembaga`
+-- Indeks untuk tabel `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
   ADD PRIMARY KEY (`id`),
@@ -1510,154 +1765,154 @@ ALTER TABLE `tbl_lembaga`
   ADD KEY `kode_kec` (`kode_kec`);
 
 --
--- Indexes for table `tbl_prasarana`
+-- Indeks untuk tabel `tbl_prasarana`
 --
 ALTER TABLE `tbl_prasarana`
   ADD PRIMARY KEY (`id_prasarana`),
   ADD KEY `id_lembaga` (`id_lembaga`) USING BTREE;
 
 --
--- Indexes for table `tbl_sarana`
+-- Indeks untuk tabel `tbl_sarana`
 --
 ALTER TABLE `tbl_sarana`
   ADD PRIMARY KEY (`id_sarana`);
 
 --
--- Indexes for table `tbl_sarana_prasarana`
+-- Indeks untuk tabel `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   ADD PRIMARY KEY (`id_sarana`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indexes for table `tbl_siswa`
+-- Indeks untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   ADD PRIMARY KEY (`id_siswa`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indexes for table `tbl_tenagakependidikan`
+-- Indeks untuk tabel `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   ADD PRIMARY KEY (`id_tenagaKependidikan`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indexes for table `tbl_tenagapendidik`
+-- Indeks untuk tabel `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
   ADD PRIMARY KEY (`id_tenagaPendidik`),
   ADD KEY `id_lembaga` (`id_lembaga`);
 
 --
--- Indexes for table `tbl_users`
+-- Indeks untuk tabel `tbl_users`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_bantuan`
+-- AUTO_INCREMENT untuk tabel `tbl_bantuan`
 --
 ALTER TABLE `tbl_bantuan`
   MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tbl_gizi`
+-- AUTO_INCREMENT untuk tabel `tbl_gizi`
 --
 ALTER TABLE `tbl_gizi`
   MODIFY `id_gizi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tbl_lembaga`
+-- AUTO_INCREMENT untuk tabel `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=418;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=546;
 
 --
--- AUTO_INCREMENT for table `tbl_prasarana`
+-- AUTO_INCREMENT untuk tabel `tbl_prasarana`
 --
 ALTER TABLE `tbl_prasarana`
   MODIFY `id_prasarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_sarana`
+-- AUTO_INCREMENT untuk tabel `tbl_sarana`
 --
 ALTER TABLE `tbl_sarana`
   MODIFY `id_sarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
--- AUTO_INCREMENT for table `tbl_sarana_prasarana`
+-- AUTO_INCREMENT untuk tabel `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   MODIFY `id_sarana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_siswa`
+-- AUTO_INCREMENT untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tbl_tenagakependidikan`
+-- AUTO_INCREMENT untuk tabel `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   MODIFY `id_tenagaKependidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_tenagapendidik`
+-- AUTO_INCREMENT untuk tabel `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
   MODIFY `id_tenagaPendidik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `tbl_users`
+-- AUTO_INCREMENT untuk tabel `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=460;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=586;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tbl_gizi`
+-- Ketidakleluasaan untuk tabel `tbl_gizi`
 --
 ALTER TABLE `tbl_gizi`
   ADD CONSTRAINT `tbl_gizi_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_gizi_ibfk_2` FOREIGN KEY (`id_siswa`) REFERENCES `tbl_siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_lembaga`
+-- Ketidakleluasaan untuk tabel `tbl_lembaga`
 --
 ALTER TABLE `tbl_lembaga`
   ADD CONSTRAINT `tbl_lembaga_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_users` (`id`),
   ADD CONSTRAINT `tbl_lembaga_ibfk_2` FOREIGN KEY (`kode_kec`) REFERENCES `tbl_kecamatan` (`kode_kec`);
 
 --
--- Constraints for table `tbl_sarana_prasarana`
+-- Ketidakleluasaan untuk tabel `tbl_sarana_prasarana`
 --
 ALTER TABLE `tbl_sarana_prasarana`
   ADD CONSTRAINT `tbl_sarana_prasarana_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Constraints for table `tbl_siswa`
+-- Ketidakleluasaan untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   ADD CONSTRAINT `tbl_siswa_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Constraints for table `tbl_tenagakependidikan`
+-- Ketidakleluasaan untuk tabel `tbl_tenagakependidikan`
 --
 ALTER TABLE `tbl_tenagakependidikan`
   ADD CONSTRAINT `tbl_tenagakependidikan_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
 
 --
--- Constraints for table `tbl_tenagapendidik`
+-- Ketidakleluasaan untuk tabel `tbl_tenagapendidik`
 --
 ALTER TABLE `tbl_tenagapendidik`
   ADD CONSTRAINT `tbl_tenagapendidik_ibfk_1` FOREIGN KEY (`id_lembaga`) REFERENCES `tbl_lembaga` (`id`);
