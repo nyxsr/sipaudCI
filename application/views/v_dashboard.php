@@ -246,6 +246,8 @@
       	.label-c {
       		color: #FE9C17 !important;
       	}
+
+		  
       </style>
 
       <div class="container-fluid">
@@ -288,12 +290,212 @@
       					</div>
       				</div>
       			</div>
-      			<div class="card-body row dashboard">
+      			<div class="card-body row dashboard mt-3">
+				  <div class="col-12">
+						<h2 class="text-left font-weight-bold">Selamat Datang, Admin</h2>
+						<hr class="sidebar-divider" />
+					</div>
 
-      				<div class="col-lg-12 row">
+					<!-- <div class="col-lg-12 row">
+					<div class="card">
+						<div class="card-body" style="margin-top:6px;">
+							<h3 class="text-center">Pendidikan</h3> -->
+							<div class="col-lg-12 row">
+								<div class="card">
+									<div class="card-body" style="margin-top:6px;">
+										<h3 class="text-center">Tenaga Pendidik</h3>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="ct-chart diklat"></div>
+													</div>
+													<div class="col-lg-12">
+															<div class="row chart" style="margin-top:18px;">
+															<div class="col-lg-4">
+																<button id="a" class="btn a"></button>
+																<label for="a" class="label-a">
+																	Diklat Dasar
+																</label>
+															</div>
+															<div class="col-lg-4">
+																<button id="b" class="btn b"></button>
+																<label for="b" class="label-b">
+																	Diklat Lanjut
+																</label>
+															</div>
+															<div class="col-lg-4">
+																<button id="c" class="btn c"></button>
+																<label for="c" class="label-c">
+																	Diklat Lanjut
+																</label>
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 d-flex">
+												<div class="col-lg-12 row">
+												<div class="card">
+													<div class="card-body" style="margin-top:6px;">
+														<h3 class="text-center font-weight-bold">Data SI-PAUD HI</h3>
+														<hr>
+														<div class="row justify-content-center text-center" style="margin-top: 50px;">
+															<div class="col-lg-6  ">
+																<h4> Jumlah Siswa </h4>
+																<button id="a" class="btn a " style="font-size:30px ;">50</button>
+															</div>
+															<div class="col-lg-6 ">
+																<h4> Jumlah Siswa </h4>
+																<button id="a" class="btn a " style="font-size:30px ;">50</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 row d-none">
+								<div class="card">
+									<div class="card-body" style="margin-top:6px;">
+										<h3 class="text-center">Sarana</h3>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="ct-chart sarana"></div>
+											</div>
+											<div class="col-lg-6 d-flex">
+												<div class="row chart" style="margin-top:18px;">
+													<div class="col-lg-12">
+														<button id="a" class="btn a"></button>
+														<label for="a" class="label-a">
+															Layak Pakai
+														</label>
+													</div>
+													<div class="col-lg-12">
+														<button id="b" class="btn b"></button>
+														<label for="b" class="label-b">
+															Rusak
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 row d-none">
+								<div class="card">
+									<div class="card-body" style="margin-top:6px;">
+										<h3 class="text-center">Sarana</h3>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="ct-chart sarana"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row" id="rincian">
+								<div class="col-12">
+									<h3 class="text-center font-weight-bold">Pendidikan</h3>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-warning card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">hail</i>
+											</div>
+											<p class="card-category">Tenaga Pendidik</p>
+											<h3 class="card-title" id="totalTenagaPendidik">0
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-success card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">supervised_user_circle</i>
+											</div>
+											<p class="card-category">Tenaga Kependidikan</p>
+											<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12">
+									<div class="card card-stats">
+										<div class="card-header card-header-danger card-header-icon">
+											<div class="card-icon">
+												<i class="material-icons">people_alt</i>
+											</div>
+											<p class="card-category">Siswa</p>
+											<h3 class="card-title" id="totalSiswa">0</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+									
+
+							<div class="row" id="akreditasi">
+								<div class="card">
+									<div class="card-header card-header-primary">
+										<h4 class="card-title text-center">Akreditasi</h4>
+									</div>
+									<div class="card-body text-center" style="margin-top:6px;">
+										<h1 class="akreditasi" id="statusAkreditasi">A</h1>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-12 row">
+								<div class="card">
+									<div class="card-body" style="margin-top:6px;">
+										<h3 class="text-center font-weight-bold">Grafik Usia Anak</h3>
+										<div class="row">
+											<div class="ct-chart col-lg-12" id="chartBaru"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 row">
+								<div class="card">
+									<div class="card-body" style="margin-top:6px;">
+										<h3 class="text-center font-weight-bold"> Grafik Kondisi Prasarana</h3>
+										<div class="row">
+											<div class="ct-chart col-lg-12" id="chartPrasarana"></div>
+											<div>
+												<div class="row chart" style="margin-top:18px;">
+													<div class="col-lg-12">
+														<button id="a" class="btn a"></button>
+														<label for="a" class="label-a">
+															Baik
+														</label>
+													</div>
+													<div class="col-lg-12">
+														<button id="b" class="btn b"></button>
+														<label for="b" class="label-b">
+															Rusak
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- </div>
+						</div>
+					</div> -->
+
+					<div class="col-lg-12 row">
       					<div class="card">
       						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Kesehatan</h3>
+      							<h3 class="text-center font-weight-bold">Kesehatan</h3>
       							<div class="row">
       								<div class="col-lg-6 col-md-12">
       									<div class="card card-stats">
@@ -344,168 +546,52 @@
       									</div>
       								</div>
       							</div>
+								<div class="col-lg-12 row">
+									<div class="card">
+										<div class="card-body" style="margin-top:6px;">
+											<h3 class="text-center">Gizi Anak</h3>
+											<div class="row">
+												<div class="ct-chart col-lg-12" id="lineKesehatan"></div>
+												<div>
+													<div class="row chart" style="margin-top:18px;">
+														<div class="col-lg-12">
+															<button id="a" class="btn a"></button>
+															<label for="a" class="label-a">
+																Tinggi Badan
+															</label>
+														</div>
+														<div class="col-lg-12">
+															<button id="b" class="btn b"></button>
+															<label for="b" class="label-b">
+																Berat Badan
+															</label>
+														</div>
+														<div class="col-lg-12">
+															<button id="b" class="btn c"></button>
+															<label for="b" class="label-c">
+																Lingkar Kepala
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 row">
+									<div class="card">
+										<div class="card-body" style="margin-top:6px;">
+											<h3 class="text-center font-weight-bold"> Grafik Perkembangan Gizi Anak</h3>
+											<figure class="highcharts-figure">
+												<div id="container"></div>
+											</figure>
+											
+										</div>
+									</div>
+								</div>
       						</div>
       					</div>
       				</div>
-
-      				<div class="row" id="rincian">
-      					<div class="col-lg-6 col-md-12">
-      						<div class="card card-stats">
-      							<div class="card-header card-header-warning card-header-icon">
-      								<div class="card-icon">
-      									<i class="material-icons">hail</i>
-      								</div>
-      								<p class="card-category">Tenaga Pendidik</p>
-      								<h3 class="card-title" id="totalTenagaPendidik">0
-      								</h3>
-      							</div>
-      						</div>
-      					</div>
-      					<div class="col-lg-6 col-md-12">
-      						<div class="card card-stats">
-      							<div class="card-header card-header-success card-header-icon">
-      								<div class="card-icon">
-      									<i class="material-icons">supervised_user_circle</i>
-      								</div>
-      								<p class="card-category">Tenaga Kependidikan</p>
-      								<h3 class="card-title" id="totalTenagaKependidikan">0</h3>
-      							</div>
-      						</div>
-      					</div>
-      					<div class="col-lg-12 col-md-12">
-      						<div class="card card-stats">
-      							<div class="card-header card-header-danger card-header-icon">
-      								<div class="card-icon">
-      									<i class="material-icons">people_alt</i>
-      								</div>
-      								<p class="card-category">Siswa</p>
-      								<h3 class="card-title" id="totalSiswa">0</h3>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-
-      				<div class="row" id="akreditasi">
-      					<div class="card">
-      						<div class="card-header card-header-primary">
-      							<h4 class="card-title text-center">Akreditasi</h4>
-      						</div>
-      						<div class="card-body text-center" style="margin-top:6px;">
-      							<h1 class="akreditasi" id="statusAkreditasi">A</h1>
-      						</div>
-      					</div>
-      				</div>
-      				<div class="col-lg-12 row">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Tenaga Pendidik</h3>
-      							<div class="row">
-      								<div class="col-lg-6">
-      									<div class="ct-chart diklat"></div>
-      								</div>
-      								<div class="col-lg-6 d-flex">
-      									<div class="row chart" style="margin-top:18px;">
-      										<div class="col-lg-12">
-      											<button id="a" class="btn a"></button>
-      											<label for="a" class="label-a">
-      												Diklat Dasar
-      											</label>
-      										</div>
-      										<div class="col-lg-12">
-      											<button id="b" class="btn b"></button>
-      											<label for="b" class="label-b">
-      												Diklat Lanjut
-      											</label>
-      										</div>
-      										<div class="col-lg-12">
-      											<button id="c" class="btn c"></button>
-      											<label for="c" class="label-c">
-      												Diklat Mahir
-      											</label>
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-      				<div class="col-lg-12 row d-none">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Sarana</h3>
-      							<div class="row">
-      								<div class="col-lg-6">
-      									<div class="ct-chart sarana"></div>
-      								</div>
-      								<div class="col-lg-6 d-flex">
-      									<div class="row chart" style="margin-top:18px;">
-      										<div class="col-lg-12">
-      											<button id="a" class="btn a"></button>
-      											<label for="a" class="label-a">
-      												Layak Pakai
-      											</label>
-      										</div>
-      										<div class="col-lg-12">
-      											<button id="b" class="btn b"></button>
-      											<label for="b" class="label-b">
-      												Rusak
-      											</label>
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-      				<div class="col-lg-12 row d-none">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Sarana</h3>
-      							<div class="row">
-      								<div class="col-lg-6">
-      									<div class="ct-chart sarana"></div>
-      								</div>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-      				<div class="col-lg-12 row">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Usia</h3>
-      							<div class="row">
-      								<div class="ct-chart col-lg-12" id="chartBaru"></div>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-      				<div class="col-lg-12 row">
-      					<div class="card">
-      						<div class="card-body" style="margin-top:6px;">
-      							<h3 class="text-center">Prasarana</h3>
-      							<div class="row">
-      								<div class="ct-chart col-lg-12" id="chartPrasarana"></div>
-      								<div>
-      									<div class="row chart" style="margin-top:18px;">
-      										<div class="col-lg-12">
-      											<button id="a" class="btn a"></button>
-      											<label for="a" class="label-a">
-      												Baik
-      											</label>
-      										</div>
-      										<div class="col-lg-12">
-      											<button id="b" class="btn b"></button>
-      											<label for="b" class="label-b">
-      												Rusak
-      											</label>
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      						</div>
-      					</div>
-      				</div>
-
 
       			</div>
       		</div>
@@ -547,6 +633,8 @@
       					}
       				});
       			}
+
+				
 
       			function filterData() {
       				return {
@@ -790,6 +878,86 @@
 
       							}
       						});
+
+							new Chartist.Line('#lineKesehatan', {
+							labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+							series: [
+								[12, 9, 7, 8, 5],
+								[2, 1, 3.5, 7, 3],
+								[1, 3, 4, 5, 6]
+							]
+							}, {
+							fullWidth: true,
+							chartPadding: {
+								right: 40
+							}
+							});
+
+							Highcharts.chart('container', {
+
+								title: {
+								text: ''
+								},
+
+								yAxis: {
+								title: {
+									text: 'Berat Badan'
+								}
+							},
+
+							xAxis: {
+								accessibility: {
+									rangeDescription: 'Range: 1 to 7'
+								}
+							},
+
+							legend: {
+								layout: 'vertical',
+								align: 'right',
+								verticalAlign: 'middle'
+							},
+
+							plotOptions: {
+								line: {
+									dataLabels: {
+										enabled: true
+									}
+								},
+								series: {
+									label: {
+										connectorAllowed: false
+									},
+									pointStart: 1
+								},
+							},
+
+							series: [{
+								name: 'Tinggi Badan',
+								data: [ 160, 175, 180,]
+							}, {
+								name: 'Berat Badan',
+								data: [ 60, 75, 80,]
+							}, {
+								name: 'Lingkar Kepala',
+								data: [ 30, 40, 50,]
+							}],
+
+								responsive: {
+								rules: [{
+									condition: {
+									maxWidth: 500
+									},
+									chartOptions: {
+									legend: {
+										layout: 'horizontal',
+										align: 'center',
+										verticalAlign: 'bottom'
+									}
+									}
+								}]
+								}
+
+								});
       					},
       					beforeSend: function() {
       						$('#totalTenagaPendidik').html('<div id="load" class="loader"></div>');
