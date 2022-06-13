@@ -246,6 +246,10 @@
       	.label-c {
       		color: #FE9C17 !important;
       	}
+
+      	.swal-title {
+      		font-size: 10px;
+      	}
       </style>
 
       <div class="container-fluid">
@@ -337,20 +341,21 @@
       									<div class="col-lg-12 row">
       										<div class="card">
       											<div class="card-body" style="margin-top:6px;">
-      												<h3 class="text-center font-weight-bold">Data SI-PAUD HI</h3>
+      												<h3 class="text-center font-weight-bold">Data <?= (!$this->session->userdata("nama_lembaga")) ? 'SIPAUD-HI' : $this->session->userdata("nama_lembaga"); ?></h3>
       												<hr>
       												<div class="row d-flex justify-content-center align-items-center text-center" style="margin-top: 50px;">
       													<div class="col-lg-6  ">
       														<h4> Jumlah Siswa </h4>
-      														<button id="totalSiswa" class="btn a " style="font-size:30px ;">0</button>
+      														<button id="totalSiswa" class="btn a" style="font-size:30px ;" onclick="lihatSiswa()">0</button>
       													</div>
-      													<div class="col-lg-6 ">
+
+      													<div class="<?= ($this->session->userdata("role") == "operator") ? 'd-none' : '' ?> col-lg-6 ">
       														<h4> Jumlah Lembaga </h4>
-      														<button id="totalLembaga" class="btn a " style="font-size:30px ;">0</button>
+      														<button id="totalLembaga" class="btn a " style="font-size:30px ;" onclick="lihatLembaga()">0</button>
       													</div>
       													<div class="col-lg-4 " id="akreditasi">
       														<h4> Akreditasi </h4>
-      														<button id="statusAkreditasi" class="btn a " style="font-size:30px ;">-</button>
+      														<button id="statusAkreditasi" class="btn justify-content-center" style="font-size:30px ;">-</button>
       													</div>
       												</div>
       											</div>
@@ -594,6 +599,50 @@
       	</div>
       </div>
       <script>
+      	function lihatSiswa() {
+      		var konfirmasi = Swal.fire({
+      			title: 'Anda akan diarahkan ke <br/> Tabel Siswa',
+      			text: "Apakah anda yakin untuk membukanya?",
+      			icon: 'question',
+      			showCancelButton: true,
+      			confirmButtonColor: '#3085d6',
+      			cancelButtonColor: '#d33',
+      			confirmButtonText: 'Ya!'
+      		}).then((result) => {
+      			if (result.isConfirmed) {
+      				Swal.fire(
+      					'Baiklah!',
+      					'Sedang diarahkan.',
+      					'success'
+      				)
+      				window.location.href = "<?php echo base_url() ?>kelola_siswa";
+      			}
+      		})
+
+      	}
+
+      	function lihatLembaga() {
+      		var konfirmasi = Swal.fire({
+      			title: 'Anda akan diarahkan ke <br/> Tabel Lembaga',
+      			text: "Apakah anda yakin untuk membukanya?",
+      			icon: 'question',
+      			showCancelButton: true,
+      			confirmButtonColor: '#3085d6',
+      			cancelButtonColor: '#d33',
+      			confirmButtonText: 'Ya!'
+      		}).then((result) => {
+      			if (result.isConfirmed) {
+      				Swal.fire(
+      					'Baiklah!',
+      					'Sedang diarahkan.',
+      					'success'
+      				)
+      				window.location.href = "<?php echo base_url() ?>kelola_lembaga";
+      			}
+      		})
+
+      	}
+
       	$(document).ready(function() {
       		// initialization chart
       		var dataDiklat = {
