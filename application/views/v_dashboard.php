@@ -544,49 +544,49 @@
       									</div>
       								</div>
       							</div>
-      							<div class="col-lg-12 row">
-      								<div class="card">
-      									<div class="card-body" style="margin-top:6px;">
-      										<h3 class="text-center">Gizi Anak</h3>
-      										<div class="row">
-      											<div class="ct-chart col-lg-12" id="lineKesehatan"></div>
-      											<div>
-      												<div class="row chart" style="margin-top:18px;">
-      													<div class="col-lg-12">
-      														<button id="a" class="btn a"></button>
-      														<label for="a" class="label-a">
-      															Tinggi Badan
-      														</label>
-      													</div>
-      													<div class="col-lg-12">
-      														<button id="b" class="btn b"></button>
-      														<label for="b" class="label-b">
-      															Berat Badan
-      														</label>
-      													</div>
-      													<div class="col-lg-12">
-      														<button id="b" class="btn c"></button>
-      														<label for="b" class="label-c">
-      															Lingkar Kepala
-      														</label>
-      													</div>
-      												</div>
-      											</div>
-      										</div>
-      									</div>
-      								</div>
-      							</div>
-      							<div class="col-lg-12 row">
-      								<div class="card">
-      									<div class="card-body" style="margin-top:6px;">
-      										<h3 class="text-center font-weight-bold"> Grafik Perkembangan Gizi Anak</h3>
-      										<figure class="highcharts-figure">
-      											<div id="container"></div>
-      										</figure>
-
-      									</div>
-      								</div>
-      							</div>
+      							<!-- <div class="col-lg-12 row">
+									<div class="card">
+										<div class="card-body" style="margin-top:6px;">
+											<h3 class="text-center">Gizi Anak</h3>
+											<div class="row">
+												<div class="ct-chart col-lg-12" id="lineKesehatan"></div>
+												<div>
+													<div class="row chart" style="margin-top:18px;">
+														<div class="col-lg-12">
+															<button id="a" class="btn a"></button>
+															<label for="a" class="label-a">
+																Tinggi Badan
+															</label>
+														</div>
+														<div class="col-lg-12">
+															<button id="b" class="btn b"></button>
+															<label for="b" class="label-b">
+																Berat Badan
+															</label>
+														</div>
+														<div class="col-lg-12">
+															<button id="b" class="btn c"></button>
+															<label for="b" class="label-c">
+																Lingkar Kepala
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> -->
+      							<!-- <div class="col-lg-12 row">
+									<div class="card">
+										<div class="card-body" style="margin-top:6px;">
+											<h3 class="text-center font-weight-bold"> Grafik Perkembangan Gizi Anak</h3>
+											<figure class="highcharts-figure">
+												<div id="container"></div>
+											</figure>
+											
+										</div>
+									</div>
+								</div> -->
       						</div>
       					</div>
       				</div>
