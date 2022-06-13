@@ -342,11 +342,11 @@
       												<div class="row justify-content-center text-center" style="margin-top: 50px;">
       													<div class="col-lg-6  ">
       														<h4> Jumlah Siswa </h4>
-      														<button id="totalSiswa" class="btn a " style="font-size:30px ;">50</button>
+      														<button id="totalSiswa" class="btn a " style="font-size:30px ;">0</button>
       													</div>
       													<div class="col-lg-6 ">
       														<h4> Jumlah Lembaga </h4>
-      														<button id="totalLembaga" class="btn a " style="font-size:30px ;">50</button>
+      														<button id="totalLembaga" class="btn a " style="font-size:30px ;">0</button>
       													</div>
       												</div>
       											</div>
@@ -425,7 +425,7 @@
       							</div>
       						</div>
       					</div>
-      					<div class="col-lg-12 col-md-12">
+      					<!-- <div class="col-lg-12 col-md-12">
       						<div class="card card-stats">
       							<div class="card-header card-header-danger card-header-icon">
       								<div class="card-icon">
@@ -435,7 +435,7 @@
       								<h3 class="card-title" id="totalSiswa">0</h3>
       							</div>
       						</div>
-      					</div>
+      					</div> -->
       				</div>
 
 
